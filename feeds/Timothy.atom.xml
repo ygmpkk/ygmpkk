@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/Timothy.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2012-11-09T23:14:00+08:00</updated><entry><title>"黑客马拉松"</title><link href="http://ygmpkk.com/hackthon-post.html" rel="alternate"></link><updated>2012-11-09T23:14:00+08:00</updated><author><name>Timothy Yeh</name></author><id>tag:ygmpkk.com,2012-11-09:hackthon-post.html</id><summary type="html">&lt;h3&gt;引言&lt;/h3&gt;
+&lt;p&gt;明天就要参加“黑客马拉松”了，有一点点的期待，期待着VC（风险投资人）和天使投资人的出现；期待着与众多高智商的人共同合作；&lt;/p&gt;
+&lt;p&gt;我想写个程序出来，实现我的想法，把想法化成代码，运行在计算机上，据我所知，VC和天使投资人都比较青睐面向用户的应用，我要写个面向用户的应用，应用的特点是提高效率、能够产生价值的应用，而不是那些无聊的应用；&lt;/p&gt;
+&lt;h3&gt;感慨&lt;/h3&gt;
+&lt;p&gt;但我今天突然感慨，编程？我会什么；我开始回想，细细的想，才发现其实我什么也不会，不会内存管理，不会算法，不会语言；
+当你想实现一个想法的时候，总是感觉到很吃力，没有一个力量帮助你实现；
+也不知道语言的缺陷而去避开它，也不知道使用某种方法会导致一些问题；
+后来我才发现，原来是对语言的不熟悉；看完了manual了吗，manual已经写的很详细了，如果manual都不熟悉，编程更谈不上了；
+需要把manual记在心里，当使用到某个类型\函数\类时，能够马下联想到手册里面的内容；&lt;/p&gt;
+&lt;p&gt;现在在努力的思考，改如何改变现状，需要列个计划：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;每天看书&lt;/p&gt;
+&lt;p&gt;计算机程序构造与解释
+编程语言的手册 - 把C#学会，并且熟练使用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;每天练习&lt;/p&gt;
+&lt;p&gt;试着将学到的知识用C#、PHP和Python程序实现，
+练习书中的题目&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;每天看圣经&lt;/p&gt;
+&lt;p&gt;从圣经中寻找启示，求神赐给智慧与启示的灵，光照人的心眼；&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;尝试21天，试试有什么改变，如果想要成为一名真正的程序员，就需要思考你现在所做的事情。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2012年冬，Timothy工作的再思。&lt;/strong&gt;&lt;/p&gt;</summary><category term="hackthon"></category><category term="programming"></category></entry></feed>
