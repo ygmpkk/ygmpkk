@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>博文雅集 - hackthon</title>
+        <title>博文雅集 - python</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
                 <link href="http://ygmpkk.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="博文雅集 Atom Feed" />
@@ -33,45 +33,43 @@
 
                             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="../hackthon-post.html">"黑客马拉松"</a></h1> 
+                    <h1 class="entry-title"><a href="../2012-12-27-python-post.html">"Python学习之路 - 获取IP的地理位置"</a></h1> 
                     <footer class="post-info">
-        <abbr class="published" title="2012-11-09T23:14:00">
-                Fri 09 November 2012
+        <abbr class="published" title="2012-12-27T14:12:00">
+                Thu 27 December 2012
         </abbr>
 
                 <address class="vcard author">
                 By <a class="url fn" href="../author/timothy-yeh.html">Timothy Yeh</a>
         </address>
-        <p>In <a href="../category/timothy.html">Timothy</a>. </p>
-<p>tags: <a href="../tag/hackthon.html">hackthon</a><a href="../tag/programming.html">programming</a></p>
-</footer><!-- /.post-info --><h3>引言</h3>
-<p>明天就要参加“黑客马拉松”了，有一点点的期待，期待着VC（风险投资人）和天使投资人的出现；期待着与众多高智商的人共同合作；</p>
-<p>我想写个程序出来，实现我的想法，把想法化成代码，运行在计算机上，据我所知，VC和天使投资人都比较青睐面向用户的应用，我要写个面向用户的应用，应用的特点是提高效率、能够产生价值的应用，而不是那些无聊的应用；</p>
-<h3>感慨</h3>
-<p>但我今天突然感慨，编程？我会什么；我开始回想，细细的想，才发现其实我什么也不会，不会内存管理，不会算法，不会语言；
-当你想实现一个想法的时候，总是感觉到很吃力，没有一个力量帮助你实现；
-也不知道语言的缺陷而去避开它，也不知道使用某种方法会导致一些问题；
-后来我才发现，原来是对语言的不熟悉；看完了manual了吗，manual已经写的很详细了，如果manual都不熟悉，编程更谈不上了；
-需要把manual记在心里，当使用到某个类型\函数\类时，能够马下联想到手册里面的内容；</p>
-<p>现在在努力的思考，改如何改变现状，需要列个计划：</p>
-<ol>
-<li>
-<p>每天看书</p>
-<p>计算机程序构造与解释
-编程语言的手册 - 把C#学会，并且熟练使用</p>
-</li>
-<li>
-<p>每天练习</p>
-<p>试着将学到的知识用C#、PHP和Python程序实现，
-练习书中的题目</p>
-</li>
-<li>
-<p>每天看圣经</p>
-<p>从圣经中寻找启示，求神赐给智慧与启示的灵，光照人的心眼；</p>
-</li>
-</ol>
-<p>尝试21天，试试有什么改变，如果想要成为一名真正的程序员，就需要思考你现在所做的事情。</p>
-<p><strong>2012年冬，Timothy工作的再思。</strong></p>                </article>
+        <p>In <a href="../category/programming.html">Programming</a>. </p>
+<p>tags: <a href="../tag/python.html">python</a><a href="../tag/programming.html">programming</a></p>
+</footer><!-- /.post-info --><p>Python有很多好玩的东西，这就是为什么这门语言如此令人着迷，下面的程序就是掩饰如何使用IP地址获取地理位置</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">import</span> <span class="nn">BeautifulSoup</span>
+
+<span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;Run the script: ./geolocate.py IPAddress&quot;</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">!=</span><span class="mi">2</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">ipaddr</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">geody</span> <span class="o">=</span> <span class="s">&quot;http://www.geody.com/geoip.php?ip=&quot;</span> <span class="o">+</span> <span class="n">ipaddr</span>
+<span class="n">html_page</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">geody</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_page</span><span class="p">)</span>
+
+<span class="c"># Filter paragraph containing geolocation info.</span>
+<span class="n">paragraph</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="c"># Remove html tags using regex.</span>
+<span class="n">geo_txt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;&lt;.*?&gt;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">paragraph</span><span class="p">))</span>
+<span class="k">print</span> <span class="n">geo_txt</span><span class="p">[</span><span class="mi">32</span><span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>                </article>
                                     <p class="paginator">
         Page 1 / 1
     </p>
