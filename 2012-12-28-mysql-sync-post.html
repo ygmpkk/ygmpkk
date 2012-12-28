@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>博文雅集</title>
+        <title>MySQL数据的双向同步</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
                 <link href="http://ygmpkk.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="博文雅集 Atom Feed" />
@@ -26,16 +26,20 @@
                                                                                                     <li ><a href="./category/timothy.html">Timothy</a></li>
                                     <li ><a href="./category/programming.html">Programming</a></li>
                                     <li ><a href="./category/helper.html">Helper</a></li>
-                                    <li ><a href="./category/config.html">Config</a></li>
+                                    <li class="active"><a href="./category/config.html">Config</a></li>
                                 </ul></nav>
         </header><!-- /#banner -->
-                
-            
+        <section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./2012-12-28-mysql-sync-post.html" rel="bookmark"
+           title="Permalink to MySQL数据的双向同步">MySQL数据的双向同步</a></h1>
+      <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="ygmpkk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    </header>
 
-                            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="./2012-12-28-mysql-sync-post.html">MySQL数据的双向同步</a></h1> 
-                    <footer class="post-info">
+    <div class="entry-content">
+      <footer class="post-info">
         <abbr class="published" title="2012-12-28T10:49:00">
                 Fri 28 December 2012
         </abbr>
@@ -45,7 +49,7 @@
         </address>
         <p>In <a href="./category/config.html">Config</a>. </p>
 <p>tags: <a href="./tag/mysql.html">mysql</a><a href="./tag/linux.html">linux</a></p>
-</footer><!-- /.post-info --><p>这些都是在Linux下操作，Windows可以参考一下配置文件；</p>
+</footer><!-- /.post-info -->      <p>这些都是在Linux下操作，Windows可以参考一下配置文件；</p>
 <p>运行环境：
 ArchLinux Arm
 MySQL 5.3.3</p>
@@ -89,90 +93,24 @@ MySQL 5.3.3</p>
 <p>从服务器SLAVE STATUS\G;查看Slave_IO_Running和Slave_SQL_Running状态是否都正常YES，否则需要排错;
 Slave_SQL_Running排错SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;</p>
 <div class="codehilite"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">SET</span> <span class="n">GLOBAL</span> <span class="n">SQL_SLAVE_SKIP_COUNTER</span><span class="p">=</span>1<span class="p">;</span>
-</pre></div><p>There are <a href="./2012-12-28-mysql-sync-post.html#disqus_thread">comments</a>.</p>                </article>
-                            </aside><!-- /#featured -->
-                            <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-                                                
-
-                 
-                        <li><article class="hentry">    
-                <header>
-                    <h1><a href="./2012-12-27-python-post.html" rel="bookmark"
-                           title="Permalink to "Python学习之路 - 获取IP的地理位置"">"Python学习之路 - 获取IP的地理位置"</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-12-27T14:12:00">
-                Thu 27 December 2012
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="./author/timothy-yeh.html">Timothy Yeh</a>
-        </address>
-        <p>In <a href="./category/programming.html">Programming</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/programming.html">programming</a></p>
-</footer><!-- /.post-info -->                Python学习之路
-                <a class="readmore" href="./2012-12-27-python-post.html">read more</a>
-                <p>There are <a href="./2012-12-27-python-post.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-                            
-
-                 
-                        <li><article class="hentry">    
-                <header>
-                    <h1><a href="./hackthon-post.html" rel="bookmark"
-                           title="Permalink to "黑客马拉松"">"黑客马拉松"</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-11-09T23:14:00">
-                Fri 09 November 2012
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="./author/timothy-yeh.html">Timothy Yeh</a>
-        </address>
-        <p>In <a href="./category/timothy.html">Timothy</a>. </p>
-<p>tags: <a href="./tag/hackthon.html">hackthon</a><a href="./tag/programming.html">programming</a></p>
-</footer><!-- /.post-info -->                中国式的黑客马拉松
-                <a class="readmore" href="./hackthon-post.html">read more</a>
-                <p>There are <a href="./hackthon-post.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-                            
-
-                 
-                        <li><article class="hentry">    
-                <header>
-                    <h1><a href="./markdown-post.html" rel="bookmark"
-                           title="Permalink to "Markdown 语法"">"Markdown 语法"</a></h1>
-                </header>
-                
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-10-18T09:13:00">
-                Thu 18 October 2012
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="./author/timothy-yeh.html">Timothy Yeh</a>
-        </address>
-        <p>In <a href="./category/helper.html">Helper</a>. </p>
-<p>tags: <a href="./tag/markdown.html">markdown</a><a href="./tag/editer.html">editer</a></p>
-</footer><!-- /.post-info -->                Markdown语法使用
-                <a class="readmore" href="./markdown-post.html">read more</a>
-                <p>There are <a href="./markdown-post.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-                            </ol><!-- /#posts-list -->
-                            <p class="paginator">
-        Page 1 / 1
-    </p>
-                        </section><!-- /#content -->
-                    <section id="extras" class="body">
+</pre></div>
+    </div><!-- /.entry-content -->
+        <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "2012-12-28-mysql-sync-post.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://ygmpkkblog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
+  </article>
+</section>
+        <section id="extras" class="body">
                         <div class="blogroll">
                         <h2>blogroll</h2>
                         <ul>

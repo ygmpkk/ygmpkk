@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/all.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2012-12-27T14:12:00+08:00</updated><entry><title>"Python学习之路 - 获取IP的地理位置"</title><link href="http://ygmpkk.com/2012-12-27-python-post.html" rel="alternate"></link><updated>2012-12-27T14:12:00+08:00</updated><author><name>Timothy Yeh</name></author><id>tag:ygmpkk.com,2012-12-27:2012-12-27-python-post.html</id><summary type="html">&lt;p&gt;Python有很多好玩的东西，这就是为什么这门语言如此令人着迷，下面的程序就是掩饰如何使用IP地址获取地理位置&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/all.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2012-12-28T10:49:00+08:00</updated><entry><title>MySQL数据的双向同步</title><link href="http://ygmpkk.com/2012-12-28-mysql-sync-post.html" rel="alternate"></link><updated>2012-12-28T10:49:00+08:00</updated><author><name>Timothy Yeh</name></author><id>tag:ygmpkk.com,2012-12-28:2012-12-28-mysql-sync-post.html</id><summary type="html">&lt;p&gt;这些都是在Linux下操作，Windows可以参考一下配置文件；&lt;/p&gt;
+&lt;p&gt;运行环境：
+ArchLinux Arm
+MySQL 5.3.3&lt;/p&gt;
+&lt;p&gt;编辑mysql的/etc/mysql/my.cnf&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;root&lt;/span&gt;# &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cnf&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;主服务器设置server-id成唯一的id;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 1 #唯一的&lt;span class="n"&gt;id&lt;/span&gt;
+#这里的数字要与需要同步的&lt;span class="n"&gt;mysql&lt;/span&gt;服务器相同，用于自增长&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+#主要是主从双向同步，如果仅仅是主从单向同步，可以忽略
+&lt;span class="n"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 2
+&lt;span class="n"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;offset&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;从服务器设置server-id成唯一的id,不能和其他的mysql服务器重复;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 2 #唯一的&lt;span class="n"&gt;id&lt;/span&gt;
+&lt;span class="n"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 2$
+&lt;span class="n"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;offset&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;主服务器GRANT REPLICATION SLAVE ON &lt;em&gt;.&lt;/em&gt; TO '用户名'@'%' IDENTIFIED BY '密码';最好不要使用root账号;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;GRANT&lt;/span&gt; &lt;span class="n"&gt;REPLICATION&lt;/span&gt; &lt;span class="n"&gt;SLAVE&lt;/span&gt; &lt;span class="n"&gt;ON&lt;/span&gt; &lt;span class="o"&gt;*.*&lt;/span&gt; &lt;span class="n"&gt;TO&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;user&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;%&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;IDENTIFIED&lt;/span&gt; &lt;span class="n"&gt;BY&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;从服务器CHANGE MASTER TO MASTER_HOST='主机地址', MASTER_USER='主服务器同步用户', MASTER_PASSWORD='主服务器同步密码', MASTER_LOG_FILE='主服务器Log文件', MASTER_LOG_POS=Log位置;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;change&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;master_host&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;192.168.1.2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;MASTER_PORT&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;3306&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;master_user&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;user&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;master_password&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;master_log_file&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;mysql-bin.000001&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;master_log_pos&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;0&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;从服务器SLAVE START/STOP;启动或停止从服务器;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;slave&lt;/span&gt; &lt;span class="n"&gt;stop&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;slave&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;从服务器SLAVE STATUS\G;查看Slave_IO_Running和Slave_SQL_Running状态是否都正常YES，否则需要排错;
+Slave_SQL_Running排错SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;GLOBAL&lt;/span&gt; &lt;span class="n"&gt;SQL_SLAVE_SKIP_COUNTER&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;1&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="mysql"></category><category term="linux"></category></entry><entry><title>"Python学习之路 - 获取IP的地理位置"</title><link href="http://ygmpkk.com/2012-12-27-python-post.html" rel="alternate"></link><updated>2012-12-27T14:12:00+08:00</updated><author><name>Timothy Yeh</name></author><id>tag:ygmpkk.com,2012-12-27:2012-12-27-python-post.html</id><summary type="html">&lt;p&gt;Python有很多好玩的东西，这就是为什么这门语言如此令人着迷，下面的程序就是掩饰如何使用IP地址获取地理位置&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;urllib2&lt;/span&gt;
