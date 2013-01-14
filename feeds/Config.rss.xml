@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>博文雅集</title><link>http://ygmpkk.com/</link><description></description><atom:link href="http://ygmpkk.com/feeds/Config.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 14 Jan 2013 09:10:00 +0800</lastBuildDate><item><title>"Python学习之路 - 处理Html"</title><link>http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html</link><description>&lt;p&gt;运行环境：
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>博文雅集</title><link>http://ygmpkk.com/</link><description></description><atom:link href="http://ygmpkk.com/feeds/config.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 14 Jan 2013 09:10:00 +0800</lastBuildDate><item><title>"Python学习之路 - 处理Html"</title><link>http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html</link><description>&lt;p&gt;运行环境：
 硬件：Raspberry PI
 系统：ArchLinux ARM&lt;/p&gt;
 &lt;p&gt;安装openvpn的包&lt;/p&gt;
