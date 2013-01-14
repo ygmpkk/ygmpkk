@@ -1,5 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/all.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2012-12-28T10:49:00+08:00</updated><entry><title>MySQL数据的双向同步</title><link href="http://ygmpkk.com/2012-12-28-mysql-sync-post.html" rel="alternate"></link><updated>2012-12-28T10:49:00+08:00</updated><author><name>Timothy Yeh</name></author><id>tag:ygmpkk.com,2012-12-28:2012-12-28-mysql-sync-post.html</id><summary type="html">&lt;p&gt;这些都是在Linux下操作，Windows可以参考一下配置文件；&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/all.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2013-01-14T09:10:00+08:00</updated><entry><title>"Python学习之路 - 处理Html"</title><link href="http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html" rel="alternate"></link><updated>2013-01-14T09:10:00+08:00</updated><author><name>Timothy Yeh</name></author><id>tag:ygmpkk.com,2013-01-14:2013-1-14-deploy-openvpn-post.html</id><summary type="html">&lt;p&gt;运行环境：
+硬件：Raspberry PI
+系统：ArchLinux ARM&lt;/p&gt;
+&lt;p&gt;安装openvpn的包&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# pacman -S openvpn&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;开始安装不上，原来是SD卡容量用完了&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# df -h -d 1 /&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;找到一些不用，而且占用空间的数据，删除掉；&lt;/p&gt;
+&lt;p&gt;服务器端：
+先到openvpn的目录去&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# cd /usr/share/openvpn/easy-rsa&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;编辑vars文件&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# vim ./vars&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;把一些基本的资料填上&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# export KEY_COUNTRY=&amp;quot;CN&amp;quot;&lt;/span&gt;
+&lt;span class="c"&gt;# export KEY_PROVINCE=&amp;quot;SH&amp;quot;&lt;/span&gt;
+&lt;span class="c"&gt;# export KEY_CITY=&amp;quot;Shanghai&amp;quot;&lt;/span&gt;
+&lt;span class="c"&gt;# export KEY_ORG=&amp;quot;user&amp;quot;&lt;/span&gt;
+&lt;span class="c"&gt;# export KEY_EMAIL=&amp;quot;user@mail.com&amp;quot;&lt;/span&gt;
+&lt;span class="c"&gt;# export KEY_CN=user&lt;/span&gt;
+&lt;span class="c"&gt;# export KEY_NAME=user&lt;/span&gt;
+&lt;span class="c"&gt;# export KEY_OU=user&lt;/span&gt;
+&lt;span class="c"&gt;# export PKCS11_MODULE_PATH=user&lt;/span&gt;
+&lt;span class="c"&gt;# export PKCS11_PIN=123456&lt;/span&gt;
+
+&lt;span class="c"&gt;# source ./vars&lt;/span&gt;
+&lt;span class="c"&gt;# ./clean-all&lt;/span&gt;
+&lt;span class="c"&gt;# ./build-dh&lt;/span&gt;
+&lt;span class="c"&gt;# ./pkitool --initca&lt;/span&gt;
+&lt;span class="c"&gt;# ./pkitool --server server&lt;/span&gt;
+&lt;span class="c"&gt;# ./pkitool client1&lt;/span&gt;
+&lt;span class="c"&gt;# ./pkitool --pass client2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;编辑server的配置&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# cp /usr/share/openvpn/example/server.conf /etc/openvpn/&lt;/span&gt;
+
+&lt;span class="c"&gt;# cp /usr/share/openvpn/easy-rsa/keys/ca.crt \&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;easy&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rsa&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt; &lt;span class="o"&gt;\&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;easy&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rsa&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;\&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;easy&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rsa&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dh1024&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt; &lt;span class="o"&gt;\&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+
+&lt;span class="c"&gt;# vim /etc/openvpn/server.conf&lt;/span&gt;
+
+&lt;span class="n"&gt;port&lt;/span&gt; 1194 &lt;span class="c"&gt;#openvpn默认端口为1194&lt;/span&gt;
+&lt;span class="n"&gt;proto&lt;/span&gt; &lt;span class="n"&gt;udp&lt;/span&gt;
+&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;tun&lt;/span&gt; 
+&lt;span class="n"&gt;ca&lt;/span&gt; &lt;span class="n"&gt;ca&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt; 
+&lt;span class="n"&gt;cert&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt; 
+&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; 
+&lt;span class="n"&gt;dh&lt;/span&gt; &lt;span class="n"&gt;dh1024&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt; 
+&lt;span class="n"&gt;server&lt;/span&gt; 172&lt;span class="p"&gt;.&lt;/span&gt;16&lt;span class="p"&gt;.&lt;/span&gt;0&lt;span class="p"&gt;.&lt;/span&gt;0 255&lt;span class="p"&gt;.&lt;/span&gt;255&lt;span class="p"&gt;.&lt;/span&gt;0&lt;span class="p"&gt;.&lt;/span&gt;0 
+&lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;dhcp-option DNS 168.95.192.1&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;dhcp-option DNS 168.95.192.2&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;route 172.16.0.0 255.255.0.0&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;ifconfig&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pool&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;persist&lt;/span&gt; &lt;span class="n"&gt;ipp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; 
+&lt;span class="n"&gt;keepalive&lt;/span&gt; 10 120 
+&lt;span class="n"&gt;comp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lzo&lt;/span&gt; 
+&lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="n"&gt;nobody&lt;/span&gt; 
+&lt;span class="n"&gt;group&lt;/span&gt; &lt;span class="n"&gt;nobody&lt;/span&gt; 
+&lt;span class="n"&gt;persist&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; 
+&lt;span class="n"&gt;persist&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tun&lt;/span&gt; 
+&lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;
+&lt;span class="n"&gt;verb&lt;/span&gt; 3 
+&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;
+&lt;span class="n"&gt;duplicate&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cn&lt;/span&gt;
+&lt;span class="nb"&gt;log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;
+&lt;span class="nb"&gt;log&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;客户端配置
+把ca.crt client1.crt client1.key拷贝到本地来
+编辑客户端配置文件client.ovpn，没有的就新建一个&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;client&lt;/span&gt;
+&lt;span class="n"&gt;remote&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ip&lt;/span&gt; 1194
+&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;tun&lt;/span&gt;
+&lt;span class="n"&gt;proto&lt;/span&gt; &lt;span class="n"&gt;udp&lt;/span&gt;
+&lt;span class="n"&gt;resolv&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;retry&lt;/span&gt; &lt;span class="n"&gt;infinite&lt;/span&gt;
+&lt;span class="n"&gt;nobind&lt;/span&gt;
+&lt;span class="n"&gt;persist&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;
+&lt;span class="n"&gt;persist&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tun&lt;/span&gt;
+&lt;span class="n"&gt;ca&lt;/span&gt; &lt;span class="n"&gt;ca&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt;
+&lt;span class="n"&gt;cert&lt;/span&gt; &lt;span class="n"&gt;client1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt;
+&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="n"&gt;client1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;
+&lt;span class="n"&gt;ns&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cert&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;
+&lt;span class="n"&gt;comp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lzo&lt;/span&gt;
+&lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt; 2
+&lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="n"&gt;exe&lt;/span&gt;
+&lt;span class="n"&gt;verb&lt;/span&gt; 3
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="openvpn"></category><category term="vpn"></category><category term="linux"></category><category term="archlinux"></category><category term="raspberry pi"></category></entry><entry><title>MySQL数据的双向同步</title><link href="http://ygmpkk.com/2012-12-28-mysql-sync-post.html" rel="alternate"></link><updated>2012-12-28T10:49:00+08:00</updated><author><name>Timothy Yeh</name></author><id>tag:ygmpkk.com,2012-12-28:2012-12-28-mysql-sync-post.html</id><summary type="html">&lt;p&gt;这些都是在Linux下操作，Windows可以参考一下配置文件；&lt;/p&gt;
 &lt;p&gt;运行环境：
 ArchLinux Arm
 MySQL 5.3.3&lt;/p&gt;

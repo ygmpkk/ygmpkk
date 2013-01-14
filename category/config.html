@@ -4,9 +4,9 @@
         <title>博文雅集 - Config</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
-                <link href="http://ygmpkk.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="博文雅集 Atom Feed" />
-                        <link href="http://ygmpkk.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="博文雅集 RSS Feed" />
+        <link href="../" type="application/atom+xml" rel="alternate" title="博文雅集 ATOM Feed" />
         
+
         <!--[if IE]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
@@ -21,127 +21,201 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="../">博文雅集 </a></h1>
+                <h1><a href="../index.html">博文雅集 </a></h1>
                 <nav><ul>
-                                                                                                    <li ><a href="../category/timothy.html">Timothy</a></li>
-                                    <li ><a href="../category/programming.html">Programming</a></li>
-                                    <li ><a href="../category/helper.html">Helper</a></li>
-                                    <li class="active"><a href="../category/config.html">Config</a></li>
-                                </ul></nav>
+                                                <li><a href="../index.html">Home</a></li>
+                                                                </ul></nav>
         </header><!-- /#banner -->
-                
-            
 
-                            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="../2012-12-28-mysql-sync-post.html">MySQL数据的双向同步</a></h1> 
-                    <footer class="post-info">
+                 <section id="content" class="body">
+        <aside id="featured"><article>
+                <h1 class="entry-title"><a href="../2013-1-14-deploy-openvpn-post.html">"Python学习之路 - 处理Html"</a></h1>
+                <footer class="post-info">
+        <abbr class="published" title="2013-01-14T09:10:00">
+                Mon 14 January 2013
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="../author/Timothy Yeh.html">Timothy Yeh</a>
+        </address>
+        <p>In <a href="../category/Config.html">Config</a>. </p>
+<p>tags: <a href="../tag/openvpn.html">openvpn</a><a href="../tag/vpn.html">vpn</a><a href="../tag/linux.html">linux</a><a href="../tag/archlinux.html">archlinux</a><a href="../tag/raspberry pi.html">raspberry pi</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
+                <p>运行环境：
+硬件：Raspberry PI
+系统：ArchLinux ARM</p>
+<p>安装openvpn的包</p>
+<div class="codehilite"><pre><span class="c"># pacman -S openvpn</span>
+</pre></div>
+
+
+<p>开始安装不上，原来是SD卡容量用完了</p>
+<div class="codehilite"><pre><span class="c"># df -h -d 1 /</span>
+</pre></div>
+
+
+<p>找到一些不用，而且占用空间的数据，删除掉；</p>
+<p>服务器端：
+先到openvpn的目录去</p>
+<div class="codehilite"><pre><span class="c"># cd /usr/share/openvpn/easy-rsa</span>
+</pre></div>
+
+
+<p>编辑vars文件</p>
+<div class="codehilite"><pre><span class="c"># vim ./vars</span>
+</pre></div>
+
+
+<p>把一些基本的资料填上</p>
+<div class="codehilite"><pre><span class="c"># export KEY_COUNTRY=&quot;CN&quot;</span>
+<span class="c"># export KEY_PROVINCE=&quot;SH&quot;</span>
+<span class="c"># export KEY_CITY=&quot;Shanghai&quot;</span>
+<span class="c"># export KEY_ORG=&quot;user&quot;</span>
+<span class="c"># export KEY_EMAIL=&quot;user@mail.com&quot;</span>
+<span class="c"># export KEY_CN=user</span>
+<span class="c"># export KEY_NAME=user</span>
+<span class="c"># export KEY_OU=user</span>
+<span class="c"># export PKCS11_MODULE_PATH=user</span>
+<span class="c"># export PKCS11_PIN=123456</span>
+
+<span class="c"># source ./vars</span>
+<span class="c"># ./clean-all</span>
+<span class="c"># ./build-dh</span>
+<span class="c"># ./pkitool --initca</span>
+<span class="c"># ./pkitool --server server</span>
+<span class="c"># ./pkitool client1</span>
+<span class="c"># ./pkitool --pass client2</span>
+</pre></div>
+
+
+<p>编辑server的配置</p>
+<div class="codehilite"><pre><span class="c"># cp /usr/share/openvpn/example/server.conf /etc/openvpn/</span>
+
+<span class="c"># cp /usr/share/openvpn/easy-rsa/keys/ca.crt \</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openvpn</span><span class="o">/</span><span class="n">easy</span><span class="o">-</span><span class="n">rsa</span><span class="o">/</span><span class="n">keys</span><span class="o">/</span><span class="n">server</span><span class="p">.</span><span class="n">crt</span> <span class="o">\</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openvpn</span><span class="o">/</span><span class="n">easy</span><span class="o">-</span><span class="n">rsa</span><span class="o">/</span><span class="n">keys</span><span class="o">/</span><span class="n">server</span><span class="p">.</span><span class="n">key</span> <span class="o">\</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openvpn</span><span class="o">/</span><span class="n">easy</span><span class="o">-</span><span class="n">rsa</span><span class="o">/</span><span class="n">keys</span><span class="o">/</span><span class="n">dh1024</span><span class="p">.</span><span class="n">pem</span> <span class="o">\</span>
+<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">openvpn</span><span class="o">/</span>
+
+<span class="c"># vim /etc/openvpn/server.conf</span>
+
+<span class="n">port</span> 1194 <span class="c">#openvpn默认端口为1194</span>
+<span class="n">proto</span> <span class="n">udp</span>
+<span class="n">dev</span> <span class="n">tun</span> 
+<span class="n">ca</span> <span class="n">ca</span><span class="p">.</span><span class="n">crt</span> 
+<span class="n">cert</span> <span class="n">server</span><span class="p">.</span><span class="n">crt</span> 
+<span class="n">key</span> <span class="n">server</span><span class="p">.</span><span class="n">key</span> 
+<span class="n">dh</span> <span class="n">dh1024</span><span class="p">.</span><span class="n">pem</span> 
+<span class="n">server</span> 172<span class="p">.</span>16<span class="p">.</span>0<span class="p">.</span>0 255<span class="p">.</span>255<span class="p">.</span>0<span class="p">.</span>0 
+<span class="n">push</span> <span class="s">&quot;dhcp-option DNS 168.95.192.1&quot;</span>
+<span class="n">push</span> <span class="s">&quot;dhcp-option DNS 168.95.192.2&quot;</span>
+<span class="n">push</span> <span class="s">&quot;route 172.16.0.0 255.255.0.0&quot;</span>
+<span class="n">ifconfig</span><span class="o">-</span><span class="n">pool</span><span class="o">-</span><span class="n">persist</span> <span class="n">ipp</span><span class="p">.</span><span class="n">txt</span> 
+<span class="n">keepalive</span> 10 120 
+<span class="n">comp</span><span class="o">-</span><span class="n">lzo</span> 
+<span class="n">user</span> <span class="n">nobody</span> 
+<span class="n">group</span> <span class="n">nobody</span> 
+<span class="n">persist</span><span class="o">-</span><span class="n">key</span> 
+<span class="n">persist</span><span class="o">-</span><span class="n">tun</span> 
+<span class="n">status</span> <span class="o">/</span><span class="nb">var</span><span class="o">/</span><span class="nb">log</span><span class="o">/</span><span class="n">openvpn</span><span class="o">-</span><span class="n">status</span><span class="p">.</span><span class="nb">log</span>
+<span class="n">verb</span> 3 
+<span class="n">client</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">client</span>
+<span class="n">duplicate</span><span class="o">-</span><span class="n">cn</span>
+<span class="nb">log</span> <span class="o">/</span><span class="nb">var</span><span class="o">/</span><span class="nb">log</span><span class="o">/</span><span class="n">openvpn</span><span class="p">.</span><span class="nb">log</span>
+<span class="nb">log</span><span class="o">-</span><span class="n">append</span> <span class="o">/</span><span class="nb">var</span><span class="o">/</span><span class="nb">log</span><span class="o">/</span><span class="n">openvpn</span><span class="p">.</span><span class="nb">log</span>
+</pre></div>
+
+
+<p>客户端配置
+把ca.crt client1.crt client1.key拷贝到本地来
+编辑客户端配置文件client.ovpn，没有的就新建一个</p>
+<div class="codehilite"><pre><span class="n">client</span>
+<span class="n">remote</span> <span class="n">server</span><span class="o">-</span><span class="n">ip</span> 1194
+<span class="n">dev</span> <span class="n">tun</span>
+<span class="n">proto</span> <span class="n">udp</span>
+<span class="n">resolv</span><span class="o">-</span><span class="n">retry</span> <span class="n">infinite</span>
+<span class="n">nobind</span>
+<span class="n">persist</span><span class="o">-</span><span class="n">key</span>
+<span class="n">persist</span><span class="o">-</span><span class="n">tun</span>
+<span class="n">ca</span> <span class="n">ca</span><span class="p">.</span><span class="n">crt</span>
+<span class="n">cert</span> <span class="n">client1</span><span class="p">.</span><span class="n">crt</span>
+<span class="n">key</span> <span class="n">client1</span><span class="p">.</span><span class="n">key</span>
+<span class="n">ns</span><span class="o">-</span><span class="n">cert</span><span class="o">-</span><span class="n">type</span> <span class="n">server</span>
+<span class="n">comp</span><span class="o">-</span><span class="n">lzo</span>
+<span class="n">route</span><span class="o">-</span><span class="n">delay</span> 2
+<span class="n">route</span><span class="o">-</span><span class="n">method</span> <span class="n">exe</span>
+<span class="n">verb</span> 3
+</pre></div>
+        </article></aside><!-- /#featured -->
+                        <h1>Other articles</h1>
+                <hr />
+                    <ol id="posts-list" class="hfeed">
+                        <li><article class="hentry">
+                <header>
+                        <h1><a href="../2012-12-28-mysql-sync-post.html" rel="bookmark" title="Permalink to MySQL数据的双向同步">MySQL数据的双向同步</a></h1>
+                </header>
+
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-12-28T10:49:00">
                 Fri 28 December 2012
         </abbr>
 
                 <address class="vcard author">
-                By <a class="url fn" href="../author/timothy-yeh.html">Timothy Yeh</a>
+                By <a class="url fn" href="../author/Timothy Yeh.html">Timothy Yeh</a>
         </address>
-        <p>In <a href="../category/config.html">Config</a>. </p>
-<p>tags: <a href="../tag/mysql.html">mysql</a><a href="../tag/linux.html">linux</a></p>
-</footer><!-- /.post-info --><p>这些都是在Linux下操作，Windows可以参考一下配置文件；</p>
-<p>运行环境：
-ArchLinux Arm
-MySQL 5.3.3</p>
-<p>编辑mysql的/etc/mysql/my.cnf</p>
-<div class="codehilite"><pre><span class="n">root</span># <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="n">my</span><span class="p">.</span><span class="n">cnf</span>
-</pre></div>
+        <p>In <a href="../category/Config.html">Config</a>. </p>
+<p>tags: <a href="../tag/mysql.html">mysql</a><a href="../tag/linux.html">linux</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
+                Mysql配置同步，双机及多台机器同步
+                <a class="readmore" href="../2012-12-28-mysql-sync-post.html">read more</a>
+                </div><!-- /.entry-content -->
+        </article></li>
+    </ol><!-- /#posts-list -->
+</section><!-- /#content -->
 
-
-<p>主服务器设置server-id成唯一的id;</p>
-<div class="codehilite"><pre><span class="n">server</span><span class="o">-</span><span class="n">id</span> <span class="p">=</span> 1 #唯一的<span class="n">id</span>
-#这里的数字要与需要同步的<span class="n">mysql</span>服务器相同，用于自增长<span class="n">id</span><span class="p">;</span>
-#主要是主从双向同步，如果仅仅是主从单向同步，可以忽略
-<span class="n">auto</span><span class="o">-</span><span class="n">increment</span><span class="o">-</span><span class="n">increment</span> <span class="p">=</span> 2
-<span class="n">auto</span><span class="o">-</span><span class="n">increment</span><span class="o">-</span><span class="n">offset</span> <span class="p">=</span> 1
-</pre></div>
-
-
-<p>从服务器设置server-id成唯一的id,不能和其他的mysql服务器重复;</p>
-<div class="codehilite"><pre><span class="n">server</span><span class="o">-</span><span class="n">id</span> <span class="p">=</span> 2 #唯一的<span class="n">id</span>
-<span class="n">auto</span><span class="o">-</span><span class="n">increment</span><span class="o">-</span><span class="n">increment</span> <span class="p">=</span> 2$
-<span class="n">auto</span><span class="o">-</span><span class="n">increment</span><span class="o">-</span><span class="n">offset</span> <span class="p">=</span> 2
-</pre></div>
-
-
-<p>主服务器GRANT REPLICATION SLAVE ON <em>.</em> TO '用户名'@'%' IDENTIFIED BY '密码';最好不要使用root账号;</p>
-<div class="codehilite"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">REPLICATION</span> <span class="n">SLAVE</span> <span class="n">ON</span> <span class="o">*.*</span> <span class="n">TO</span> <span class="s">&#39;user&#39;</span><span class="p">@</span><span class="s">&#39;%&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="s">&#39;password&#39;</span><span class="p">;</span>
-</pre></div>
-
-
-<p>从服务器CHANGE MASTER TO MASTER_HOST='主机地址', MASTER_USER='主服务器同步用户', MASTER_PASSWORD='主服务器同步密码', MASTER_LOG_FILE='主服务器Log文件', MASTER_LOG_POS=Log位置;</p>
-<div class="codehilite"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">change</span> <span class="n">master</span> <span class="n">to</span> <span class="n">master_host</span><span class="p">=</span><span class="s">&#39;192.168.1.2&#39;</span><span class="p">,</span><span class="n">MASTER_PORT</span><span class="p">=</span>3306<span class="p">,</span><span class="n">master_user</span><span class="p">=</span><span class="s">&#39;user&#39;</span><span class="p">,</span><span class="n">master_password</span><span class="p">=</span><span class="s">&#39;password&#39;</span><span class="p">,</span><span class="n">master_log_file</span><span class="p">=</span><span class="s">&#39;mysql-bin.000001&#39;</span><span class="p">,</span><span class="n">master_log_pos</span><span class="p">=</span>0<span class="p">;</span>
-</pre></div>
-
-
-<p>从服务器SLAVE START/STOP;启动或停止从服务器;</p>
-<div class="codehilite"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">slave</span> <span class="n">stop</span><span class="p">;</span>
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="n">slave</span> <span class="n">start</span><span class="p">;</span>
-</pre></div>
-
-
-<p>从服务器SLAVE STATUS\G;查看Slave_IO_Running和Slave_SQL_Running状态是否都正常YES，否则需要排错;
-Slave_SQL_Running排错SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;</p>
-<div class="codehilite"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">SET</span> <span class="n">GLOBAL</span> <span class="n">SQL_SLAVE_SKIP_COUNTER</span><span class="p">=</span>1<span class="p">;</span>
-</pre></div><p>There are <a href="../2012-12-28-mysql-sync-post.html#disqus_thread">comments</a>.</p>                </article>
-                                    <p class="paginator">
-        Page 1 / 1
-    </p>
-                            </aside><!-- /#featured -->
-                                                </ol><!-- /#posts-list -->
-                        </section><!-- /#content -->
-                    <section id="extras" class="body">
-                        <div class="blogroll">
-                        <h2>blogroll</h2>
+        <aside id="sidebar">
+                <div class="widget">
+                        <h2>Categories</h2>
+                        <ul>
+                                                   <li ><a href="../category/Timothy.html">Timothy</a></li>
+                                                   <li ><a href="../category/Programming.html">Programming</a></li>
+                                                   <li ><a href="../category/Helper.html">Helper</a></li>
+                                                   <li class="active"><a href="../category/Config.html">Config</a></li>
+                                                </ul>
+                </div>
+                        <div class="widget blogroll">
+                        <h2>Blogroll</h2>
                         <ul>
                                                     <li><a href="http://www.fieldphp.com">FieldPHP</a></li>
                                                 </ul>
                 </div><!-- /.blogroll -->
-                                <div class="social">
-                        <h2>social</h2>
+                                <div class="widget social">
+                        <h2>Social</h2>
                         <ul>
-                            <li><a href="http://ygmpkk.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-                                                        <li><a href="http://ygmpkk.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+                            <li><a href="../" rel="alternate">atom feed</a></li>
                             
                                                     <li><a href="http://weibo.com/ygmpkk">weibo</a></li>
                                                     <li><a href="http://twitter.com/ygmpkk">twitter</a></li>
                                                     <li><a href="http://github.com/ygmpkk">github</a></li>
                                                 </ul>
                 </div><!-- /.social -->
-                </section><!-- /#extras -->
+                </aside><!-- /#sidebar -->
 
-        <footer id="contentinfo" class="body">
+        <footer id="footer" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
                 </address><!-- /#about -->
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+                <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
+        </footer><!-- /#footer -->
 
     <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35574064-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
     </script>
-<script type="text/javascript">
-    var disqus_shortname = 'ygmpkkblog';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-35574064-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
 </body>
 </html>

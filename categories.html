@@ -4,9 +4,9 @@
         <title>博文雅集</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
-                <link href="http://ygmpkk.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="博文雅集 Atom Feed" />
-                        <link href="http://ygmpkk.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="博文雅集 RSS Feed" />
+        <link href="./" type="application/atom+xml" rel="alternate" title="博文雅集 ATOM Feed" />
         
+
         <!--[if IE]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
@@ -21,66 +21,63 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="./">博文雅集 </a></h1>
+                <h1><a href="./index.html">博文雅集 </a></h1>
                 <nav><ul>
-                                                                                                    <li ><a href="./category/timothy.html">Timothy</a></li>
-                                    <li ><a href="./category/programming.html">Programming</a></li>
-                                    <li ><a href="./category/helper.html">Helper</a></li>
-                                    <li ><a href="./category/config.html">Config</a></li>
-                                </ul></nav>
+                                                <li><a href="./index.html">Home</a></li>
+                                                                </ul></nav>
         </header><!-- /#banner -->
+
         <ul>
-    <li><a href="./category/timothy.html">Timothy</a></li>
-    <li><a href="./category/programming.html">Programming</a></li>
-    <li><a href="./category/helper.html">Helper</a></li>
-    <li><a href="./category/config.html">Config</a></li>
+    <li>Timothy</li>
+    <li>Programming</li>
+    <li>Helper</li>
+    <li>Config</li>
 </ul>
-        <section id="extras" class="body">
-                        <div class="blogroll">
-                        <h2>blogroll</h2>
+
+        <aside id="sidebar">
+                <div class="widget">
+                        <h2>Categories</h2>
+                        <ul>
+                                                   <li ><a href="./category/Timothy.html">Timothy</a></li>
+                                                   <li ><a href="./category/Programming.html">Programming</a></li>
+                                                   <li ><a href="./category/Helper.html">Helper</a></li>
+                                                   <li ><a href="./category/Config.html">Config</a></li>
+                                                </ul>
+                </div>
+                        <div class="widget blogroll">
+                        <h2>Blogroll</h2>
                         <ul>
                                                     <li><a href="http://www.fieldphp.com">FieldPHP</a></li>
                                                 </ul>
                 </div><!-- /.blogroll -->
-                                <div class="social">
-                        <h2>social</h2>
+                                <div class="widget social">
+                        <h2>Social</h2>
                         <ul>
-                            <li><a href="http://ygmpkk.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-                                                        <li><a href="http://ygmpkk.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+                            <li><a href="./" rel="alternate">atom feed</a></li>
                             
                                                     <li><a href="http://weibo.com/ygmpkk">weibo</a></li>
                                                     <li><a href="http://twitter.com/ygmpkk">twitter</a></li>
                                                     <li><a href="http://github.com/ygmpkk">github</a></li>
                                                 </ul>
                 </div><!-- /.social -->
-                </section><!-- /#extras -->
+                </aside><!-- /#sidebar -->
 
-        <footer id="contentinfo" class="body">
+        <footer id="footer" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
                 </address><!-- /#about -->
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+                <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
+        </footer><!-- /#footer -->
 
     <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35574064-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
     </script>
-<script type="text/javascript">
-    var disqus_shortname = 'ygmpkkblog';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-35574064-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
 </body>
 </html>

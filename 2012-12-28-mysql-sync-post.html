@@ -4,9 +4,9 @@
         <title>MySQL数据的双向同步</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
-                <link href="http://ygmpkk.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="博文雅集 Atom Feed" />
-                        <link href="http://ygmpkk.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="博文雅集 RSS Feed" />
+        <link href="./" type="application/atom+xml" rel="alternate" title="博文雅集 ATOM Feed" />
         
+
         <!--[if IE]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
@@ -21,35 +21,29 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="./">博文雅集 </a></h1>
+                <h1><a href="./index.html">博文雅集 </a></h1>
                 <nav><ul>
-                                                                                                    <li ><a href="./category/timothy.html">Timothy</a></li>
-                                    <li ><a href="./category/programming.html">Programming</a></li>
-                                    <li ><a href="./category/helper.html">Helper</a></li>
-                                    <li class="active"><a href="./category/config.html">Config</a></li>
-                                </ul></nav>
+                                                <li><a href="./index.html">Home</a></li>
+                                                                </ul></nav>
         </header><!-- /#banner -->
-        <section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="./2012-12-28-mysql-sync-post.html" rel="bookmark"
-           title="Permalink to MySQL数据的双向同步">MySQL数据的双向同步</a></h1>
-      <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="ygmpkk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    </header>
 
-    <div class="entry-content">
-      <footer class="post-info">
+        <section id="content" class="body">
+<article>
+        <header> <h1 class="entry-title"><a href="2012-12-28-mysql-sync-post.html"
+        rel="bookmark" title="Permalink to MySQL数据的双向同步">MySQL数据的双向同步</a></h1> <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="ygmpkk">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+ </header>
+        <div class="entry-content">
+        <footer class="post-info">
         <abbr class="published" title="2012-12-28T10:49:00">
                 Fri 28 December 2012
         </abbr>
 
                 <address class="vcard author">
-                By <a class="url fn" href="./author/timothy-yeh.html">Timothy Yeh</a>
+                By <a class="url fn" href="./author/Timothy Yeh.html">Timothy Yeh</a>
         </address>
-        <p>In <a href="./category/config.html">Config</a>. </p>
-<p>tags: <a href="./tag/mysql.html">mysql</a><a href="./tag/linux.html">linux</a></p>
-</footer><!-- /.post-info -->      <p>这些都是在Linux下操作，Windows可以参考一下配置文件；</p>
+        <p>In <a href="./category/Config.html">Config</a>. </p>
+<p>tags: <a href="./tag/mysql.html">mysql</a><a href="./tag/linux.html">linux</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
+        <p>这些都是在Linux下操作，Windows可以参考一下配置文件；</p>
 <p>运行环境：
 ArchLinux Arm
 MySQL 5.3.3</p>
@@ -94,68 +88,67 @@ MySQL 5.3.3</p>
 Slave_SQL_Running排错SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;</p>
 <div class="codehilite"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">SET</span> <span class="n">GLOBAL</span> <span class="n">SQL_SLAVE_SKIP_COUNTER</span><span class="p">=</span>1<span class="p">;</span>
 </pre></div>
-    </div><!-- /.entry-content -->
-        <div class="comments">
-      <h2>Comments !</h2>
-      <div id="disqus_thread"></div>
-      <script type="text/javascript">
-        var disqus_identifier = "2012-12-28-mysql-sync-post.html";
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://ygmpkkblog.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-      </script>
-    </div>
-    
-  </article>
+        </div><!-- /.entry-content -->
+                <div class="comments">
+        <h2>Comments !</h2>
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+               var disqus_identifier = "2012-12-28-mysql-sync-post.html";
+               (function() {
+               var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+               dsq.src = 'http://ygmpkkblog.disqus.com/embed.js';
+               (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+            </script>
+        </div>
+        
+</article>
 </section>
-        <section id="extras" class="body">
-                        <div class="blogroll">
-                        <h2>blogroll</h2>
+
+        <aside id="sidebar">
+                <div class="widget">
+                        <h2>Categories</h2>
+                        <ul>
+                                                   <li ><a href="./category/Timothy.html">Timothy</a></li>
+                                                   <li ><a href="./category/Programming.html">Programming</a></li>
+                                                   <li ><a href="./category/Helper.html">Helper</a></li>
+                                                   <li class="active"><a href="./category/Config.html">Config</a></li>
+                                                </ul>
+                </div>
+                        <div class="widget blogroll">
+                        <h2>Blogroll</h2>
                         <ul>
                                                     <li><a href="http://www.fieldphp.com">FieldPHP</a></li>
                                                 </ul>
                 </div><!-- /.blogroll -->
-                                <div class="social">
-                        <h2>social</h2>
+                                <div class="widget social">
+                        <h2>Social</h2>
                         <ul>
-                            <li><a href="http://ygmpkk.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-                                                        <li><a href="http://ygmpkk.com/feeds/all.rss.xml" type="application/rss+xml" rel="alternate">rss feed</a></li>
+                            <li><a href="./" rel="alternate">atom feed</a></li>
                             
                                                     <li><a href="http://weibo.com/ygmpkk">weibo</a></li>
                                                     <li><a href="http://twitter.com/ygmpkk">twitter</a></li>
                                                     <li><a href="http://github.com/ygmpkk">github</a></li>
                                                 </ul>
                 </div><!-- /.social -->
-                </section><!-- /#extras -->
+                </aside><!-- /#sidebar -->
 
-        <footer id="contentinfo" class="body">
+        <footer id="footer" class="body">
                 <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
                 </address><!-- /#about -->
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+                <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
+        </footer><!-- /#footer -->
 
     <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-35574064-1']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
     </script>
-<script type="text/javascript">
-    var disqus_shortname = 'ygmpkkblog';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-35574064-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
 </body>
 </html>
