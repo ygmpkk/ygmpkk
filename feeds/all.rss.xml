@@ -103,7 +103,7 @@
 &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt; 2
 &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="n"&gt;exe&lt;/span&gt;
 &lt;span class="n"&gt;verb&lt;/span&gt; 3
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Timothy Yeh</dc:creator><pubDate>Mon, 14 Jan 2013 09:10:00 +0800</pubDate><guid>tag:ygmpkk.com,2013-01-14:2013-1-14-deploy-openvpn-post.html</guid><category>openvpn</category><category>vpn</category><category>linux</category><category>archlinux</category><category>raspberry pi</category></item><item><title>MySQL数据的双向同步</title><link>http://ygmpkk.com/2012-12-28-mysql-sync-post.html</link><description>&lt;p&gt;这些都是在Linux下操作，Windows可以参考一下配置文件；&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Timothy Yeh</dc:creator><pubDate>Mon, 14 Jan 2013 09:10:00 +0800</pubDate><guid>tag:ygmpkk.com,2013-01-14:2013-1-14-deploy-openvpn-post.html</guid><category>openvpn</category><category>vpn</category><category>linux</category><category>archlinux</category><category>raspberrypi</category></item><item><title>MySQL数据的双向同步</title><link>http://ygmpkk.com/2012-12-28-mysql-sync-post.html</link><description>&lt;p&gt;这些都是在Linux下操作，Windows可以参考一下配置文件；&lt;/p&gt;
 &lt;p&gt;运行环境：
 ArchLinux Arm
 MySQL 5.3.3&lt;/p&gt;

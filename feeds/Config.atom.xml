@@ -103,7 +103,7 @@
 &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt; 2
 &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="n"&gt;exe&lt;/span&gt;
 &lt;span class="n"&gt;verb&lt;/span&gt; 3
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="openvpn"></category><category term="vpn"></category><category term="linux"></category><category term="archlinux"></category><category term="raspberry pi"></category></entry><entry><title>MySQL数据的双向同步</title><link href="http://ygmpkk.com/2012-12-28-mysql-sync-post.html" rel="alternate"></link><updated>2012-12-28T10:49:00+08:00</updated><author><name>Timothy Yeh</name></author><id>tag:ygmpkk.com,2012-12-28:2012-12-28-mysql-sync-post.html</id><summary type="html">&lt;p&gt;这些都是在Linux下操作，Windows可以参考一下配置文件；&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="openvpn"></category><category term="vpn"></category><category term="linux"></category><category term="archlinux"></category><category term="raspberrypi"></category></entry><entry><title>MySQL数据的双向同步</title><link href="http://ygmpkk.com/2012-12-28-mysql-sync-post.html" rel="alternate"></link><updated>2012-12-28T10:49:00+08:00</updated><author><name>Timothy Yeh</name></author><id>tag:ygmpkk.com,2012-12-28:2012-12-28-mysql-sync-post.html</id><summary type="html">&lt;p&gt;这些都是在Linux下操作，Windows可以参考一下配置文件；&lt;/p&gt;
 &lt;p&gt;运行环境：
 ArchLinux Arm
 MySQL 5.3.3&lt;/p&gt;
