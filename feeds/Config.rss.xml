@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>博文雅集</title><link>http://ygmpkk.com/</link><description></description><atom:link href="http://ygmpkk.com/feeds/config.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 14 Jan 2013 09:10:00 +0800</lastBuildDate><item><title>"ArchLinux Arm 部署 OpenVPN"</title><link>http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html</link><description>&lt;p&gt;运行环境：
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>博文雅集</title><link>http://ygmpkk.com/</link><description></description><atom:link href="http://ygmpkk.com/feeds/config.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 14 Jan 2013 09:10:00 +0800</lastBuildDate><item><title>ArchLinux Arm部署OpenVPN</title><link>http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html</link><description>&lt;p&gt;运行环境：
 硬件：Raspberry PI
 系统：ArchLinux ARM&lt;/p&gt;
 &lt;p&gt;安装openvpn的包&lt;/p&gt;
@@ -103,7 +103,7 @@
 &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt; 2
 &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="n"&gt;exe&lt;/span&gt;
 &lt;span class="n"&gt;verb&lt;/span&gt; 3
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Timothy Yeh</dc:creator><pubDate>Mon, 14 Jan 2013 09:10:00 +0800</pubDate><guid>tag:ygmpkk.com,2013-01-14:2013-1-14-deploy-openvpn-post.html</guid><category>openvpn</category><category>vpn</category><category>linux</category><category>archlinux</category><category>raspberrypi</category></item><item><title>MySQL数据的双向同步</title><link>http://ygmpkk.com/2012-12-28-mysql-sync-post.html</link><description>&lt;p&gt;这些都是在Linux下操作，Windows可以参考一下配置文件；&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">timothy</dc:creator><pubDate>Mon, 14 Jan 2013 09:10:00 +0800</pubDate><guid>tag:ygmpkk.com,2013-01-14:2013-1-14-deploy-openvpn-post.html</guid><category>openvpn</category><category>vpn</category><category>linux</category><category>archlinux</category><category>raspberrypi</category></item><item><title>MySQL数据的双向同步</title><link>http://ygmpkk.com/2012-12-28-mysql-sync-post.html</link><description>&lt;p&gt;这些都是在Linux下操作，Windows可以参考一下配置文件；&lt;/p&gt;
 &lt;p&gt;运行环境：
 ArchLinux Arm
 MySQL 5.3.3&lt;/p&gt;
@@ -147,4 +147,4 @@ MySQL 5.3.3&lt;/p&gt;
 &lt;p&gt;从服务器SLAVE STATUS\G;查看Slave_IO_Running和Slave_SQL_Running状态是否都正常YES，否则需要排错;
 Slave_SQL_Running排错SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;GLOBAL&lt;/span&gt; &lt;span class="n"&gt;SQL_SLAVE_SKIP_COUNTER&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;1&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Timothy Yeh</dc:creator><pubDate>Fri, 28 Dec 2012 10:49:00 +0800</pubDate><guid>tag:ygmpkk.com,2012-12-28:2012-12-28-mysql-sync-post.html</guid><category>mysql</category><category>linux</category></item></channel></rss>
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">timothy</dc:creator><pubDate>Fri, 28 Dec 2012 10:49:00 +0800</pubDate><guid>tag:ygmpkk.com,2012-12-28:2012-12-28-mysql-sync-post.html</guid><category>mysql</category><category>linux</category></item></channel></rss>
