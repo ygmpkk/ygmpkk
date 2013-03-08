@@ -29,7 +29,59 @@
 
                  <section id="content" class="body">
         <aside id="featured"><article>
-                <h1 class="entry-title"><a href="./2013-1-14-deploy-openvpn-post.html">ArchLinux Arm部署OpenVPN</a></h1>
+                <h1 class="entry-title"><a href="./2013-1-14-deploy-openvpn-post.html">Javascript模块化开发</a></h1>
+                <footer class="post-info">
+        <abbr class="published" title="2013-03-07T17:31:00">
+                Thu 07 March 2013
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="./author/timothy.html">timothy</a>
+        </address>
+        <p>In <a href="./category/Programming.html">Programming</a>. </p>
+<p>tags: <a href="./tag/javascript.html">javascript</a></p></p>Translations: 
+            <a href="./2013-1-14-deploy-openvpn-post.html">en</a>
+    </footer><!-- /.post-info --><!-- /.post-info -->
+                <p>在这之前，对Javascript的认识并不多，也没有深入的理解Javascript编程语言，觉得Javascript就是干一下简单的事情，自从看了一本书《Javascript语言精粹》，很薄的一本书，却能够将Javascript的美表达的淋漓精致，对Javascript有很深刻的认识；但除了Javascript和PHP有语言精粹类的书籍，也希望其他的语言也能够有这样优秀的数据。</p>
+<p>模块化的编程，能够将程序很好的解耦，这样的方法能够将程序员从变幻莫测的需求变更中解救出来；
+Javascript的语法非常的松散，从其他语言转过来的只要看看语言精粹就可以快速的掌握它，下面的代码就是掩饰如何模块化开发；</p>
+<p>Javascript声明一个对象非常的简单，只要：</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">TIMOTHY</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">params</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>对象的创建如此简单，就可以根据这样的对象，来模块化开发</p>
+<div class="codehilite"><pre><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
+    <span class="nx">TIMOTHY</span><span class="p">.</span><span class="nx">language</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">chinese</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;this is Chinese&#39;</span><span class="p">);</span>
+        <span class="p">},</span>
+
+        <span class="nx">english</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;this is English&#39;</span><span class="p">)</span>
+        <span class="p">},</span>
+
+        <span class="nx">china</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="nx">TIMOTHY</span><span class="p">.</span><span class="nx">language</span><span class="p">.</span><span class="nx">chinese</span><span class="p">);</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">})();</span>
+</pre></div>
+
+
+<p>这里仅仅演示了简单的代码，更严谨的代码参考CommonJs的，对Javascript的代码编写很大的帮助</p>
+        </article></aside><!-- /#featured -->
+                        <h1>Other articles</h1>
+                <hr />
+                    <ol id="posts-list" class="hfeed">
+                        <li><article class="hentry">
+                <header>
+                        <h1><a href="./2013-1-14-deploy-openvpn-post.html" rel="bookmark" title="Permalink to ArchLinux Arm部署OpenVPN">ArchLinux Arm部署OpenVPN</a></h1>
+                </header>
+
+                <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-01-14T09:10:00">
                 Mon 14 January 2013
@@ -39,117 +91,14 @@
                 By <a class="url fn" href="./author/timothy.html">timothy</a>
         </address>
         <p>In <a href="./category/config.html">config</a>. </p>
-<p>tags: <a href="./tag/openvpn.html">openvpn</a><a href="./tag/vpn.html">vpn</a><a href="./tag/linux.html">linux</a><a href="./tag/archlinux.html">archlinux</a><a href="./tag/raspberrypi.html">raspberrypi</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                <p>运行环境：
-硬件：Raspberry PI
-系统：ArchLinux ARM</p>
-<p>安装openvpn的包</p>
-<div class="codehilite"><pre><span class="c"># pacman -S openvpn</span>
-</pre></div>
-
-
-<p>开始安装不上，原来是SD卡容量用完了</p>
-<div class="codehilite"><pre><span class="c"># df -h -d 1 /</span>
-</pre></div>
-
-
-<p>找到一些不用，而且占用空间的数据，删除掉；</p>
-<p>服务器端：
-先到openvpn的目录去</p>
-<div class="codehilite"><pre><span class="c"># cd /usr/share/openvpn/easy-rsa</span>
-</pre></div>
-
-
-<p>编辑vars文件</p>
-<div class="codehilite"><pre><span class="c"># vim ./vars</span>
-</pre></div>
-
-
-<p>把一些基本的资料填上</p>
-<div class="codehilite"><pre><span class="c"># export KEY_COUNTRY=&quot;CN&quot;</span>
-<span class="c"># export KEY_PROVINCE=&quot;SH&quot;</span>
-<span class="c"># export KEY_CITY=&quot;Shanghai&quot;</span>
-<span class="c"># export KEY_ORG=&quot;user&quot;</span>
-<span class="c"># export KEY_EMAIL=&quot;user@mail.com&quot;</span>
-<span class="c"># export KEY_CN=user</span>
-<span class="c"># export KEY_NAME=user</span>
-<span class="c"># export KEY_OU=user</span>
-<span class="c"># export PKCS11_MODULE_PATH=user</span>
-<span class="c"># export PKCS11_PIN=123456</span>
-
-<span class="c"># source ./vars</span>
-<span class="c"># ./clean-all</span>
-<span class="c"># ./build-dh</span>
-<span class="c"># ./pkitool --initca</span>
-<span class="c"># ./pkitool --server server</span>
-<span class="c"># ./pkitool client1</span>
-<span class="c"># ./pkitool --pass client2</span>
-</pre></div>
-
-
-<p>编辑server的配置</p>
-<div class="codehilite"><pre><span class="c"># cp /usr/share/openvpn/example/server.conf /etc/openvpn/</span>
-
-<span class="c"># cp /usr/share/openvpn/easy-rsa/keys/ca.crt \</span>
-<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openvpn</span><span class="o">/</span><span class="n">easy</span><span class="o">-</span><span class="n">rsa</span><span class="o">/</span><span class="n">keys</span><span class="o">/</span><span class="n">server</span><span class="p">.</span><span class="n">crt</span> <span class="o">\</span>
-<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openvpn</span><span class="o">/</span><span class="n">easy</span><span class="o">-</span><span class="n">rsa</span><span class="o">/</span><span class="n">keys</span><span class="o">/</span><span class="n">server</span><span class="p">.</span><span class="n">key</span> <span class="o">\</span>
-<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">openvpn</span><span class="o">/</span><span class="n">easy</span><span class="o">-</span><span class="n">rsa</span><span class="o">/</span><span class="n">keys</span><span class="o">/</span><span class="n">dh1024</span><span class="p">.</span><span class="n">pem</span> <span class="o">\</span>
-<span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">openvpn</span><span class="o">/</span>
-
-<span class="c"># vim /etc/openvpn/server.conf</span>
-
-<span class="n">port</span> 1194 <span class="c">#openvpn默认端口为1194</span>
-<span class="n">proto</span> <span class="n">udp</span>
-<span class="n">dev</span> <span class="n">tun</span> 
-<span class="n">ca</span> <span class="n">ca</span><span class="p">.</span><span class="n">crt</span> 
-<span class="n">cert</span> <span class="n">server</span><span class="p">.</span><span class="n">crt</span> 
-<span class="n">key</span> <span class="n">server</span><span class="p">.</span><span class="n">key</span> 
-<span class="n">dh</span> <span class="n">dh1024</span><span class="p">.</span><span class="n">pem</span> 
-<span class="n">server</span> 172<span class="p">.</span>16<span class="p">.</span>0<span class="p">.</span>0 255<span class="p">.</span>255<span class="p">.</span>0<span class="p">.</span>0 
-<span class="n">push</span> <span class="s">&quot;dhcp-option DNS 168.95.192.1&quot;</span>
-<span class="n">push</span> <span class="s">&quot;dhcp-option DNS 168.95.192.2&quot;</span>
-<span class="n">push</span> <span class="s">&quot;route 172.16.0.0 255.255.0.0&quot;</span>
-<span class="n">ifconfig</span><span class="o">-</span><span class="n">pool</span><span class="o">-</span><span class="n">persist</span> <span class="n">ipp</span><span class="p">.</span><span class="n">txt</span> 
-<span class="n">keepalive</span> 10 120 
-<span class="n">comp</span><span class="o">-</span><span class="n">lzo</span> 
-<span class="n">user</span> <span class="n">nobody</span> 
-<span class="n">group</span> <span class="n">nobody</span> 
-<span class="n">persist</span><span class="o">-</span><span class="n">key</span> 
-<span class="n">persist</span><span class="o">-</span><span class="n">tun</span> 
-<span class="n">status</span> <span class="o">/</span><span class="nb">var</span><span class="o">/</span><span class="nb">log</span><span class="o">/</span><span class="n">openvpn</span><span class="o">-</span><span class="n">status</span><span class="p">.</span><span class="nb">log</span>
-<span class="n">verb</span> 3 
-<span class="n">client</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">client</span>
-<span class="n">duplicate</span><span class="o">-</span><span class="n">cn</span>
-<span class="nb">log</span> <span class="o">/</span><span class="nb">var</span><span class="o">/</span><span class="nb">log</span><span class="o">/</span><span class="n">openvpn</span><span class="p">.</span><span class="nb">log</span>
-<span class="nb">log</span><span class="o">-</span><span class="n">append</span> <span class="o">/</span><span class="nb">var</span><span class="o">/</span><span class="nb">log</span><span class="o">/</span><span class="n">openvpn</span><span class="p">.</span><span class="nb">log</span>
-</pre></div>
-
-
-<p>客户端配置
-把ca.crt client1.crt client1.key拷贝到本地来
-编辑客户端配置文件client.ovpn，没有的就新建一个</p>
-<div class="codehilite"><pre><span class="n">client</span>
-<span class="n">remote</span> <span class="n">server</span><span class="o">-</span><span class="n">ip</span> 1194
-<span class="n">dev</span> <span class="n">tun</span>
-<span class="n">proto</span> <span class="n">udp</span>
-<span class="n">resolv</span><span class="o">-</span><span class="n">retry</span> <span class="n">infinite</span>
-<span class="n">nobind</span>
-<span class="n">persist</span><span class="o">-</span><span class="n">key</span>
-<span class="n">persist</span><span class="o">-</span><span class="n">tun</span>
-<span class="n">ca</span> <span class="n">ca</span><span class="p">.</span><span class="n">crt</span>
-<span class="n">cert</span> <span class="n">client1</span><span class="p">.</span><span class="n">crt</span>
-<span class="n">key</span> <span class="n">client1</span><span class="p">.</span><span class="n">key</span>
-<span class="n">ns</span><span class="o">-</span><span class="n">cert</span><span class="o">-</span><span class="n">type</span> <span class="n">server</span>
-<span class="n">comp</span><span class="o">-</span><span class="n">lzo</span>
-<span class="n">route</span><span class="o">-</span><span class="n">delay</span> 2
-<span class="n">route</span><span class="o">-</span><span class="n">method</span> <span class="n">exe</span>
-<span class="n">verb</span> 3
-</pre></div>
-        </article></aside><!-- /#featured -->
-                        <h1>Other articles</h1>
-                <hr />
-                    <ol id="posts-list" class="hfeed">
-                        <li><article class="hentry">
+<p>tags: <a href="./tag/openvpn.html">openvpn</a><a href="./tag/vpn.html">vpn</a><a href="./tag/linux.html">linux</a><a href="./tag/archlinux.html">archlinux</a><a href="./tag/raspberrypi.html">raspberrypi</a></p></p>Translations: 
+            <a href="./2013-1-14-deploy-openvpn-post.html">en</a>
+    </footer><!-- /.post-info --><!-- /.post-info -->
+                在Linux部署OpenVPN
+                <a class="readmore" href="./2013-1-14-deploy-openvpn-post.html">read more</a>
+                </div><!-- /.entry-content -->
+        </article></li>
+                <li><article class="hentry">
                 <header>
                         <h1><a href="./2012-12-28-mysql-sync-post.html" rel="bookmark" title="Permalink to MySQL数据的双向同步">MySQL数据的双向同步</a></h1>
                 </header>
@@ -219,9 +168,10 @@
                                                    <li ><a href="./category/programming.html">programming</a></li>
                                                    <li ><a href="./category/helper.html">helper</a></li>
                                                    <li ><a href="./category/config.html">config</a></li>
+                                                   <li ><a href="./category/Programming.html">Programming</a></li>
                                                 </ul>
                 </div>
-                        <div class="widget blogroll">
+                        <div class="widget">
                         <h2>Blogroll</h2>
                         <ul>
                                                     <li><a href="http://www.fieldphp.com">FieldPHP</a></li>
@@ -255,5 +205,14 @@ src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fa
                 <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
         </footer><!-- /#footer -->
 
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-35574064-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
 </body>
 </html>

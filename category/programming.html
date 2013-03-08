@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>博文雅集 - programming</title>
+        <title>博文雅集 - Programming</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
         <link href="../" type="application/atom+xml" rel="alternate" title="博文雅集 ATOM Feed" />
@@ -29,43 +29,49 @@
 
                  <section id="content" class="body">
         <aside id="featured"><article>
-                <h1 class="entry-title"><a href="../2012-12-27-python-post.html">Python学习之路 - 获取IP的地理位置</a></h1>
+                <h1 class="entry-title"><a href="../2013-1-14-deploy-openvpn-post.html">Javascript模块化开发</a></h1>
                 <footer class="post-info">
-        <abbr class="published" title="2012-12-27T14:12:00">
-                Thu 27 December 2012
+        <abbr class="published" title="2013-03-07T17:31:00">
+                Thu 07 March 2013
         </abbr>
 
                 <address class="vcard author">
                 By <a class="url fn" href="../author/timothy.html">timothy</a>
         </address>
-        <p>In <a href="../category/programming.html">programming</a>. </p>
-<p>tags: <a href="../tag/python.html">python</a><a href="../tag/programming.html">programming</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                <p>Python有很多好玩的东西，这就是为什么这门语言如此令人着迷，下面的程序就是掩饰如何使用IP地址获取地理位置</p>
-<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">urllib2</span>
-<span class="kn">import</span> <span class="nn">BeautifulSoup</span>
-
-<span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;Run the script: ./geolocate.py IPAddress&quot;</span>
-
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">!=</span><span class="mi">2</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">ipaddr</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">geody</span> <span class="o">=</span> <span class="s">&quot;http://www.geody.com/geoip.php?ip=&quot;</span> <span class="o">+</span> <span class="n">ipaddr</span>
-<span class="n">html_page</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">geody</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_page</span><span class="p">)</span>
-
-<span class="c"># Filter paragraph containing geolocation info.</span>
-<span class="n">paragraph</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
-
-<span class="c"># Remove html tags using regex.</span>
-<span class="n">geo_txt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;&lt;.*?&gt;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">paragraph</span><span class="p">))</span>
-<span class="k">print</span> <span class="n">geo_txt</span><span class="p">[</span><span class="mi">32</span><span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <p>In <a href="../category/Programming.html">Programming</a>. </p>
+<p>tags: <a href="../tag/javascript.html">javascript</a></p></p>Translations: 
+            <a href="../2013-1-14-deploy-openvpn-post.html">en</a>
+    </footer><!-- /.post-info --><!-- /.post-info -->
+                <p>在这之前，对Javascript的认识并不多，也没有深入的理解Javascript编程语言，觉得Javascript就是干一下简单的事情，自从看了一本书《Javascript语言精粹》，很薄的一本书，却能够将Javascript的美表达的淋漓精致，对Javascript有很深刻的认识；但除了Javascript和PHP有语言精粹类的书籍，也希望其他的语言也能够有这样优秀的数据。</p>
+<p>模块化的编程，能够将程序很好的解耦，这样的方法能够将程序员从变幻莫测的需求变更中解救出来；
+Javascript的语法非常的松散，从其他语言转过来的只要看看语言精粹就可以快速的掌握它，下面的代码就是掩饰如何模块化开发；</p>
+<p>Javascript声明一个对象非常的简单，只要：</p>
+<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">TIMOTHY</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">params</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">}</span>
 </pre></div>
+
+
+<p>对象的创建如此简单，就可以根据这样的对象，来模块化开发</p>
+<div class="codehilite"><pre><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
+    <span class="nx">TIMOTHY</span><span class="p">.</span><span class="nx">language</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">chinese</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;this is Chinese&#39;</span><span class="p">);</span>
+        <span class="p">},</span>
+
+        <span class="nx">english</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;this is English&#39;</span><span class="p">)</span>
+        <span class="p">},</span>
+
+        <span class="nx">china</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+            <span class="nx">alert</span><span class="p">(</span><span class="nx">TIMOTHY</span><span class="p">.</span><span class="nx">language</span><span class="p">.</span><span class="nx">chinese</span><span class="p">);</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">})();</span>
+</pre></div>
+
+
+<p>这里仅仅演示了简单的代码，更严谨的代码参考CommonJs的，对Javascript的代码编写很大的帮助</p>
         </article></aside><!-- /#featured -->
             </ol><!-- /#posts-list -->
 </section><!-- /#content -->
@@ -74,12 +80,13 @@
                 <div class="widget">
                         <h2>Categories</h2>
                         <ul>
-                                                   <li class="active"><a href="../category/programming.html">programming</a></li>
+                                                   <li ><a href="../category/programming.html">programming</a></li>
                                                    <li ><a href="../category/helper.html">helper</a></li>
                                                    <li ><a href="../category/config.html">config</a></li>
+                                                   <li class="active"><a href="../category/Programming.html">Programming</a></li>
                                                 </ul>
                 </div>
-                        <div class="widget blogroll">
+                        <div class="widget">
                         <h2>Blogroll</h2>
                         <ul>
                                                     <li><a href="http://www.fieldphp.com">FieldPHP</a></li>
@@ -113,5 +120,14 @@ src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fa
                 <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
         </footer><!-- /#footer -->
 
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-35574064-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
 </body>
 </html>

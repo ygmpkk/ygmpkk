@@ -48,33 +48,33 @@
 ArchLinux Arm
 MySQL 5.3.3</p>
 <p>编辑mysql的/etc/mysql/my.cnf</p>
-<div class="codehilite"><pre><span class="n">root</span># <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="n">my</span><span class="p">.</span><span class="n">cnf</span>
+<div class="codehilite"><pre><span class="n">root</span><span class="err">#</span> <span class="n">vim</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="n">my</span><span class="p">.</span><span class="n">cnf</span>
 </pre></div>
 
 
 <p>主服务器设置server-id成唯一的id;</p>
-<div class="codehilite"><pre><span class="n">server</span><span class="o">-</span><span class="n">id</span> <span class="p">=</span> 1 #唯一的<span class="n">id</span>
-#这里的数字要与需要同步的<span class="n">mysql</span>服务器相同，用于自增长<span class="n">id</span><span class="p">;</span>
-#主要是主从双向同步，如果仅仅是主从单向同步，可以忽略
-<span class="n">auto</span><span class="o">-</span><span class="n">increment</span><span class="o">-</span><span class="n">increment</span> <span class="p">=</span> 2
-<span class="n">auto</span><span class="o">-</span><span class="n">increment</span><span class="o">-</span><span class="n">offset</span> <span class="p">=</span> 1
+<div class="codehilite"><pre><span class="n">server</span><span class="o">-</span><span class="n">id</span> <span class="o">=</span> <span class="mi">1</span> <span class="err">#唯一的</span><span class="n">id</span>
+<span class="cp">#这里的数字要与需要同步的mysql服务器相同，用于自增长id;</span>
+<span class="cp">#主要是主从双向同步，如果仅仅是主从单向同步，可以忽略</span>
+<span class="k">auto</span><span class="o">-</span><span class="n">increment</span><span class="o">-</span><span class="n">increment</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">auto</span><span class="o">-</span><span class="n">increment</span><span class="o">-</span><span class="n">offset</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 
 
 <p>从服务器设置server-id成唯一的id,不能和其他的mysql服务器重复;</p>
-<div class="codehilite"><pre><span class="n">server</span><span class="o">-</span><span class="n">id</span> <span class="p">=</span> 2 #唯一的<span class="n">id</span>
-<span class="n">auto</span><span class="o">-</span><span class="n">increment</span><span class="o">-</span><span class="n">increment</span> <span class="p">=</span> 2$
-<span class="n">auto</span><span class="o">-</span><span class="n">increment</span><span class="o">-</span><span class="n">offset</span> <span class="p">=</span> 2
+<div class="codehilite"><pre><span class="n">server</span><span class="o">-</span><span class="n">id</span> <span class="o">=</span> <span class="mi">2</span> <span class="err">#唯一的</span><span class="n">id</span>
+<span class="k">auto</span><span class="o">-</span><span class="n">increment</span><span class="o">-</span><span class="n">increment</span> <span class="o">=</span> <span class="mi">2</span><span class="err">$</span>
+<span class="k">auto</span><span class="o">-</span><span class="n">increment</span><span class="o">-</span><span class="n">offset</span> <span class="o">=</span> <span class="mi">2</span>
 </pre></div>
 
 
 <p>主服务器GRANT REPLICATION SLAVE ON <em>.</em> TO '用户名'@'%' IDENTIFIED BY '密码';最好不要使用root账号;</p>
-<div class="codehilite"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">REPLICATION</span> <span class="n">SLAVE</span> <span class="n">ON</span> <span class="o">*.*</span> <span class="n">TO</span> <span class="s">&#39;user&#39;</span><span class="p">@</span><span class="s">&#39;%&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="s">&#39;password&#39;</span><span class="p">;</span>
+<div class="codehilite"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">GRANT</span> <span class="n">REPLICATION</span> <span class="n">SLAVE</span> <span class="n">ON</span> <span class="o">*</span><span class="p">.</span><span class="o">*</span> <span class="n">TO</span> <span class="err">&#39;</span><span class="n">user</span><span class="sc">&#39;@&#39;</span><span class="o">%</span><span class="err">&#39;</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="err">&#39;</span><span class="n">password</span><span class="err">&#39;</span><span class="p">;</span>
 </pre></div>
 
 
 <p>从服务器CHANGE MASTER TO MASTER_HOST='主机地址', MASTER_USER='主服务器同步用户', MASTER_PASSWORD='主服务器同步密码', MASTER_LOG_FILE='主服务器Log文件', MASTER_LOG_POS=Log位置;</p>
-<div class="codehilite"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">change</span> <span class="n">master</span> <span class="n">to</span> <span class="n">master_host</span><span class="p">=</span><span class="s">&#39;192.168.1.2&#39;</span><span class="p">,</span><span class="n">MASTER_PORT</span><span class="p">=</span>3306<span class="p">,</span><span class="n">master_user</span><span class="p">=</span><span class="s">&#39;user&#39;</span><span class="p">,</span><span class="n">master_password</span><span class="p">=</span><span class="s">&#39;password&#39;</span><span class="p">,</span><span class="n">master_log_file</span><span class="p">=</span><span class="s">&#39;mysql-bin.000001&#39;</span><span class="p">,</span><span class="n">master_log_pos</span><span class="p">=</span>0<span class="p">;</span>
+<div class="codehilite"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">change</span> <span class="n">master</span> <span class="n">to</span> <span class="n">master_host</span><span class="o">=</span><span class="err">&#39;</span><span class="mf">192.168.1.2</span><span class="err">&#39;</span><span class="p">,</span><span class="n">MASTER_PORT</span><span class="o">=</span><span class="mi">3306</span><span class="p">,</span><span class="n">master_user</span><span class="o">=</span><span class="err">&#39;</span><span class="n">user</span><span class="err">&#39;</span><span class="p">,</span><span class="n">master_password</span><span class="o">=</span><span class="err">&#39;</span><span class="n">password</span><span class="err">&#39;</span><span class="p">,</span><span class="n">master_log_file</span><span class="o">=</span><span class="err">&#39;</span><span class="n">mysql</span><span class="o">-</span><span class="n">bin</span><span class="mf">.000001</span><span class="err">&#39;</span><span class="p">,</span><span class="n">master_log_pos</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 </pre></div>
 
 
@@ -86,7 +86,7 @@ MySQL 5.3.3</p>
 
 <p>从服务器SLAVE STATUS\G;查看Slave_IO_Running和Slave_SQL_Running状态是否都正常YES，否则需要排错;
 Slave_SQL_Running排错SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;</p>
-<div class="codehilite"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">SET</span> <span class="n">GLOBAL</span> <span class="n">SQL_SLAVE_SKIP_COUNTER</span><span class="p">=</span>1<span class="p">;</span>
+<div class="codehilite"><pre><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">SET</span> <span class="n">GLOBAL</span> <span class="n">SQL_SLAVE_SKIP_COUNTER</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
 </pre></div>
         </div><!-- /.entry-content -->
                 <div class="comments">
@@ -112,9 +112,10 @@ Slave_SQL_Running排错SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;</p>
                                                    <li ><a href="./category/programming.html">programming</a></li>
                                                    <li ><a href="./category/helper.html">helper</a></li>
                                                    <li class="active"><a href="./category/config.html">config</a></li>
+                                                   <li ><a href="./category/Programming.html">Programming</a></li>
                                                 </ul>
                 </div>
-                        <div class="widget blogroll">
+                        <div class="widget">
                         <h2>Blogroll</h2>
                         <ul>
                                                     <li><a href="http://www.fieldphp.com">FieldPHP</a></li>
@@ -148,5 +149,14 @@ src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fa
                 <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
         </footer><!-- /#footer -->
 
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+        var pageTracker = _gat._getTracker("UA-35574064-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
 </body>
 </html>

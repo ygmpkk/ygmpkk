@@ -47,40 +47,40 @@
 
 
 &lt;p&gt;编辑server的配置&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# cp /usr/share/openvpn/example/server.conf /etc/openvpn/&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# cp /usr/share/openvpn/example/server.conf /etc/openvpn/&lt;/span&gt;
 
-&lt;span class="c"&gt;# cp /usr/share/openvpn/easy-rsa/keys/ca.crt \&lt;/span&gt;
-&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;easy&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rsa&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt; &lt;span class="o"&gt;\&lt;/span&gt;
-&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;easy&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rsa&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;\&lt;/span&gt;
-&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;easy&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rsa&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dh1024&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt; &lt;span class="o"&gt;\&lt;/span&gt;
-&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="cp"&gt;# cp /usr/share/openvpn/easy-rsa/keys/ca.crt \&lt;/span&gt;
+&lt;span class="cp"&gt;/usr/share/openvpn/easy-rsa/keys/server.crt \&lt;/span&gt;
+&lt;span class="cp"&gt;/usr/share/openvpn/easy-rsa/keys/server.key \&lt;/span&gt;
+&lt;span class="cp"&gt;/usr/share/openvpn/easy-rsa/keys/dh1024.pem \&lt;/span&gt;
+&lt;span class="cp"&gt;/etc/openvpn/&lt;/span&gt;
 
-&lt;span class="c"&gt;# vim /etc/openvpn/server.conf&lt;/span&gt;
+&lt;span class="cp"&gt;# vim /etc/openvpn/server.conf&lt;/span&gt;
 
-&lt;span class="n"&gt;port&lt;/span&gt; 1194 &lt;span class="c"&gt;#openvpn默认端口为1194&lt;/span&gt;
+&lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="mi"&gt;1194&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="err"&gt;默认端口为&lt;/span&gt;&lt;span class="mi"&gt;1194&lt;/span&gt;
 &lt;span class="n"&gt;proto&lt;/span&gt; &lt;span class="n"&gt;udp&lt;/span&gt;
 &lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;tun&lt;/span&gt; 
 &lt;span class="n"&gt;ca&lt;/span&gt; &lt;span class="n"&gt;ca&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt; 
 &lt;span class="n"&gt;cert&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt; 
 &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; 
 &lt;span class="n"&gt;dh&lt;/span&gt; &lt;span class="n"&gt;dh1024&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt; 
-&lt;span class="n"&gt;server&lt;/span&gt; 172&lt;span class="p"&gt;.&lt;/span&gt;16&lt;span class="p"&gt;.&lt;/span&gt;0&lt;span class="p"&gt;.&lt;/span&gt;0 255&lt;span class="p"&gt;.&lt;/span&gt;255&lt;span class="p"&gt;.&lt;/span&gt;0&lt;span class="p"&gt;.&lt;/span&gt;0 
+&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="mf"&gt;172.16.0.0&lt;/span&gt; &lt;span class="mf"&gt;255.255.0.0&lt;/span&gt; 
 &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;dhcp-option DNS 168.95.192.1&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;dhcp-option DNS 168.95.192.2&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;route 172.16.0.0 255.255.0.0&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;ifconfig&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pool&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;persist&lt;/span&gt; &lt;span class="n"&gt;ipp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; 
-&lt;span class="n"&gt;keepalive&lt;/span&gt; 10 120 
+&lt;span class="n"&gt;keepalive&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="mi"&gt;120&lt;/span&gt; 
 &lt;span class="n"&gt;comp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lzo&lt;/span&gt; 
 &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="n"&gt;nobody&lt;/span&gt; 
 &lt;span class="n"&gt;group&lt;/span&gt; &lt;span class="n"&gt;nobody&lt;/span&gt; 
 &lt;span class="n"&gt;persist&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; 
 &lt;span class="n"&gt;persist&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tun&lt;/span&gt; 
-&lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;
-&lt;span class="n"&gt;verb&lt;/span&gt; 3 
+&lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;
+&lt;span class="n"&gt;verb&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; 
 &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;
 &lt;span class="n"&gt;duplicate&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cn&lt;/span&gt;
-&lt;span class="nb"&gt;log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;
-&lt;span class="nb"&gt;log&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;log&lt;/span&gt;
+&lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;
+&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -88,7 +88,7 @@
 把ca.crt client1.crt client1.key拷贝到本地来
 编辑客户端配置文件client.ovpn，没有的就新建一个&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;client&lt;/span&gt;
-&lt;span class="n"&gt;remote&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ip&lt;/span&gt; 1194
+&lt;span class="n"&gt;remote&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="mi"&gt;1194&lt;/span&gt;
 &lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;tun&lt;/span&gt;
 &lt;span class="n"&gt;proto&lt;/span&gt; &lt;span class="n"&gt;udp&lt;/span&gt;
 &lt;span class="n"&gt;resolv&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;retry&lt;/span&gt; &lt;span class="n"&gt;infinite&lt;/span&gt;
@@ -100,41 +100,41 @@
 &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="n"&gt;client1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;
 &lt;span class="n"&gt;ns&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cert&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;
 &lt;span class="n"&gt;comp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lzo&lt;/span&gt;
-&lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt; 2
+&lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
 &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="n"&gt;exe&lt;/span&gt;
-&lt;span class="n"&gt;verb&lt;/span&gt; 3
+&lt;span class="n"&gt;verb&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="openvpn"></category><category term="vpn"></category><category term="linux"></category><category term="archlinux"></category><category term="raspberrypi"></category></entry><entry><title>MySQL数据的双向同步</title><link href="http://ygmpkk.com/2012-12-28-mysql-sync-post.html" rel="alternate"></link><updated>2012-12-28T10:49:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2012-12-28:2012-12-28-mysql-sync-post.html</id><summary type="html">&lt;p&gt;这些都是在Linux下操作，Windows可以参考一下配置文件；&lt;/p&gt;
 &lt;p&gt;运行环境：
 ArchLinux Arm
 MySQL 5.3.3&lt;/p&gt;
 &lt;p&gt;编辑mysql的/etc/mysql/my.cnf&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;root&lt;/span&gt;# &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cnf&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;root&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cnf&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;主服务器设置server-id成唯一的id;&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 1 #唯一的&lt;span class="n"&gt;id&lt;/span&gt;
-#这里的数字要与需要同步的&lt;span class="n"&gt;mysql&lt;/span&gt;服务器相同，用于自增长&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-#主要是主从双向同步，如果仅仅是主从单向同步，可以忽略
-&lt;span class="n"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 2
-&lt;span class="n"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;offset&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 1
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="err"&gt;#唯一的&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;
+&lt;span class="cp"&gt;#这里的数字要与需要同步的mysql服务器相同，用于自增长id;&lt;/span&gt;
+&lt;span class="cp"&gt;#主要是主从双向同步，如果仅仅是主从单向同步，可以忽略&lt;/span&gt;
+&lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;offset&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;从服务器设置server-id成唯一的id,不能和其他的mysql服务器重复;&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 2 #唯一的&lt;span class="n"&gt;id&lt;/span&gt;
-&lt;span class="n"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 2$
-&lt;span class="n"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;offset&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; 2
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="err"&gt;#唯一的&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;
+&lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;
+&lt;span class="k"&gt;auto&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;increment&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;offset&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;主服务器GRANT REPLICATION SLAVE ON &lt;em&gt;.&lt;/em&gt; TO '用户名'@'%' IDENTIFIED BY '密码';最好不要使用root账号;&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;GRANT&lt;/span&gt; &lt;span class="n"&gt;REPLICATION&lt;/span&gt; &lt;span class="n"&gt;SLAVE&lt;/span&gt; &lt;span class="n"&gt;ON&lt;/span&gt; &lt;span class="o"&gt;*.*&lt;/span&gt; &lt;span class="n"&gt;TO&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;user&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;@&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;%&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;IDENTIFIED&lt;/span&gt; &lt;span class="n"&gt;BY&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;GRANT&lt;/span&gt; &lt;span class="n"&gt;REPLICATION&lt;/span&gt; &lt;span class="n"&gt;SLAVE&lt;/span&gt; &lt;span class="n"&gt;ON&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;TO&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="sc"&gt;&amp;#39;@&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;IDENTIFIED&lt;/span&gt; &lt;span class="n"&gt;BY&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;从服务器CHANGE MASTER TO MASTER_HOST='主机地址', MASTER_USER='主服务器同步用户', MASTER_PASSWORD='主服务器同步密码', MASTER_LOG_FILE='主服务器Log文件', MASTER_LOG_POS=Log位置;&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;change&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;master_host&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;192.168.1.2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;MASTER_PORT&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;3306&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;master_user&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;user&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;master_password&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;password&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;master_log_file&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;mysql-bin.000001&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;master_log_pos&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;0&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;change&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;master_host&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="mf"&gt;192.168.1.2&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;MASTER_PORT&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3306&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;master_user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;user&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;master_password&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;master_log_file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="mf"&gt;.000001&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;master_log_pos&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -146,5 +146,5 @@ MySQL 5.3.3&lt;/p&gt;
 
 &lt;p&gt;从服务器SLAVE STATUS\G;查看Slave_IO_Running和Slave_SQL_Running状态是否都正常YES，否则需要排错;
 Slave_SQL_Running排错SET GLOBAL SQL_SLAVE_SKIP_COUNTER=1;&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;GLOBAL&lt;/span&gt; &lt;span class="n"&gt;SQL_SLAVE_SKIP_COUNTER&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;1&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;mysql&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;GLOBAL&lt;/span&gt; &lt;span class="n"&gt;SQL_SLAVE_SKIP_COUNTER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="mysql"></category><category term="linux"></category></entry></feed>
