@@ -20,7 +20,30 @@ python对代码的格式非常严格，结构体必须是4个空格，当我删�
 
 &lt;p&gt;指定行数格式化，按行数加两个等号&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">timothy</dc:creator><pubDate>Sat, 09 Mar 2013 08:53:00 +0800</pubDate><guid>tag:ygmpkk.com,2013-03-09:2013-3-9-vim-lines-count-and-format.html</guid><category>vim</category><category>mac os x</category><category>linux</category></item><item><title>Javascript模块化开发</title><link>http://ygmpkk.com/2013-3-7-javascript-module.html</link><description>&lt;p&gt;在这之前，对Javascript的认识并不多，也没有深入的理解Javascript编程语言，觉得Javascript就是干一下简单的事情，自从看了一本书《Javascript语言精粹》，很薄的一本书，却能够将Javascript的美表达的淋漓精致，对Javascript有很深刻的认识；但除了Javascript和PHP有语言精粹类的书籍，也希望其他的语言也能够有这样优秀的数据。&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">timothy</dc:creator><pubDate>Sat, 09 Mar 2013 08:53:00 +0800</pubDate><guid>tag:ygmpkk.com,2013-03-09:2013-3-9-vim-lines-count-and-format.html</guid><category>vim</category><category>mac os x</category><category>linux</category></item><item><title>Vim配置文件</title><link>http://ygmpkk.com/2013-3-9-vim-config.html</link><description>&lt;blockquote&gt;
+&lt;p&gt;编辑器只有两种，一种是vi/vim，一种是emacs，一种全部归类为其他 --wikipedia&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;vi/vim在类Unix的世界里面，是一个功能非常强大的编辑器，有人喜欢emacs有人喜欢vi/vim，展开了编辑器之战；当然我并不是要比较这两个编辑器之间的差异，而是要找到一个顺手的编辑器；
+编辑器的主要目的是为了提供效率，vi/vim就是为此而生，这就是我喜欢它的原因；&lt;/p&gt;
+&lt;p&gt;编辑器的学习曲线：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="编辑器学习曲线" src="./statics/editor.jpg" title="编辑器学习曲线" /&gt;&lt;/p&gt;
+&lt;p&gt;一旦掌握了vi/vim之后效率明显提升很多；&lt;/p&gt;
+&lt;p&gt;当然vim的配置文件就非常重要了；&lt;/p&gt;
+&lt;p&gt;作为python的主力编辑器，需要配置语法高亮，自动缩进等等，但我没有配置代码提示，有人说代码提示提高效率，但对于我刚转到python语言来的人来说，这会让我不能很好的掌握它，编写javascript也是一样，不用代码提示，当然等一定的时候，效率的确是瓶颈了，再考虑是否加上代码提示；&lt;/p&gt;
+&lt;p&gt;使用已经在github上的配置文件&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/ygmpkk/vim.git ~/.vim&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;安装完成之后再配置编辑文件的编码&lt;/p&gt;
+&lt;p&gt;vim ~/.vimrc加入&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;encoding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;vim的详细配置与快捷键参考这里&lt;/p&gt;
+&lt;p&gt;(https://github.com/ygmpkk/vim)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">timothy</dc:creator><pubDate>Sat, 09 Mar 2013 00:00:00 +0800</pubDate><guid>tag:ygmpkk.com,2013-03-09:2013-3-9-vim-config.html</guid><category>vim</category><category>linux</category><category>mac os x</category></item><item><title>Javascript模块化开发</title><link>http://ygmpkk.com/2013-3-7-javascript-module.html</link><description>&lt;p&gt;在这之前，对Javascript的认识并不多，也没有深入的理解Javascript编程语言，觉得Javascript就是干一下简单的事情，自从看了一本书《Javascript语言精粹》，很薄的一本书，却能够将Javascript的美表达的淋漓精致，对Javascript有很深刻的认识；但除了Javascript和PHP有语言精粹类的书籍，也希望其他的语言也能够有这样优秀的数据。&lt;/p&gt;
 &lt;p&gt;模块化的编程，能够将程序很好的解耦，这样的方法能够将程序员从变幻莫测的需求变更中解救出来；
 Javascript的语法非常的松散，从其他语言转过来的只要看看语言精粹就可以快速的掌握它，下面的代码就是掩饰如何模块化开发；&lt;/p&gt;
 &lt;p&gt;Javascript声明一个对象非常的简单，只要：&lt;/p&gt;

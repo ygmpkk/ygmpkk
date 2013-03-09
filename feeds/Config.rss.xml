@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>博文雅集</title><link>http://ygmpkk.com/</link><description></description><atom:link href="http://ygmpkk.com/feeds/config.rss.xml" rel="self"></atom:link><lastBuildDate>Mon, 14 Jan 2013 09:10:00 +0800</lastBuildDate><item><title>ArchLinux Arm部署OpenVPN</title><link>http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html</link><description>&lt;p&gt;运行环境：
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>博文雅集</title><link>http://ygmpkk.com/</link><description></description><atom:link href="http://ygmpkk.com/feeds/config.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 09 Mar 2013 00:00:00 +0800</lastBuildDate><item><title>Vim配置文件</title><link>http://ygmpkk.com/2013-3-9-vim-config.html</link><description>&lt;blockquote&gt;
+&lt;p&gt;编辑器只有两种，一种是vi/vim，一种是emacs，一种全部归类为其他 --wikipedia&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;vi/vim在类Unix的世界里面，是一个功能非常强大的编辑器，有人喜欢emacs有人喜欢vi/vim，展开了编辑器之战；当然我并不是要比较这两个编辑器之间的差异，而是要找到一个顺手的编辑器；
+编辑器的主要目的是为了提供效率，vi/vim就是为此而生，这就是我喜欢它的原因；&lt;/p&gt;
+&lt;p&gt;编辑器的学习曲线：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="编辑器学习曲线" src="./statics/editor.jpg" title="编辑器学习曲线" /&gt;&lt;/p&gt;
+&lt;p&gt;一旦掌握了vi/vim之后效率明显提升很多；&lt;/p&gt;
+&lt;p&gt;当然vim的配置文件就非常重要了；&lt;/p&gt;
+&lt;p&gt;作为python的主力编辑器，需要配置语法高亮，自动缩进等等，但我没有配置代码提示，有人说代码提示提高效率，但对于我刚转到python语言来的人来说，这会让我不能很好的掌握它，编写javascript也是一样，不用代码提示，当然等一定的时候，效率的确是瓶颈了，再考虑是否加上代码提示；&lt;/p&gt;
+&lt;p&gt;使用已经在github上的配置文件&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/ygmpkk/vim.git ~/.vim&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vim&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;安装完成之后再配置编辑文件的编码&lt;/p&gt;
+&lt;p&gt;vim ~/.vimrc加入&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="n"&gt;encoding&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;vim的详细配置与快捷键参考这里&lt;/p&gt;
+&lt;p&gt;(https://github.com/ygmpkk/vim)&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">timothy</dc:creator><pubDate>Sat, 09 Mar 2013 00:00:00 +0800</pubDate><guid>tag:ygmpkk.com,2013-03-09:2013-3-9-vim-config.html</guid><category>vim</category><category>linux</category><category>mac os x</category></item><item><title>ArchLinux Arm部署OpenVPN</title><link>http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html</link><description>&lt;p&gt;运行环境：
 硬件：Raspberry PI
 系统：ArchLinux ARM&lt;/p&gt;
 &lt;p&gt;安装openvpn的包&lt;/p&gt;
