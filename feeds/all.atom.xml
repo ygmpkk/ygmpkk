@@ -1,34 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/all.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2013-03-07T17:31:00+08:00</updated><entry><title>Javascript模块化开发</title><link href="http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html" rel="alternate"></link><updated>2013-03-07T17:31:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-03-07:2013-1-14-deploy-openvpn-post.html</id><summary type="html">&lt;p&gt;在这之前，对Javascript的认识并不多，也没有深入的理解Javascript编程语言，觉得Javascript就是干一下简单的事情，自从看了一本书《Javascript语言精粹》，很薄的一本书，却能够将Javascript的美表达的淋漓精致，对Javascript有很深刻的认识；但除了Javascript和PHP有语言精粹类的书籍，也希望其他的语言也能够有这样优秀的数据。&lt;/p&gt;
-&lt;p&gt;模块化的编程，能够将程序很好的解耦，这样的方法能够将程序员从变幻莫测的需求变更中解救出来；
-Javascript的语法非常的松散，从其他语言转过来的只要看看语言精粹就可以快速的掌握它，下面的代码就是掩饰如何模块化开发；&lt;/p&gt;
-&lt;p&gt;Javascript声明一个对象非常的简单，只要：&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;TIMOTHY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="nx"&gt;params&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/all.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2013-03-09T08:53:00+08:00</updated><entry><title>Vim代码统计行数和代码格式化</title><link href="http://ygmpkk.com/2013-3-9-vim-lines-count-and-format.html" rel="alternate"></link><updated>2013-03-09T08:53:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-03-09:2013-3-9-vim-lines-count-and-format.html</id><summary type="html">&lt;p&gt;记录一下以免忘记；&lt;/p&gt;
+&lt;p&gt;vim的功能的确强大，在Mac OS X下以Vim为主力编辑器，编写python代码；
+python对代码的格式非常严格，结构体必须是4个空格，当我删除if语句的时候，结构体就有8个空格了，我要先统计if代码范围的行数，在进行格式化；&lt;/p&gt;
+&lt;p&gt;统计行数很简单，只要：&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;end&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; 
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;对象的创建如此简单，就可以根据这样的对象，来模块化开发&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-    &lt;span class="nx"&gt;TIMOTHY&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;language&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nx"&gt;chinese&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
-            &lt;span class="nx"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;this is Chinese&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="p"&gt;},&lt;/span&gt;
-
-        &lt;span class="nx"&gt;english&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
-            &lt;span class="nx"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;this is English&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-        &lt;span class="p"&gt;},&lt;/span&gt;
-
-        &lt;span class="nx"&gt;china&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
-            &lt;span class="nx"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;TIMOTHY&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;language&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;chinese&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="p"&gt;},&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;})();&lt;/span&gt;
+&lt;p&gt;如果要统计全部的行数，一般情况下，Vim编辑器的右下角会显示的，所以意义不大&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;:%&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/^&lt;/span&gt;&lt;span class="c1"&gt;//n&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;这里仅仅演示了简单的代码，更严谨的代码参考CommonJs的，对Javascript的代码编写很大的帮助&lt;/p&gt;</summary><category term="javascript"></category></entry><entry><title>Javascript模块化开发</title><link href="http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html" rel="alternate"></link><updated>2013-03-07T17:31:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-03-07:2013-1-14-deploy-openvpn-post.html</id><summary type="html">&lt;p&gt;在这之前，对Javascript的认识并不多，也没有深入的理解Javascript编程语言，觉得Javascript就是干一下简单的事情，自从看了一本书《Javascript语言精粹》，很薄的一本书，却能够将Javascript的美表达的淋漓精致，对Javascript有很深刻的认识；但除了Javascript和PHP有语言精粹类的书籍，也希望其他的语言也能够有这样优秀的数据。&lt;/p&gt;
+&lt;p&gt;要对行数格式化，一种是全部格式化，一种是指定行数格式化，指定行数格式化是从当前行往下的行数&lt;/p&gt;
+&lt;p&gt;全部格式化，在esc状态，按等号两下&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;==&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;指定行数格式化，按行数加两个等号&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="vim"></category><category term="mac os x"></category><category term="linux"></category></entry><entry><title>Javascript模块化开发</title><link href="http://ygmpkk.com/2013-3-7-javascript-module.html" rel="alternate"></link><updated>2013-03-07T17:31:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-03-07:2013-3-7-javascript-module.html</id><summary type="html">&lt;p&gt;在这之前，对Javascript的认识并不多，也没有深入的理解Javascript编程语言，觉得Javascript就是干一下简单的事情，自从看了一本书《Javascript语言精粹》，很薄的一本书，却能够将Javascript的美表达的淋漓精致，对Javascript有很深刻的认识；但除了Javascript和PHP有语言精粹类的书籍，也希望其他的语言也能够有这样优秀的数据。&lt;/p&gt;
 &lt;p&gt;模块化的编程，能够将程序很好的解耦，这样的方法能够将程序员从变幻莫测的需求变更中解救出来；
 Javascript的语法非常的松散，从其他语言转过来的只要看看语言精粹就可以快速的掌握它，下面的代码就是掩饰如何模块化开发；&lt;/p&gt;
 &lt;p&gt;Javascript声明一个对象非常的简单，只要：&lt;/p&gt;
@@ -58,110 +50,6 @@ Javascript的语法非常的松散，从其他语言转过来的只要看看语�
 
 
 &lt;p&gt;这里仅仅演示了简单的代码，更严谨的代码参考CommonJs的，对Javascript的代码编写很大的帮助&lt;/p&gt;</summary><category term="javascript"></category></entry><entry><title>ArchLinux Arm部署OpenVPN</title><link href="http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html" rel="alternate"></link><updated>2013-01-14T09:10:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-01-14:2013-1-14-deploy-openvpn-post.html</id><summary type="html">&lt;p&gt;运行环境：
-硬件：Raspberry PI
-系统：ArchLinux ARM&lt;/p&gt;
-&lt;p&gt;安装openvpn的包&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# pacman -S openvpn&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;开始安装不上，原来是SD卡容量用完了&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# df -h -d 1 /&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;找到一些不用，而且占用空间的数据，删除掉；&lt;/p&gt;
-&lt;p&gt;服务器端：
-先到openvpn的目录去&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# cd /usr/share/openvpn/easy-rsa&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;编辑vars文件&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# vim ./vars&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;把一些基本的资料填上&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# export KEY_COUNTRY=&amp;quot;CN&amp;quot;&lt;/span&gt;
-&lt;span class="c"&gt;# export KEY_PROVINCE=&amp;quot;SH&amp;quot;&lt;/span&gt;
-&lt;span class="c"&gt;# export KEY_CITY=&amp;quot;Shanghai&amp;quot;&lt;/span&gt;
-&lt;span class="c"&gt;# export KEY_ORG=&amp;quot;user&amp;quot;&lt;/span&gt;
-&lt;span class="c"&gt;# export KEY_EMAIL=&amp;quot;user@mail.com&amp;quot;&lt;/span&gt;
-&lt;span class="c"&gt;# export KEY_CN=user&lt;/span&gt;
-&lt;span class="c"&gt;# export KEY_NAME=user&lt;/span&gt;
-&lt;span class="c"&gt;# export KEY_OU=user&lt;/span&gt;
-&lt;span class="c"&gt;# export PKCS11_MODULE_PATH=user&lt;/span&gt;
-&lt;span class="c"&gt;# export PKCS11_PIN=123456&lt;/span&gt;
-
-&lt;span class="c"&gt;# source ./vars&lt;/span&gt;
-&lt;span class="c"&gt;# ./clean-all&lt;/span&gt;
-&lt;span class="c"&gt;# ./build-dh&lt;/span&gt;
-&lt;span class="c"&gt;# ./pkitool --initca&lt;/span&gt;
-&lt;span class="c"&gt;# ./pkitool --server server&lt;/span&gt;
-&lt;span class="c"&gt;# ./pkitool client1&lt;/span&gt;
-&lt;span class="c"&gt;# ./pkitool --pass client2&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;编辑server的配置&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;# cp /usr/share/openvpn/example/server.conf /etc/openvpn/&lt;/span&gt;
-
-&lt;span class="cp"&gt;# cp /usr/share/openvpn/easy-rsa/keys/ca.crt \&lt;/span&gt;
-&lt;span class="cp"&gt;/usr/share/openvpn/easy-rsa/keys/server.crt \&lt;/span&gt;
-&lt;span class="cp"&gt;/usr/share/openvpn/easy-rsa/keys/server.key \&lt;/span&gt;
-&lt;span class="cp"&gt;/usr/share/openvpn/easy-rsa/keys/dh1024.pem \&lt;/span&gt;
-&lt;span class="cp"&gt;/etc/openvpn/&lt;/span&gt;
-
-&lt;span class="cp"&gt;# vim /etc/openvpn/server.conf&lt;/span&gt;
-
-&lt;span class="n"&gt;port&lt;/span&gt; &lt;span class="mi"&gt;1194&lt;/span&gt; &lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="err"&gt;默认端口为&lt;/span&gt;&lt;span class="mi"&gt;1194&lt;/span&gt;
-&lt;span class="n"&gt;proto&lt;/span&gt; &lt;span class="n"&gt;udp&lt;/span&gt;
-&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;tun&lt;/span&gt; 
-&lt;span class="n"&gt;ca&lt;/span&gt; &lt;span class="n"&gt;ca&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt; 
-&lt;span class="n"&gt;cert&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt; 
-&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; 
-&lt;span class="n"&gt;dh&lt;/span&gt; &lt;span class="n"&gt;dh1024&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pem&lt;/span&gt; 
-&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="mf"&gt;172.16.0.0&lt;/span&gt; &lt;span class="mf"&gt;255.255.0.0&lt;/span&gt; 
-&lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;dhcp-option DNS 168.95.192.1&amp;quot;&lt;/span&gt;
-&lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;dhcp-option DNS 168.95.192.2&amp;quot;&lt;/span&gt;
-&lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;route 172.16.0.0 255.255.0.0&amp;quot;&lt;/span&gt;
-&lt;span class="n"&gt;ifconfig&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;pool&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;persist&lt;/span&gt; &lt;span class="n"&gt;ipp&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt; 
-&lt;span class="n"&gt;keepalive&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="mi"&gt;120&lt;/span&gt; 
-&lt;span class="n"&gt;comp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lzo&lt;/span&gt; 
-&lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="n"&gt;nobody&lt;/span&gt; 
-&lt;span class="n"&gt;group&lt;/span&gt; &lt;span class="n"&gt;nobody&lt;/span&gt; 
-&lt;span class="n"&gt;persist&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; 
-&lt;span class="n"&gt;persist&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tun&lt;/span&gt; 
-&lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;
-&lt;span class="n"&gt;verb&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; 
-&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;
-&lt;span class="n"&gt;duplicate&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cn&lt;/span&gt;
-&lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;
-&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;var&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openvpn&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;log&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;客户端配置
-把ca.crt client1.crt client1.key拷贝到本地来
-编辑客户端配置文件client.ovpn，没有的就新建一个&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;client&lt;/span&gt;
-&lt;span class="n"&gt;remote&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ip&lt;/span&gt; &lt;span class="mi"&gt;1194&lt;/span&gt;
-&lt;span class="n"&gt;dev&lt;/span&gt; &lt;span class="n"&gt;tun&lt;/span&gt;
-&lt;span class="n"&gt;proto&lt;/span&gt; &lt;span class="n"&gt;udp&lt;/span&gt;
-&lt;span class="n"&gt;resolv&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;retry&lt;/span&gt; &lt;span class="n"&gt;infinite&lt;/span&gt;
-&lt;span class="n"&gt;nobind&lt;/span&gt;
-&lt;span class="n"&gt;persist&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;
-&lt;span class="n"&gt;persist&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;tun&lt;/span&gt;
-&lt;span class="n"&gt;ca&lt;/span&gt; &lt;span class="n"&gt;ca&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt;
-&lt;span class="n"&gt;cert&lt;/span&gt; &lt;span class="n"&gt;client1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;crt&lt;/span&gt;
-&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="n"&gt;client1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;
-&lt;span class="n"&gt;ns&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cert&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;
-&lt;span class="n"&gt;comp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lzo&lt;/span&gt;
-&lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;delay&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;method&lt;/span&gt; &lt;span class="n"&gt;exe&lt;/span&gt;
-&lt;span class="n"&gt;verb&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="openvpn"></category><category term="vpn"></category><category term="linux"></category><category term="archlinux"></category><category term="raspberrypi"></category></entry><entry><title>ArchLinux Arm部署OpenVPN</title><link href="http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html" rel="alternate"></link><updated>2013-01-14T09:10:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-01-14:2013-1-14-deploy-openvpn-post.html</id><summary type="html">&lt;p&gt;运行环境：
 硬件：Raspberry PI
 系统：ArchLinux ARM&lt;/p&gt;
 &lt;p&gt;安装openvpn的包&lt;/p&gt;

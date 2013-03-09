@@ -29,7 +29,49 @@
 
                  <section id="content" class="body">
         <aside id="featured"><article>
-                <h1 class="entry-title"><a href="./2013-1-14-deploy-openvpn-post.html">Javascript模块化开发</a></h1>
+                <h1 class="entry-title"><a href="./2013-3-9-vim-lines-count-and-format.html">Vim代码统计行数和代码格式化</a></h1>
+                <footer class="post-info">
+        <abbr class="published" title="2013-03-09T08:53:00">
+                Sat 09 March 2013
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="./author/timothy.html">timothy</a>
+        </address>
+        <p>In <a href="./category/Programming.html">Programming</a>. </p>
+<p>tags: <a href="./tag/vim.html">vim</a><a href="./tag/mac os x.html">mac os x</a><a href="./tag/linux.html">linux</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
+                <p>记录一下以免忘记；</p>
+<p>vim的功能的确强大，在Mac OS X下以Vim为主力编辑器，编写python代码；
+python对代码的格式非常严格，结构体必须是4个空格，当我删除if语句的时候，结构体就有8个空格了，我要先统计if代码范围的行数，在进行格式化；</p>
+<p>统计行数很简单，只要：</p>
+<div class="codehilite"><pre><span class="o">:</span><span class="n">echo</span> <span class="n">start</span> <span class="n">line</span> <span class="o">-</span> <span class="n">end</span> <span class="n">line</span> 
+</pre></div>
+
+
+<p>如果要统计全部的行数，一般情况下，Vim编辑器的右下角会显示的，所以意义不大</p>
+<div class="codehilite"><pre><span class="o">:%</span><span class="n">s</span><span class="o">/^</span><span class="c1">//n</span>
+</pre></div>
+
+
+<p>要对行数格式化，一种是全部格式化，一种是指定行数格式化，指定行数格式化是从当前行往下的行数</p>
+<p>全部格式化，在esc状态，按等号两下</p>
+<div class="codehilite"><pre><span class="o">==</span>
+</pre></div>
+
+
+<p>指定行数格式化，按行数加两个等号</p>
+<div class="codehilite"><pre><span class="n">n</span><span class="o">==</span>
+</pre></div>
+        </article></aside><!-- /#featured -->
+                        <h1>Other articles</h1>
+                <hr />
+                    <ol id="posts-list" class="hfeed">
+                        <li><article class="hentry">
+                <header>
+                        <h1><a href="./2013-3-7-javascript-module.html" rel="bookmark" title="Permalink to Javascript模块化开发">Javascript模块化开发</a></h1>
+                </header>
+
+                <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-03-07T17:31:00">
                 Thu 07 March 2013
@@ -39,44 +81,12 @@
                 By <a class="url fn" href="./author/timothy.html">timothy</a>
         </address>
         <p>In <a href="./category/Programming.html">Programming</a>. </p>
-<p>tags: <a href="./tag/javascript.html">javascript</a></p></p>Translations: 
-            <a href="./2013-1-14-deploy-openvpn-post.html">en</a>
-    </footer><!-- /.post-info --><!-- /.post-info -->
-                <p>在这之前，对Javascript的认识并不多，也没有深入的理解Javascript编程语言，觉得Javascript就是干一下简单的事情，自从看了一本书《Javascript语言精粹》，很薄的一本书，却能够将Javascript的美表达的淋漓精致，对Javascript有很深刻的认识；但除了Javascript和PHP有语言精粹类的书籍，也希望其他的语言也能够有这样优秀的数据。</p>
-<p>模块化的编程，能够将程序很好的解耦，这样的方法能够将程序员从变幻莫测的需求变更中解救出来；
-Javascript的语法非常的松散，从其他语言转过来的只要看看语言精粹就可以快速的掌握它，下面的代码就是掩饰如何模块化开发；</p>
-<p>Javascript声明一个对象非常的简单，只要：</p>
-<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">TIMOTHY</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">params</span><span class="o">:</span> <span class="kc">false</span>
-<span class="p">}</span>
-</pre></div>
-
-
-<p>对象的创建如此简单，就可以根据这样的对象，来模块化开发</p>
-<div class="codehilite"><pre><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
-    <span class="nx">TIMOTHY</span><span class="p">.</span><span class="nx">language</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">chinese</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;this is Chinese&#39;</span><span class="p">);</span>
-        <span class="p">},</span>
-
-        <span class="nx">english</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;this is English&#39;</span><span class="p">)</span>
-        <span class="p">},</span>
-
-        <span class="nx">china</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nx">TIMOTHY</span><span class="p">.</span><span class="nx">language</span><span class="p">.</span><span class="nx">chinese</span><span class="p">);</span>
-        <span class="p">},</span>
-    <span class="p">}</span>
-<span class="p">})();</span>
-</pre></div>
-
-
-<p>这里仅仅演示了简单的代码，更严谨的代码参考CommonJs的，对Javascript的代码编写很大的帮助</p>
-        </article></aside><!-- /#featured -->
-                        <h1>Other articles</h1>
-                <hr />
-                    <ol id="posts-list" class="hfeed">
-                        <li><article class="hentry">
+<p>tags: <a href="./tag/javascript.html">javascript</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
+                Javascript模块化开发的理解与实践
+                <a class="readmore" href="./2013-3-7-javascript-module.html">read more</a>
+                </div><!-- /.entry-content -->
+        </article></li>
+                <li><article class="hentry">
                 <header>
                         <h1><a href="./2013-1-14-deploy-openvpn-post.html" rel="bookmark" title="Permalink to ArchLinux Arm部署OpenVPN">ArchLinux Arm部署OpenVPN</a></h1>
                 </header>
@@ -91,9 +101,7 @@ Javascript的语法非常的松散，从其他语言转过来的只要看看语�
                 By <a class="url fn" href="./author/timothy.html">timothy</a>
         </address>
         <p>In <a href="./category/config.html">config</a>. </p>
-<p>tags: <a href="./tag/openvpn.html">openvpn</a><a href="./tag/vpn.html">vpn</a><a href="./tag/linux.html">linux</a><a href="./tag/archlinux.html">archlinux</a><a href="./tag/raspberrypi.html">raspberrypi</a></p></p>Translations: 
-            <a href="./2013-1-14-deploy-openvpn-post.html">en</a>
-    </footer><!-- /.post-info --><!-- /.post-info -->
+<p>tags: <a href="./tag/openvpn.html">openvpn</a><a href="./tag/vpn.html">vpn</a><a href="./tag/linux.html">linux</a><a href="./tag/archlinux.html">archlinux</a><a href="./tag/raspberrypi.html">raspberrypi</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
                 在Linux部署OpenVPN
                 <a class="readmore" href="./2013-1-14-deploy-openvpn-post.html">read more</a>
                 </div><!-- /.entry-content -->
@@ -205,14 +213,5 @@ src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fa
                 <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
         </footer><!-- /#footer -->
 
-    <script type="text/javascript">
-    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    </script>
-    <script type="text/javascript">
-    try {
-        var pageTracker = _gat._getTracker("UA-35574064-1");
-    pageTracker._trackPageview();
-    } catch(err) {}</script>
 </body>
 </html>

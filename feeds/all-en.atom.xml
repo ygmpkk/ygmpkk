@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/all-en.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2013-03-07T17:31:00+08:00</updated><entry><title>Javascript模块化开发</title><link href="http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html" rel="alternate"></link><updated>2013-03-07T17:31:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-03-07:2013-1-14-deploy-openvpn-post.html</id><summary type="html">&lt;p&gt;在这之前，对Javascript的认识并不多，也没有深入的理解Javascript编程语言，觉得Javascript就是干一下简单的事情，自从看了一本书《Javascript语言精粹》，很薄的一本书，却能够将Javascript的美表达的淋漓精致，对Javascript有很深刻的认识；但除了Javascript和PHP有语言精粹类的书籍，也希望其他的语言也能够有这样优秀的数据。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/all-en.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2013-03-09T08:53:00+08:00</updated><entry><title>Vim代码统计行数和代码格式化</title><link href="http://ygmpkk.com/2013-3-9-vim-lines-count-and-format.html" rel="alternate"></link><updated>2013-03-09T08:53:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-03-09:2013-3-9-vim-lines-count-and-format.html</id><summary type="html">&lt;p&gt;记录一下以免忘记；&lt;/p&gt;
+&lt;p&gt;vim的功能的确强大，在Mac OS X下以Vim为主力编辑器，编写python代码；
+python对代码的格式非常严格，结构体必须是4个空格，当我删除if语句的时候，结构体就有8个空格了，我要先统计if代码范围的行数，在进行格式化；&lt;/p&gt;
+&lt;p&gt;统计行数很简单，只要：&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="n"&gt;start&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;end&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果要统计全部的行数，一般情况下，Vim编辑器的右下角会显示的，所以意义不大&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;:%&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;/^&lt;/span&gt;&lt;span class="c1"&gt;//n&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;要对行数格式化，一种是全部格式化，一种是指定行数格式化，指定行数格式化是从当前行往下的行数&lt;/p&gt;
+&lt;p&gt;全部格式化，在esc状态，按等号两下&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="o"&gt;==&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;指定行数格式化，按行数加两个等号&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="vim"></category><category term="mac os x"></category><category term="linux"></category></entry><entry><title>Javascript模块化开发</title><link href="http://ygmpkk.com/2013-3-7-javascript-module.html" rel="alternate"></link><updated>2013-03-07T17:31:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-03-07:2013-3-7-javascript-module.html</id><summary type="html">&lt;p&gt;在这之前，对Javascript的认识并不多，也没有深入的理解Javascript编程语言，觉得Javascript就是干一下简单的事情，自从看了一本书《Javascript语言精粹》，很薄的一本书，却能够将Javascript的美表达的淋漓精致，对Javascript有很深刻的认识；但除了Javascript和PHP有语言精粹类的书籍，也希望其他的语言也能够有这样优秀的数据。&lt;/p&gt;
 &lt;p&gt;模块化的编程，能够将程序很好的解耦，这样的方法能够将程序员从变幻莫测的需求变更中解救出来；
 Javascript的语法非常的松散，从其他语言转过来的只要看看语言精粹就可以快速的掌握它，下面的代码就是掩饰如何模块化开发；&lt;/p&gt;
 &lt;p&gt;Javascript声明一个对象非常的简单，只要：&lt;/p&gt;
