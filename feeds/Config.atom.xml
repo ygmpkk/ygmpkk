@@ -22,7 +22,7 @@
 
 
 &lt;p&gt;vim的详细配置与快捷键参考这里&lt;/p&gt;
-&lt;p&gt;(https://github.com/ygmpkk/vim)&lt;/p&gt;</summary><category term="vim"></category><category term="linux"></category><category term="mac os x"></category></entry><entry><title>ArchLinux Arm部署OpenVPN</title><link href="http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html" rel="alternate"></link><updated>2013-01-14T09:10:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-01-14:2013-1-14-deploy-openvpn-post.html</id><summary type="html">&lt;p&gt;运行环境：
+&lt;p&gt;&lt;a href="https://github.com/ygmpkk/vim"&gt;https://github.com/ygmpkk/vim&lt;/a&gt;&lt;/p&gt;</summary><category term="vim"></category><category term="linux"></category><category term="osx"></category></entry><entry><title>ArchLinux Arm部署OpenVPN</title><link href="http://ygmpkk.com/2013-1-14-deploy-openvpn-post.html" rel="alternate"></link><updated>2013-01-14T09:10:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-01-14:2013-1-14-deploy-openvpn-post.html</id><summary type="html">&lt;p&gt;运行环境：
 硬件：Raspberry PI
 系统：ArchLinux ARM&lt;/p&gt;
 &lt;p&gt;安装openvpn的包&lt;/p&gt;
