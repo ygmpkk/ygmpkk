@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>博文雅集</title><link>http://ygmpkk.com/</link><description></description><atom:link href="http://ygmpkk.com/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Sat, 09 Mar 2013 08:53:00 +0800</lastBuildDate><item><title>Vim代码统计行数和代码格式化</title><link>http://ygmpkk.com/2013-3-9-vim-lines-count-and-format.html</link><description>&lt;p&gt;记录一下以免忘记；&lt;/p&gt;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>博文雅集</title><link>http://ygmpkk.com/</link><description></description><atom:link href="http://ygmpkk.com/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 27 Mar 2013 00:00:00 +0800</lastBuildDate><item><title>vim分屏</title><link>http://ygmpkk.com/2013-3-27-vim-screen.html</link><description>&lt;p&gt;分屏启动Vim&lt;/p&gt;
+&lt;p&gt;使用大写的O参数来垂直分屏。 vim -On file1 file2 ...&lt;/p&gt;
+&lt;p&gt;使用小写的o参数来水平分屏。 vim -on file1 file2 ...&lt;/p&gt;
+&lt;p&gt;注释: n是数字，表示分成几个屏。&lt;/p&gt;
+&lt;p&gt;关闭分屏 &lt;/p&gt;
+&lt;p&gt;关闭当前窗口。 Ctrl+W c&lt;/p&gt;
+&lt;p&gt;关闭当前窗口，如果只剩最后一个了，则退出Vim。 Ctrl+W q&lt;/p&gt;
+&lt;p&gt;分屏&lt;/p&gt;
+&lt;p&gt;上下分割当前打开的文件。 Ctrl+W s&lt;/p&gt;
+&lt;p&gt;上下分割，并打开一个新的文件。 :sp filename&lt;/p&gt;
+&lt;p&gt;左右分割当前打开的文件。 Ctrl+W v&lt;/p&gt;
+&lt;p&gt;左右分割，并打开一个新的文件。 :vsp filename&lt;/p&gt;
+&lt;p&gt;移动光标&lt;/p&gt;
+&lt;p&gt;Vi中的光标键是h, j, k, l，要在各个屏间切换，只需要先按一下Ctrl+W&lt;/p&gt;
+&lt;p&gt;把光标移到右边的屏。 Ctrl+W l&lt;/p&gt;
+&lt;p&gt;把光标移到左边的屏中。 Ctrl+W h&lt;/p&gt;
+&lt;p&gt;把光标移到上边的屏中。 Ctrl+W k&lt;/p&gt;
+&lt;p&gt;把光标移到下边的屏中。 Ctrl+W j&lt;/p&gt;
+&lt;p&gt;把光标移到下一个的屏中。. Ctrl+W w&lt;/p&gt;
+&lt;p&gt;移动分屏&lt;/p&gt;
+&lt;p&gt;这个功能还是使用了Vim的光标键，只不过都是大写。当然了，如果你的分屏很乱很复杂的话，这个功能可能会出现一些非常奇怪的症状。&lt;/p&gt;
+&lt;p&gt;向右移动。 Ctrl+W L&lt;/p&gt;
+&lt;p&gt;向左移动 Ctrl+W H&lt;/p&gt;
+&lt;p&gt;向上移动 Ctrl+W K&lt;/p&gt;
+&lt;p&gt;向下移动 Ctrl+W J&lt;/p&gt;
+&lt;p&gt;屏幕尺寸&lt;/p&gt;
+&lt;p&gt;下面是改变尺寸的一些操作，主要是高度，对于宽度你可以使用Ctrl+W &amp;lt;或是&amp;gt;，但这可能需要最新的版本才支持。&lt;/p&gt;
+&lt;p&gt;让所有的屏都有一样的高度。 Ctrl+W =&lt;/p&gt;
+&lt;p&gt;增加高度。 Ctrl+W +&lt;/p&gt;
+&lt;p&gt;减少高度。 Ctrl+W -&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">timothy</dc:creator><pubDate>Wed, 27 Mar 2013 00:00:00 +0800</pubDate><guid>tag:ygmpkk.com,2013-03-27:2013-3-27-vim-screen.html</guid><category>vim</category><category>linux</category></item><item><title>Vim代码统计行数和代码格式化</title><link>http://ygmpkk.com/2013-3-9-vim-lines-count-and-format.html</link><description>&lt;p&gt;记录一下以免忘记；&lt;/p&gt;
 &lt;p&gt;vim的功能的确强大，在Mac OS X下以Vim为主力编辑器，编写python代码；
 python对代码的格式非常严格，结构体必须是4个空格，当我删除if语句的时候，结构体就有8个空格了，我要先统计if代码范围的行数，在进行格式化；&lt;/p&gt;
 &lt;p&gt;统计行数很简单，只要：&lt;/p&gt;

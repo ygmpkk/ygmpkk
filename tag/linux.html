@@ -29,7 +29,57 @@
 
                  <section id="content" class="body">
         <aside id="featured"><article>
-                <h1 class="entry-title"><a href="../2013-3-9-vim-lines-count-and-format.html">Vim代码统计行数和代码格式化</a></h1>
+                <h1 class="entry-title"><a href="../2013-3-27-vim-screen.html">vim分屏</a></h1>
+                <footer class="post-info">
+        <abbr class="published" title="2013-03-27T00:00:00">
+                Wed 27 March 2013
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="../author/timothy.html">timothy</a>
+        </address>
+        <p>In <a href="../category/vim.html">vim</a>. </p>
+<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/linux.html">linux</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
+                <p>分屏启动Vim</p>
+<p>使用大写的O参数来垂直分屏。 vim -On file1 file2 ...</p>
+<p>使用小写的o参数来水平分屏。 vim -on file1 file2 ...</p>
+<p>注释: n是数字，表示分成几个屏。</p>
+<p>关闭分屏 </p>
+<p>关闭当前窗口。 Ctrl+W c</p>
+<p>关闭当前窗口，如果只剩最后一个了，则退出Vim。 Ctrl+W q</p>
+<p>分屏</p>
+<p>上下分割当前打开的文件。 Ctrl+W s</p>
+<p>上下分割，并打开一个新的文件。 :sp filename</p>
+<p>左右分割当前打开的文件。 Ctrl+W v</p>
+<p>左右分割，并打开一个新的文件。 :vsp filename</p>
+<p>移动光标</p>
+<p>Vi中的光标键是h, j, k, l，要在各个屏间切换，只需要先按一下Ctrl+W</p>
+<p>把光标移到右边的屏。 Ctrl+W l</p>
+<p>把光标移到左边的屏中。 Ctrl+W h</p>
+<p>把光标移到上边的屏中。 Ctrl+W k</p>
+<p>把光标移到下边的屏中。 Ctrl+W j</p>
+<p>把光标移到下一个的屏中。. Ctrl+W w</p>
+<p>移动分屏</p>
+<p>这个功能还是使用了Vim的光标键，只不过都是大写。当然了，如果你的分屏很乱很复杂的话，这个功能可能会出现一些非常奇怪的症状。</p>
+<p>向右移动。 Ctrl+W L</p>
+<p>向左移动 Ctrl+W H</p>
+<p>向上移动 Ctrl+W K</p>
+<p>向下移动 Ctrl+W J</p>
+<p>屏幕尺寸</p>
+<p>下面是改变尺寸的一些操作，主要是高度，对于宽度你可以使用Ctrl+W &lt;或是&gt;，但这可能需要最新的版本才支持。</p>
+<p>让所有的屏都有一样的高度。 Ctrl+W =</p>
+<p>增加高度。 Ctrl+W +</p>
+<p>减少高度。 Ctrl+W -</p>
+        </article></aside><!-- /#featured -->
+                        <h1>Other articles</h1>
+                <hr />
+                    <ol id="posts-list" class="hfeed">
+                        <li><article class="hentry">
+                <header>
+                        <h1><a href="../2013-3-9-vim-lines-count-and-format.html" rel="bookmark" title="Permalink to Vim代码统计行数和代码格式化">Vim代码统计行数和代码格式化</a></h1>
+                </header>
+
+                <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-03-09T08:53:00">
                 Sat 09 March 2013
@@ -40,33 +90,11 @@
         </address>
         <p>In <a href="../category/programming.html">programming</a>. </p>
 <p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/osx.html">osx</a><a href="../tag/linux.html">linux</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                <p>记录一下以免忘记；</p>
-<p>vim的功能的确强大，在Mac OS X下以Vim为主力编辑器，编写python代码；
-python对代码的格式非常严格，结构体必须是4个空格，当我删除if语句的时候，结构体就有8个空格了，我要先统计if代码范围的行数，在进行格式化；</p>
-<p>统计行数很简单，只要：</p>
-<div class="codehilite"><pre><span class="o">:</span><span class="n">echo</span> <span class="n">start</span> <span class="n">line</span> <span class="o">-</span> <span class="n">end</span> <span class="n">line</span> 
-</pre></div>
-
-
-<p>如果要统计全部的行数，一般情况下，Vim编辑器的右下角会显示的，所以意义不大</p>
-<div class="codehilite"><pre><span class="o">:%</span><span class="n">s</span><span class="o">/^</span><span class="c1">//n</span>
-</pre></div>
-
-
-<p>要对行数格式化，一种是全部格式化，一种是指定行数格式化，指定行数格式化是从当前行往下的行数</p>
-<p>全部格式化，在esc状态，按等号两下</p>
-<div class="codehilite"><pre><span class="o">==</span>
-</pre></div>
-
-
-<p>指定行数格式化，按行数加两个等号</p>
-<div class="codehilite"><pre><span class="n">n</span><span class="o">==</span>
-</pre></div>
-        </article></aside><!-- /#featured -->
-                        <h1>Other articles</h1>
-                <hr />
-                    <ol id="posts-list" class="hfeed">
-                        <li><article class="hentry">
+                Vim代码统计行数和代码格式化
+                <a class="readmore" href="../2013-3-9-vim-lines-count-and-format.html">read more</a>
+                </div><!-- /.entry-content -->
+        </article></li>
+                <li><article class="hentry">
                 <header>
                         <h1><a href="../2013-3-9-vim-config.html" rel="bookmark" title="Permalink to Vim配置文件">Vim配置文件</a></h1>
                 </header>
@@ -133,6 +161,7 @@ python对代码的格式非常严格，结构体必须是4个空格，当我删�
                 <div class="widget">
                         <h2>Categories</h2>
                         <ul>
+                                                   <li ><a href="../category/vim.html">vim</a></li>
                                                    <li ><a href="../category/programming.html">programming</a></li>
                                                    <li ><a href="../category/helper.html">helper</a></li>
                                                    <li ><a href="../category/config.html">config</a></li>
