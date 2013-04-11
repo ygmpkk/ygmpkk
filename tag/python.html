@@ -29,7 +29,72 @@
 
                  <section id="content" class="body">
         <aside id="featured"><article>
-                <h1 class="entry-title"><a href="../2013-04-10-python-del.html">Pyton del函数</a></h1>
+                <h1 class="entry-title"><a href="../2013-4-11-vim-autopep8.html">Vim编辑时执行autopep8</a></h1>
+                <footer class="post-info">
+        <abbr class="published" title="2013-04-11T00:00:00">
+                Thu 11 April 2013
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="../author/timothy.html">timothy</a>
+        </address>
+        <p>In <a href="../category/vim.html">vim</a>. </p>
+<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/python.html">python</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
+                <p>什么是<a href="">PEP8</a>：这是专门针对python的编程规范，还有代码风格；
+很不错的一个工具，</p>
+<p>首先需要安装pep8和autopep8</p>
+<p>easy_install方式安装</p>
+<div class="codehilite"><pre><span class="c"># easy_install -U pep8 autopep8</span>
+</pre></div>
+
+
+<p>pip方式安装</p>
+<div class="codehilite"><pre><span class="c"># pip install pep8 autopep8</span>
+</pre></div>
+
+
+<p>在.vimrc文件加入</p>
+<div class="codehilite"><pre>map \pep8 :<span class="k">call</span> FormartSrc<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
+<span class="c">&quot;定义FormartSrc()                                                               </span>
+func FormartSrc<span class="p">()</span>                                                               
+    exec <span class="s2">&quot;w&quot;</span>                                                                    
+    <span class="k">if</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;c&#39;</span>                                                         
+        exec <span class="s2">&quot;!astyle --style=ansi --one-line=keep-statements -a --suffix=none %&quot;</span>
+    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;cpp&#39;</span> <span class="p">||</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;hpp&#39;</span>                             
+        exec <span class="s2">&quot;r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %&gt; /dev/null 2&gt;&amp;1&quot;</span>
+    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;perl&#39;</span>                                                  
+        exec <span class="s2">&quot;!astyle --style=gnu --suffix=none %&quot;</span>                              
+    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;py&#39;</span><span class="p">||</span>&amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;python&#39;</span>                             
+        exec <span class="s2">&quot;r !autopep8 -i --aggressive %&quot;</span>                                    
+    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;java&#39;</span>                                                  
+        exec <span class="s2">&quot;!astyle --style=java --suffix=none %&quot;</span>                             
+    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;jsp&#39;</span>                                                   
+        exec <span class="s2">&quot;!astyle --style=gnu --suffix=none %&quot;</span>                              
+    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;xml&#39;</span>                                                   
+        exec <span class="s2">&quot;!astyle --style=gnu --suffix=none %&quot;</span>                              
+    <span class="k">endif</span>                                                                       
+    exec <span class="s2">&quot;e! %&quot;</span>                                                                 
+endfunc
+</pre></div>
+
+
+<p>vim的\是<Leader>
+map \pep8 可以替换成你的想要映射的按键比如F11，
+我这样的映射是因为MAC OS X的Fxx的都被占用了，format又不是每天都用，
+需要按\键，再输入pep8就可以执行命令而来</p>
+<p>see aslo:</p>
+<p><a href="http://zuroc.42qu.com/11501917">http://zuroc.42qu.com/11501917</a>
+<a href="https://github.com/ygmpkk/vim">https://github.com/ygmpkk/vim</a></p>
+        </article></aside><!-- /#featured -->
+                        <h1>Other articles</h1>
+                <hr />
+                    <ol id="posts-list" class="hfeed">
+                        <li><article class="hentry">
+                <header>
+                        <h1><a href="../2013-04-10-python-del.html" rel="bookmark" title="Permalink to Pyton del函数">Pyton del函数</a></h1>
+                </header>
+
+                <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-04-10T00:00:00">
                 Wed 10 April 2013
@@ -40,76 +105,11 @@
         </address>
         <p>In <a href="../category/python.html">python</a>. </p>
 <p>tags: <a href="../tag/python.html">python</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                <p>前几天看到有人<a href="http://weibo.com/1434858887/zr0iKgmFx">提议</a>说，
-开一个程序员主题餐厅，LOL，
-这个想法好，C程序员必须光棍进来，
-C++/Delphi可有可无，Java/C#必须带对象来，
-走的时候，c++的必须独立离开，java的可以一起走。</p>
-<p>Python/PHP/Javascript也可有可无，Ruby也必须带对象来；
-Erlang必须一边说话走来；
-Lisp必须嵌套着来；
-哈哈哈</p>
-<p>还有垃圾回收？</p>
-<p>C/C++/Delphi必须自己把垃圾带走
-Lisp/Java/Erlang/Python/Ruby可以不带走垃圾，清洁工定期回收； </p>
-<p>Python如何清理垃圾，使用del函数；
-但是python的del函数，和c++的delete不一样；</p>
-<p>在python的交互模式下运行，&gt;&gt;&gt; 是提示符</p>
-<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">objA</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">objB</span> <span class="o">=</span> <span class="n">objA</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">dictA</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;O1&#39;</span><span class="p">:</span> <span class="n">objA</span><span class="p">,</span><span class="s">&#39;O2&#39;</span><span class="p">:</span> <span class="n">objB</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">dictB</span> <span class="o">=</span> <span class="n">dictA</span><span class="p">[</span><span class="s">&#39;O1&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<p>看objA和objB的内存地址</p>
-<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">objA</span>
-<span class="o">&lt;</span><span class="nb">object</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10270a0a0</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">objB</span>
-<span class="o">&lt;</span><span class="nb">object</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10270a0a0</span><span class="o">&gt;</span>
-</pre></div>
-
-
-<p>内存地址都是一样的</p>
-<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="n">objB</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">objA</span>
-<span class="o">&lt;</span><span class="nb">object</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10270a0a0</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">objB</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s">&#39;objB&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
-</pre></div>
-
-
-<p>看到del仅仅删除objB的引用，而不是删除objA的对象，object()依然存在与内存上；</p>
-<p>在dict的</p>
-<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">dictA</span>
-<span class="p">{</span><span class="s">&#39;O2&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">object</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10270a0a0</span><span class="o">&gt;</span><span class="p">,</span> <span class="s">&#39;O1&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="nb">object</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10270a0a0</span><span class="o">&gt;</span><span class="p">}</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="n">dictB</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">dictB</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s">&#39;dictB&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">dictA</span><span class="p">[</span><span class="s">&#39;O1&#39;</span><span class="p">]</span>
-<span class="o">&lt;</span><span class="nb">object</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10270a0a0</span><span class="o">&gt;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">dictA</span><span class="p">[</span><span class="s">&#39;O2&#39;</span><span class="p">]</span>
-<span class="o">&lt;</span><span class="nb">object</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10270a0a0</span><span class="o">&gt;</span>
-</pre></div>
-
-
-<p>dict会把object()的对象放在value上，而不是引用objB；</p>
-<p>仅仅删除objB也就不能删除dictA里面的值</p>
-<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="k">del</span> <span class="n">dictA</span><span class="p">[</span><span class="s">&#39;O1&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<p>这样就能够把dict的值删掉</p>
-<p>see aslo: <a href="http://docs.python.org/2/tutorial/datastructures.html#the-del-statement/">http://docs.python.org/2/tutorial/datastructures.html#the-del-statement/</a></p>
-        </article></aside><!-- /#featured -->
-                        <h1>Other articles</h1>
-                <hr />
-                    <ol id="posts-list" class="hfeed">
-                        <li><article class="hentry">
+                Python del函数果然不一样
+                <a class="readmore" href="../2013-04-10-python-del.html">read more</a>
+                </div><!-- /.entry-content -->
+        </article></li>
+                <li><article class="hentry">
                 <header>
                         <h1><a href="../2012-12-27-python-post.html" rel="bookmark" title="Permalink to Python学习之路 - 获取IP的地理位置">Python学习之路 - 获取IP的地理位置</a></h1>
                 </header>

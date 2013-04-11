@@ -29,7 +29,72 @@
 
                  <section id="content" class="body">
         <aside id="featured"><article>
-                <h1 class="entry-title"><a href="./2013-4-11-vim-column.html">vim 80个字符提示线</a></h1>
+                <h1 class="entry-title"><a href="./2013-4-11-vim-autopep8.html">Vim编辑时执行autopep8</a></h1>
+                <footer class="post-info">
+        <abbr class="published" title="2013-04-11T00:00:00">
+                Thu 11 April 2013
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="./author/timothy.html">timothy</a>
+        </address>
+        <p>In <a href="./category/vim.html">vim</a>. </p>
+<p>tags: <a href="./tag/vim.html">vim</a><a href="./tag/python.html">python</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
+                <p>什么是<a href="">PEP8</a>：这是专门针对python的编程规范，还有代码风格；
+很不错的一个工具，</p>
+<p>首先需要安装pep8和autopep8</p>
+<p>easy_install方式安装</p>
+<div class="codehilite"><pre><span class="c"># easy_install -U pep8 autopep8</span>
+</pre></div>
+
+
+<p>pip方式安装</p>
+<div class="codehilite"><pre><span class="c"># pip install pep8 autopep8</span>
+</pre></div>
+
+
+<p>在.vimrc文件加入</p>
+<div class="codehilite"><pre>map \pep8 :<span class="k">call</span> FormartSrc<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
+<span class="c">&quot;定义FormartSrc()                                                               </span>
+func FormartSrc<span class="p">()</span>                                                               
+    exec <span class="s2">&quot;w&quot;</span>                                                                    
+    <span class="k">if</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;c&#39;</span>                                                         
+        exec <span class="s2">&quot;!astyle --style=ansi --one-line=keep-statements -a --suffix=none %&quot;</span>
+    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;cpp&#39;</span> <span class="p">||</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;hpp&#39;</span>                             
+        exec <span class="s2">&quot;r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %&gt; /dev/null 2&gt;&amp;1&quot;</span>
+    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;perl&#39;</span>                                                  
+        exec <span class="s2">&quot;!astyle --style=gnu --suffix=none %&quot;</span>                              
+    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;py&#39;</span><span class="p">||</span>&amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;python&#39;</span>                             
+        exec <span class="s2">&quot;r !autopep8 -i --aggressive %&quot;</span>                                    
+    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;java&#39;</span>                                                  
+        exec <span class="s2">&quot;!astyle --style=java --suffix=none %&quot;</span>                             
+    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;jsp&#39;</span>                                                   
+        exec <span class="s2">&quot;!astyle --style=gnu --suffix=none %&quot;</span>                              
+    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;xml&#39;</span>                                                   
+        exec <span class="s2">&quot;!astyle --style=gnu --suffix=none %&quot;</span>                              
+    <span class="k">endif</span>                                                                       
+    exec <span class="s2">&quot;e! %&quot;</span>                                                                 
+endfunc
+</pre></div>
+
+
+<p>vim的\是<Leader>
+map \pep8 可以替换成你的想要映射的按键比如F11，
+我这样的映射是因为MAC OS X的Fxx的都被占用了，format又不是每天都用，
+需要按\键，再输入pep8就可以执行命令而来</p>
+<p>see aslo:</p>
+<p><a href="http://zuroc.42qu.com/11501917">http://zuroc.42qu.com/11501917</a>
+<a href="https://github.com/ygmpkk/vim">https://github.com/ygmpkk/vim</a></p>
+        </article></aside><!-- /#featured -->
+                        <h1>Other articles</h1>
+                <hr />
+                    <ol id="posts-list" class="hfeed">
+                        <li><article class="hentry">
+                <header>
+                        <h1><a href="./2013-4-11-vim-column.html" rel="bookmark" title="Permalink to vim 80个字符提示线">vim 80个字符提示线</a></h1>
+                </header>
+
+                <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-04-11T00:00:00">
                 Thu 11 April 2013
@@ -40,26 +105,11 @@
         </address>
         <p>In <a href="./category/vim.html">vim</a>. </p>
 <p>tags: <a href="./tag/vim.html">vim</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                <p>在看到这篇<a href="http://www.aqee.net/80-chars-per-line-is-great/">文章</a>，
-觉得还是需要规范来的比较好，
-平时使用的编辑器是vim，配置vim的80个字符提示线，对规范就很有帮助了；</p>
-<div class="codehilite"><pre><span class="c">&quot; VIM 7.3+ has support for highlighting a specified column.</span>
-<span class="k">if</span> exists<span class="p">(</span><span class="s1">&#39;+colorcolumn&#39;</span><span class="p">)</span>
-    <span class="k">set</span> <span class="nb">colorcolumn</span><span class="p">=</span><span class="m">80</span>
-<span class="k">else</span>
-<span class="c">    &quot; Emulate</span>
-    <span class="k">au</span> <span class="nb">BufWinEnter</span> * <span class="k">let</span> <span class="k">w</span>:m2<span class="p">=</span>matchadd<span class="p">(</span><span class="s1">&#39;ErrorMsg&#39;</span><span class="p">,</span> <span class="s1">&#39;\%80v.\+&#39;</span><span class="p">,</span> <span class="m">-1</span><span class="p">)</span>
-<span class="k">endif</span>
-</pre></div>
-
-
-<p>这样的提示线不扰民，nice；</p>
-<p>今天晚上参加Hacker News的活动，不知道效果如何，很期待</p>
-        </article></aside><!-- /#featured -->
-                        <h1>Other articles</h1>
-                <hr />
-                    <ol id="posts-list" class="hfeed">
-                        <li><article class="hentry">
+                编码规范里要求每行代码不超过80个字符的限制
+                <a class="readmore" href="./2013-4-11-vim-column.html">read more</a>
+                </div><!-- /.entry-content -->
+        </article></li>
+                <li><article class="hentry">
                 <header>
                         <h1><a href="./2013-04-10-python-del.html" rel="bookmark" title="Permalink to Pyton del函数">Pyton del函数</a></h1>
                 </header>

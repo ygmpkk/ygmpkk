@@ -1,5 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>博文雅集</title><link>http://ygmpkk.com/</link><description></description><atom:link href="http://ygmpkk.com/feeds/vim.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 11 Apr 2013 00:00:00 +0800</lastBuildDate><item><title>vim 80个字符提示线</title><link>http://ygmpkk.com/2013-4-11-vim-column.html</link><description>&lt;p&gt;在看到这篇&lt;a href="http://www.aqee.net/80-chars-per-line-is-great/"&gt;文章&lt;/a&gt;，
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>博文雅集</title><link>http://ygmpkk.com/</link><description></description><atom:link href="http://ygmpkk.com/feeds/vim.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 11 Apr 2013 00:00:00 +0800</lastBuildDate><item><title>Vim编辑时执行autopep8</title><link>http://ygmpkk.com/2013-4-11-vim-autopep8.html</link><description>&lt;p&gt;什么是&lt;a href=""&gt;PEP8&lt;/a&gt;：这是专门针对python的编程规范，还有代码风格；
+很不错的一个工具，&lt;/p&gt;
+&lt;p&gt;首先需要安装pep8和autopep8&lt;/p&gt;
+&lt;p&gt;easy_install方式安装&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# easy_install -U pep8 autopep8&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;pip方式安装&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# pip install pep8 autopep8&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;在.vimrc文件加入&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;map \pep8 :&lt;span class="k"&gt;call&lt;/span&gt; FormartSrc&lt;span class="p"&gt;()&amp;lt;&lt;/span&gt;CR&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="c"&gt;&amp;quot;定义FormartSrc()                                                               &lt;/span&gt;
+func FormartSrc&lt;span class="p"&gt;()&lt;/span&gt;                                                               
+    exec &lt;span class="s2"&gt;&amp;quot;w&amp;quot;&lt;/span&gt;                                                                    
+    &lt;span class="k"&gt;if&lt;/span&gt; &amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;c&amp;#39;&lt;/span&gt;                                                         
+        exec &lt;span class="s2"&gt;&amp;quot;!astyle --style=ansi --one-line=keep-statements -a --suffix=none %&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;elseif&lt;/span&gt; &amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;cpp&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;||&lt;/span&gt; &amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;hpp&amp;#39;&lt;/span&gt;                             
+        exec &lt;span class="s2"&gt;&amp;quot;r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %&amp;gt; /dev/null 2&amp;gt;&amp;amp;1&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;elseif&lt;/span&gt; &amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;perl&amp;#39;&lt;/span&gt;                                                  
+        exec &lt;span class="s2"&gt;&amp;quot;!astyle --style=gnu --suffix=none %&amp;quot;&lt;/span&gt;                              
+    &lt;span class="k"&gt;elseif&lt;/span&gt; &amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;py&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;||&lt;/span&gt;&amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;python&amp;#39;&lt;/span&gt;                             
+        exec &lt;span class="s2"&gt;&amp;quot;r !autopep8 -i --aggressive %&amp;quot;&lt;/span&gt;                                    
+    &lt;span class="k"&gt;elseif&lt;/span&gt; &amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;java&amp;#39;&lt;/span&gt;                                                  
+        exec &lt;span class="s2"&gt;&amp;quot;!astyle --style=java --suffix=none %&amp;quot;&lt;/span&gt;                             
+    &lt;span class="k"&gt;elseif&lt;/span&gt; &amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;jsp&amp;#39;&lt;/span&gt;                                                   
+        exec &lt;span class="s2"&gt;&amp;quot;!astyle --style=gnu --suffix=none %&amp;quot;&lt;/span&gt;                              
+    &lt;span class="k"&gt;elseif&lt;/span&gt; &amp;amp;&lt;span class="k"&gt;filetype&lt;/span&gt; &lt;span class="p"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;xml&amp;#39;&lt;/span&gt;                                                   
+        exec &lt;span class="s2"&gt;&amp;quot;!astyle --style=gnu --suffix=none %&amp;quot;&lt;/span&gt;                              
+    &lt;span class="k"&gt;endif&lt;/span&gt;                                                                       
+    exec &lt;span class="s2"&gt;&amp;quot;e! %&amp;quot;&lt;/span&gt;                                                                 
+endfunc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;vim的\是&lt;Leader&gt;
+map \pep8 可以替换成你的想要映射的按键比如F11，
+我这样的映射是因为MAC OS X的Fxx的都被占用了，format又不是每天都用，
+需要按\键，再输入pep8就可以执行命令而来&lt;/p&gt;
+&lt;p&gt;see aslo:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://zuroc.42qu.com/11501917"&gt;http://zuroc.42qu.com/11501917&lt;/a&gt;
+&lt;a href="https://github.com/ygmpkk/vim"&gt;https://github.com/ygmpkk/vim&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">timothy</dc:creator><pubDate>Thu, 11 Apr 2013 00:00:00 +0800</pubDate><guid>tag:ygmpkk.com,2013-04-11:2013-4-11-vim-autopep8.html</guid><category>vim</category><category>python</category></item><item><title>vim 80个字符提示线</title><link>http://ygmpkk.com/2013-4-11-vim-column.html</link><description>&lt;p&gt;在看到这篇&lt;a href="http://www.aqee.net/80-chars-per-line-is-great/"&gt;文章&lt;/a&gt;，
 觉得还是需要规范来的比较好，
 平时使用的编辑器是vim，配置vim的80个字符提示线，对规范就很有帮助了；&lt;/p&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;&amp;quot; VIM 7.3+ has support for highlighting a specified column.&lt;/span&gt;
