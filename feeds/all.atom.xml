@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/all.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2013-04-10T00:00:00+08:00</updated><entry><title>Pyton del函数</title><link href="http://ygmpkk.com/2013-04-10-python-del.html" rel="alternate"></link><updated>2013-04-10T00:00:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-04-10:2013-04-10-python-del.html</id><summary type="html">&lt;p&gt;前几天看到有人&lt;a href="http://weibo.com/1434858887/zr0iKgmFx"&gt;提议&lt;/a&gt;说，
+<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/all.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2013-04-11T00:00:00+08:00</updated><entry><title>vim 80个字符提示线</title><link href="http://ygmpkk.com/2013-4-11-vim-column.html" rel="alternate"></link><updated>2013-04-11T00:00:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-04-11:2013-4-11-vim-column.html</id><summary type="html">&lt;p&gt;在看到这篇&lt;a href="http://www.aqee.net/80-chars-per-line-is-great/"&gt;文章&lt;/a&gt;，
+觉得还是需要规范来的比较好，
+平时使用的编辑器是vim，配置vim的80个字符提示线，对规范就很有帮助了；&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;&amp;quot; VIM 7.3+ has support for highlighting a specified column.&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; exists&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;+colorcolumn&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nb"&gt;colorcolumn&lt;/span&gt;&lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="m"&gt;80&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;
+&lt;span class="c"&gt;    &amp;quot; Emulate&lt;/span&gt;
+    &lt;span class="k"&gt;au&lt;/span&gt; &lt;span class="nb"&gt;BufWinEnter&lt;/span&gt; * &lt;span class="k"&gt;let&lt;/span&gt; &lt;span class="k"&gt;w&lt;/span&gt;:m2&lt;span class="p"&gt;=&lt;/span&gt;matchadd&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ErrorMsg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;\%80v.\+&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="m"&gt;-1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;endif&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这样的提示线不扰民，nice；&lt;/p&gt;
+&lt;p&gt;今天晚上参加Hacker News的活动，不知道效果如何，很期待&lt;/p&gt;</summary><category term="vim"></category></entry><entry><title>Pyton del函数</title><link href="http://ygmpkk.com/2013-04-10-python-del.html" rel="alternate"></link><updated>2013-04-10T00:00:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-04-10:2013-04-10-python-del.html</id><summary type="html">&lt;p&gt;前几天看到有人&lt;a href="http://weibo.com/1434858887/zr0iKgmFx"&gt;提议&lt;/a&gt;说，
 开一个程序员主题餐厅，LOL，
 这个想法好，C程序员必须光棍进来，
 C++/Delphi可有可无，Java/C#必须带对象来，
