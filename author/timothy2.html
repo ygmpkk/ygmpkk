@@ -4,8 +4,7 @@
         <title>博文雅集 - timothy</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
-        <link href="../" type="application/atom+xml" rel="alternate" title="博文雅集 ATOM Feed" />
-        
+   
 
         <!--[if IE]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -21,180 +20,27 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="../index.html">博文雅集 </a></h1>
+                <h1><a href="..">博文雅集 </a></h1>
                 <nav><ul>
-                                                <li><a href="../index.html">Home</a></li>
-                                                                </ul></nav>
+                                                                                                    <li ><a href="../category/vim.html">vim</a></li>
+                                    <li ><a href="../category/python.html">python</a></li>
+                                    <li ><a href="../category/programming.html">programming</a></li>
+                                    <li ><a href="../category/linux.html">linux</a></li>
+                                    <li ><a href="../category/helper.html">helper</a></li>
+                                    <li ><a href="../category/config.html">config</a></li>
+                                </ul></nav>
         </header><!-- /#banner -->
+                
+            
 
-                 <section id="content" class="body">
-        <aside id="featured"><article>
-                <h1 class="entry-title"><a href="../2012-12-27-python-post.html">Python学习之路 - 获取IP的地理位置</a></h1>
-                <footer class="post-info">
-        <abbr class="published" title="2012-12-27T14:12:00">
-                Thu 27 December 2012
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="../author/timothy.html">timothy</a>
-        </address>
-        <p>In <a href="../category/programming.html">programming</a>. </p>
-<p>tags: <a href="../tag/python.html">python</a><a href="../tag/programming.html">programming</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                <p>Python有很多好玩的东西，这就是为什么这门语言如此令人着迷，下面的程序就是掩饰如何使用IP地址获取地理位置</p>
-<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">urllib2</span>
-<span class="kn">import</span> <span class="nn">BeautifulSoup</span>
-
-<span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;Run the script: ./geolocate.py IPAddress&quot;</span>
-
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">!=</span><span class="mi">2</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">ipaddr</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">geody</span> <span class="o">=</span> <span class="s">&quot;http://www.geody.com/geoip.php?ip=&quot;</span> <span class="o">+</span> <span class="n">ipaddr</span>
-<span class="n">html_page</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">geody</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_page</span><span class="p">)</span>
-
-<span class="c"># Filter paragraph containing geolocation info.</span>
-<span class="n">paragraph</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
-
-<span class="c"># Remove html tags using regex.</span>
-<span class="n">geo_txt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;&lt;.*?&gt;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">paragraph</span><span class="p">))</span>
-<span class="k">print</span> <span class="n">geo_txt</span><span class="p">[</span><span class="mi">32</span><span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</pre></div>
-        </article></aside><!-- /#featured -->
-                        <h1>Other articles</h1>
-                <hr />
-                    <ol id="posts-list" class="hfeed">
-                        <li><article class="hentry">
-                <header>
-                        <h1><a href="../2012-12-28-mysql-sync-post.html" rel="bookmark" title="Permalink to MySQL数据的双向同步">MySQL数据的双向同步</a></h1>
-                </header>
-
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2012-12-28T10:49:00">
-                Fri 28 December 2012
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="../author/timothy.html">timothy</a>
-        </address>
-        <p>In <a href="../category/config.html">config</a>. </p>
-<p>tags: <a href="../tag/mysql.html">mysql</a><a href="../tag/linux.html">linux</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                mysql配置同步，双机及多台机器同步
-                <a class="readmore" href="../2012-12-28-mysql-sync-post.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-                <li><article class="hentry">
-                <header>
-                        <h1><a href="../2013-04-10-python-del.html" rel="bookmark" title="Permalink to Pyton del函数">Pyton del函数</a></h1>
-                </header>
-
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2013-04-10T00:00:00">
-                Wed 10 April 2013
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="../author/timothy.html">timothy</a>
-        </address>
-        <p>In <a href="../category/python.html">python</a>. </p>
-<p>tags: <a href="../tag/python.html">python</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                Python del函数果然不一样
-                <a class="readmore" href="../2013-04-10-python-del.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-                <li><article class="hentry">
-                <header>
-                        <h1><a href="../2013-1-14-deploy-openvpn-post.html" rel="bookmark" title="Permalink to ArchLinux Arm部署OpenVPN">ArchLinux Arm部署OpenVPN</a></h1>
-                </header>
-
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2013-01-14T09:10:00">
-                Mon 14 January 2013
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="../author/timothy.html">timothy</a>
-        </address>
-        <p>In <a href="../category/config.html">config</a>. </p>
-<p>tags: <a href="../tag/openvpn.html">openvpn</a><a href="../tag/vpn.html">vpn</a><a href="../tag/linux.html">linux</a><a href="../tag/archlinux.html">archlinux</a><a href="../tag/raspberrypi.html">raspberrypi</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                在Linux部署OpenVPN
-                <a class="readmore" href="../2013-1-14-deploy-openvpn-post.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-                <li><article class="hentry">
-                <header>
-                        <h1><a href="../2013-3-27-vim-screen.html" rel="bookmark" title="Permalink to vim分屏">vim分屏</a></h1>
-                </header>
-
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2013-03-27T00:00:00">
-                Wed 27 March 2013
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="../author/timothy.html">timothy</a>
-        </address>
-        <p>In <a href="../category/vim.html">vim</a>. </p>
-<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/linux.html">linux</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                vim分屏命令
-                <a class="readmore" href="../2013-3-27-vim-screen.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-                <li><article class="hentry">
-                <header>
-                        <h1><a href="../2013-3-7-javascript-module.html" rel="bookmark" title="Permalink to Javascript模块化开发">Javascript模块化开发</a></h1>
-                </header>
-
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2013-03-07T17:31:00">
-                Thu 07 March 2013
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="../author/timothy.html">timothy</a>
-        </address>
-        <p>In <a href="../category/programming.html">programming</a>. </p>
-<p>tags: <a href="../tag/javascript.html">javascript</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                Javascript模块化开发的理解与实践
-                <a class="readmore" href="../2013-3-7-javascript-module.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-                <li><article class="hentry">
-                <header>
-                        <h1><a href="../2013-3-9-vim-config.html" rel="bookmark" title="Permalink to Vim配置文件">Vim配置文件</a></h1>
-                </header>
-
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2013-03-09T00:00:00">
-                Sat 09 March 2013
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="../author/timothy.html">timothy</a>
-        </address>
-        <p>In <a href="../category/config.html">config</a>. </p>
-<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/linux.html">linux</a><a href="../tag/osx.html">osx</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                vim配置文件，把vim配置成IDE
-                <a class="readmore" href="../2013-3-9-vim-config.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-                <li><article class="hentry">
+                 
+                            <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="6">
+                        <li><article class="hentry">    
                 <header>
                         <h1><a href="../2013-3-9-vim-lines-count-and-format.html" rel="bookmark" title="Permalink to Vim代码统计行数和代码格式化">Vim代码统计行数和代码格式化</a></h1>
                 </header>
-
+                
                 <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-03-09T08:53:00">
@@ -205,16 +51,18 @@
                 By <a class="url fn" href="../author/timothy.html">timothy</a>
         </address>
         <p>In <a href="../category/programming.html">programming</a>. </p>
-<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/osx.html">osx</a><a href="../tag/linux.html">linux</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                Vim代码统计行数和代码格式化
+<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/osx.html">osx</a><a href="../tag/linux.html">linux</a></p></footer><!-- /.post-info -->                Vim代码统计行数和代码格式化
                 <a class="readmore" href="../2013-3-9-vim-lines-count-and-format.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-                <li><article class="hentry">
+                <p>There are <a href="../2013-3-9-vim-lines-count-and-format.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                                    
+
+                 
+                        <li><article class="hentry">    
                 <header>
                         <h1><a href="../2013-4-11-vim-autopep8.html" rel="bookmark" title="Permalink to Vim编辑时执行autopep8">Vim编辑时执行autopep8</a></h1>
                 </header>
-
+                
                 <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-04-11T00:00:00">
@@ -225,16 +73,18 @@
                 By <a class="url fn" href="../author/timothy.html">timothy</a>
         </address>
         <p>In <a href="../category/vim.html">vim</a>. </p>
-<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/python.html">python</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                自动格式化代码，符合PEP8的标准
+<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/python.html">python</a></p></footer><!-- /.post-info -->                自动格式化代码，符合PEP8的标准
                 <a class="readmore" href="../2013-4-11-vim-autopep8.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-                <li><article class="hentry">
+                <p>There are <a href="../2013-4-11-vim-autopep8.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                                    
+
+                 
+                        <li><article class="hentry">    
                 <header>
                         <h1><a href="../2013-4-11-vim-column.html" rel="bookmark" title="Permalink to vim 80个字符提示线">vim 80个字符提示线</a></h1>
                 </header>
-
+                
                 <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-04-11T00:00:00">
@@ -245,16 +95,40 @@
                 By <a class="url fn" href="../author/timothy.html">timothy</a>
         </address>
         <p>In <a href="../category/vim.html">vim</a>. </p>
-<p>tags: <a href="../tag/vim.html">vim</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                编码规范里要求每行代码不超过80个字符的限制
+<p>tags: <a href="../tag/vim.html">vim</a></p></footer><!-- /.post-info -->                编码规范里要求每行代码不超过80个字符的限制
                 <a class="readmore" href="../2013-4-11-vim-column.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-                <li><article class="hentry">
+                <p>There are <a href="../2013-4-11-vim-column.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                                    
+
+                 
+                        <li><article class="hentry">    
+                <header>
+                        <h1><a href="../2013-4-24-find.html" rel="bookmark" title="Permalink to Linux find命令">Linux find命令</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
+        <abbr class="published" title="2013-04-24T00:00:00">
+                Wed 24 April 2013
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="../author/timothy.html">timothy</a>
+        </address>
+        <p>In <a href="../category/linux.html">linux</a>. </p>
+<p>tags: <a href="../tag/find.html">find</a><a href="../tag/linux.html">linux</a></p></footer><!-- /.post-info -->                find命令
+                <a class="readmore" href="../2013-4-24-find.html">read more</a>
+                <p>There are <a href="../2013-4-24-find.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                                    
+
+                 
+                        <li><article class="hentry">    
                 <header>
                         <h1><a href="../markdown-post.html" rel="bookmark" title="Permalink to Markdown 语法">Markdown 语法</a></h1>
                 </header>
-
+                
                 <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2012-10-18T09:13:00">
@@ -265,50 +139,38 @@
                 By <a class="url fn" href="../author/timothy.html">timothy</a>
         </address>
         <p>In <a href="../category/helper.html">helper</a>. </p>
-<p>tags: <a href="../tag/markdown.html">markdown</a><a href="../tag/editer.html">editer</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                markdown语法使用
+<p>tags: <a href="../tag/markdown.html">markdown</a><a href="../tag/editer.html">editer</a></p></footer><!-- /.post-info -->                markdown语法使用
                 <a class="readmore" href="../markdown-post.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-    </ol><!-- /#posts-list -->
-</section><!-- /#content -->
-
-        <aside id="sidebar">
-                <div class="widget">
-                        <h2>Categories</h2>
-                        <ul>
-                                                   <li ><a href="../category/vim.html">vim</a></li>
-                                                   <li ><a href="../category/python.html">python</a></li>
-                                                   <li ><a href="../category/programming.html">programming</a></li>
-                                                   <li ><a href="../category/helper.html">helper</a></li>
-                                                   <li ><a href="../category/config.html">config</a></li>
-                                                </ul>
-                </div>
-                        <div class="widget">
-                        <h2>Blogroll</h2>
+                <p>There are <a href="../markdown-post.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                            <p class="paginator">
+                        <a href="../author/timothy.html">&laquo;</a>
+                Page 2 / 2
+    </p>
+                            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+                    <section id="extras" class="body">
+                        <div class="blogroll">
+                        <h2>blogroll</h2>
                         <ul>
                                                     <li><a href="http://www.fieldphp.com">FieldPHP</a></li>
                                                 </ul>
                 </div><!-- /.blogroll -->
-                                <div class="widget social">
-                        <h2>Social</h2>
+                                <div class="social">
+                        <h2>social</h2>
                         <ul>
-                            <li><a href="../" rel="alternate">atom feed</a></li>
                             
                                                     <li><a href="http://weibo.com/ygmpkk">weibo</a></li>
-                                                    <li><a href="http://twitter.com/ygmpkk">twitter</a></li>
-                                                    <li><a href="http://github.com/ygmpkk">github</a></li>
+                                                    <li><a href="https://twitter.com/ygmpkk">twitter</a></li>
+                                                    <li><a href="https://github.com/ygmpkk">github</a></li>
+                                                    <li><a href="http://stackoverflow.com/users/947973/timothy">stackoverflow</a></li>
                                                 </ul>
                 </div><!-- /.social -->
-        		        </aside><!-- /#sidebar -->
+                </section><!-- /#extras -->
 
-        <footer id="footer" class="body">
-                <!--<address id="about" class="vcard body">
-                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
-                </address>--><!-- /#about -->
+        <footer id="contentinfo" class="body">
 
-                <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
-        </footer><!-- /#footer -->
+        </footer><!-- /#contentinfo -->
 
     <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -319,5 +181,26 @@
         var pageTracker = _gat._getTracker("UA-35574064-1");
     pageTracker._trackPageview();
     } catch(err) {}</script>
+<script type="text/javascript">
+    var GoSquared={};
+    GoSquared.acct = "GSN-451623-E";
+    (function(w){
+        function gs(){
+            w._gstc_lt=+(new Date); var d=document;
+            var g = d.createElement("script"); g.type = "text/javascript"; g.async = true; g.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
+            var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(g, s);
+        }
+        w.addEventListener?w.addEventListener("load",gs,false):w.attachEvent("onload",gs);
+    })(window);
+</script>
+<script type="text/javascript">
+    var disqus_shortname = 'ygmpkkblog';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 </body>
 </html>

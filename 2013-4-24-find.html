@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Javascript模块化开发</title>
+        <title>Linux find命令</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
    
@@ -24,8 +24,8 @@
                 <nav><ul>
                                                                                                     <li ><a href="./category/vim.html">vim</a></li>
                                     <li ><a href="./category/python.html">python</a></li>
-                                    <li class="active"><a href="./category/programming.html">programming</a></li>
-                                    <li ><a href="./category/linux.html">linux</a></li>
+                                    <li ><a href="./category/programming.html">programming</a></li>
+                                    <li class="active"><a href="./category/linux.html">linux</a></li>
                                     <li ><a href="./category/helper.html">helper</a></li>
                                     <li ><a href="./category/config.html">config</a></li>
                                 </ul></nav>
@@ -34,56 +34,29 @@
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="2013-3-7-javascript-module.html" rel="bookmark"
-           title="Permalink to Javascript模块化开发">Javascript模块化开发</a></h1>
+        <a href="2013-4-24-find.html" rel="bookmark"
+           title="Permalink to Linux find命令">Linux find命令</a></h1>
           </header>
 
     <div class="entry-content">
       <footer class="post-info">
-        <abbr class="published" title="2013-03-07T17:31:00">
-                Thu 07 March 2013
+        <abbr class="published" title="2013-04-24T00:00:00">
+                Wed 24 April 2013
         </abbr>
 
                 <address class="vcard author">
                 By <a class="url fn" href="./author/timothy.html">timothy</a>
         </address>
-        <p>In <a href="./category/programming.html">programming</a>. </p>
-<p>tags: <a href="./tag/javascript.html">javascript</a></p></footer><!-- /.post-info -->      <p>在这之前，对Javascript的认识并不多，也没有深入的理解Javascript编程语言，觉得Javascript就是干一下简单的事情，自从看了一本书《Javascript语言精粹》，很薄的一本书，却能够将Javascript的美表达的淋漓精致，对Javascript有很深刻的认识；但除了Javascript和PHP有语言精粹类的书籍，也希望其他的语言也能够有这样优秀的数据。</p>
-<p>模块化的编程，能够将程序很好的解耦，这样的方法能够将程序员从变幻莫测的需求变更中解救出来；
-Javascript的语法非常的松散，从其他语言转过来的只要看看语言精粹就可以快速的掌握它，下面的代码就是掩饰如何模块化开发；</p>
-<p>Javascript声明一个对象非常的简单，只要：</p>
-<div class="codehilite"><pre><span class="kd">var</span> <span class="nx">TIMOTHY</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">params</span><span class="o">:</span> <span class="kc">false</span>
-<span class="p">}</span>
+        <p>In <a href="./category/linux.html">linux</a>. </p>
+<p>tags: <a href="./tag/find.html">find</a><a href="./tag/linux.html">linux</a></p></footer><!-- /.post-info -->      <p>查找统计代码行数</p>
+<div class="codehilite"><pre><span class="n">find</span> <span class="p">.</span> <span class="err">\</span><span class="p">(</span> <span class="o">-</span><span class="n">path</span> <span class="p">.</span><span class="o">/</span><span class="p">.</span><span class="n">env</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">path</span> <span class="p">.</span><span class="o">/</span><span class="p">.</span><span class="n">hg</span> <span class="err">\</span><span class="p">)</span> <span class="o">-</span><span class="n">prune</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">name</span> <span class="err">&#39;</span><span class="o">*</span><span class="p">.</span><span class="n">py</span><span class="err">&#39;</span> <span class="o">|</span> <span class="n">xargs</span> <span class="n">cat</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="o">^</span><span class="err">$</span> <span class="o">|</span> <span class="n">wc</span> <span class="o">-</span><span class="n">l</span>
 </pre></div>
-
-
-<p>对象的创建如此简单，就可以根据这样的对象，来模块化开发</p>
-<div class="codehilite"><pre><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>
-    <span class="nx">TIMOTHY</span><span class="p">.</span><span class="nx">language</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="nx">chinese</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;this is Chinese&#39;</span><span class="p">);</span>
-        <span class="p">},</span>
-
-        <span class="nx">english</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;this is English&#39;</span><span class="p">)</span>
-        <span class="p">},</span>
-
-        <span class="nx">china</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-            <span class="nx">alert</span><span class="p">(</span><span class="nx">TIMOTHY</span><span class="p">.</span><span class="nx">language</span><span class="p">.</span><span class="nx">chinese</span><span class="p">);</span>
-        <span class="p">},</span>
-    <span class="p">}</span>
-<span class="p">})();</span>
-</pre></div>
-
-
-<p>这里仅仅演示了简单的代码，更严谨的代码参考CommonJs的，对Javascript的代码编写很大的帮助</p>
     </div><!-- /.entry-content -->
         <div class="comments">
       <h2>Comments !</h2>
       <div id="disqus_thread"></div>
       <script type="text/javascript">
-        var disqus_identifier = "2013-3-7-javascript-module.html";
+        var disqus_identifier = "2013-4-24-find.html";
         (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = 'http://ygmpkkblog.disqus.com/embed.js';

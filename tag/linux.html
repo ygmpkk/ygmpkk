@@ -4,8 +4,7 @@
         <title>博文雅集 - linux</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
-        <link href="../" type="application/atom+xml" rel="alternate" title="博文雅集 ATOM Feed" />
-        
+   
 
         <!--[if IE]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -21,15 +20,48 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="../index.html">博文雅集 </a></h1>
+                <h1><a href="..">博文雅集 </a></h1>
                 <nav><ul>
-                                                <li><a href="../index.html">Home</a></li>
-                                                                </ul></nav>
+                                                                                                    <li ><a href="../category/vim.html">vim</a></li>
+                                    <li ><a href="../category/python.html">python</a></li>
+                                    <li ><a href="../category/programming.html">programming</a></li>
+                                    <li ><a href="../category/linux.html">linux</a></li>
+                                    <li ><a href="../category/helper.html">helper</a></li>
+                                    <li ><a href="../category/config.html">config</a></li>
+                                </ul></nav>
         </header><!-- /#banner -->
+                
+            
 
-                 <section id="content" class="body">
-        <aside id="featured"><article>
-                <h1 class="entry-title"><a href="../2013-3-27-vim-screen.html">vim分屏</a></h1>
+                            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="../2013-4-24-find.html">Linux find命令</a></h1> 
+                    <footer class="post-info">
+        <abbr class="published" title="2013-04-24T00:00:00">
+                Wed 24 April 2013
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="../author/timothy.html">timothy</a>
+        </address>
+        <p>In <a href="../category/linux.html">linux</a>. </p>
+<p>tags: <a href="../tag/find.html">find</a><a href="../tag/linux.html">linux</a></p></footer><!-- /.post-info --><p>查找统计代码行数</p>
+<div class="codehilite"><pre><span class="n">find</span> <span class="p">.</span> <span class="err">\</span><span class="p">(</span> <span class="o">-</span><span class="n">path</span> <span class="p">.</span><span class="o">/</span><span class="p">.</span><span class="n">env</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">path</span> <span class="p">.</span><span class="o">/</span><span class="p">.</span><span class="n">hg</span> <span class="err">\</span><span class="p">)</span> <span class="o">-</span><span class="n">prune</span> <span class="o">-</span><span class="n">o</span> <span class="o">-</span><span class="n">name</span> <span class="err">&#39;</span><span class="o">*</span><span class="p">.</span><span class="n">py</span><span class="err">&#39;</span> <span class="o">|</span> <span class="n">xargs</span> <span class="n">cat</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="o">^</span><span class="err">$</span> <span class="o">|</span> <span class="n">wc</span> <span class="o">-</span><span class="n">l</span>
+</pre></div><p>There are <a href="../2013-4-24-find.html#disqus_thread">comments</a>.</p>                </article>
+                            </aside><!-- /#featured -->
+                            <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+                                                        
+
+                 
+                        <li><article class="hentry">    
+                <header>
+                        <h1><a href="../2013-3-27-vim-screen.html" rel="bookmark" title="Permalink to vim分屏">vim分屏</a></h1>
+                </header>
+                
+                <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-03-27T00:00:00">
                 Wed 27 March 2013
@@ -39,46 +71,18 @@
                 By <a class="url fn" href="../author/timothy.html">timothy</a>
         </address>
         <p>In <a href="../category/vim.html">vim</a>. </p>
-<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/linux.html">linux</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                <p>分屏启动Vim</p>
-<p>使用大写的O参数来垂直分屏。 vim -On file1 file2 ...</p>
-<p>使用小写的o参数来水平分屏。 vim -on file1 file2 ...</p>
-<p>注释: n是数字，表示分成几个屏。</p>
-<p>关闭分屏 </p>
-<p>关闭当前窗口。 Ctrl+W c</p>
-<p>关闭当前窗口，如果只剩最后一个了，则退出Vim。 Ctrl+W q</p>
-<p>分屏</p>
-<p>上下分割当前打开的文件。 Ctrl+W s</p>
-<p>上下分割，并打开一个新的文件。 :sp filename</p>
-<p>左右分割当前打开的文件。 Ctrl+W v</p>
-<p>左右分割，并打开一个新的文件。 :vsp filename</p>
-<p>移动光标</p>
-<p>Vi中的光标键是h, j, k, l，要在各个屏间切换，只需要先按一下Ctrl+W</p>
-<p>把光标移到右边的屏。 Ctrl+W l</p>
-<p>把光标移到左边的屏中。 Ctrl+W h</p>
-<p>把光标移到上边的屏中。 Ctrl+W k</p>
-<p>把光标移到下边的屏中。 Ctrl+W j</p>
-<p>把光标移到下一个的屏中。. Ctrl+W w</p>
-<p>移动分屏</p>
-<p>这个功能还是使用了Vim的光标键，只不过都是大写。当然了，如果你的分屏很乱很复杂的话，这个功能可能会出现一些非常奇怪的症状。</p>
-<p>向右移动。 Ctrl+W L</p>
-<p>向左移动 Ctrl+W H</p>
-<p>向上移动 Ctrl+W K</p>
-<p>向下移动 Ctrl+W J</p>
-<p>屏幕尺寸</p>
-<p>下面是改变尺寸的一些操作，主要是高度，对于宽度你可以使用Ctrl+W &lt;或是&gt;，但这可能需要最新的版本才支持。</p>
-<p>让所有的屏都有一样的高度。 Ctrl+W =</p>
-<p>增加高度。 Ctrl+W +</p>
-<p>减少高度。 Ctrl+W -</p>
-        </article></aside><!-- /#featured -->
-                        <h1>Other articles</h1>
-                <hr />
-                    <ol id="posts-list" class="hfeed">
-                        <li><article class="hentry">
+<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/linux.html">linux</a></p></footer><!-- /.post-info -->                vim分屏命令
+                <a class="readmore" href="../2013-3-27-vim-screen.html">read more</a>
+                <p>There are <a href="../2013-3-27-vim-screen.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                                    
+
+                 
+                        <li><article class="hentry">    
                 <header>
                         <h1><a href="../2013-3-9-vim-lines-count-and-format.html" rel="bookmark" title="Permalink to Vim代码统计行数和代码格式化">Vim代码统计行数和代码格式化</a></h1>
                 </header>
-
+                
                 <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-03-09T08:53:00">
@@ -89,16 +93,18 @@
                 By <a class="url fn" href="../author/timothy.html">timothy</a>
         </address>
         <p>In <a href="../category/programming.html">programming</a>. </p>
-<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/osx.html">osx</a><a href="../tag/linux.html">linux</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                Vim代码统计行数和代码格式化
+<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/osx.html">osx</a><a href="../tag/linux.html">linux</a></p></footer><!-- /.post-info -->                Vim代码统计行数和代码格式化
                 <a class="readmore" href="../2013-3-9-vim-lines-count-and-format.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-                <li><article class="hentry">
+                <p>There are <a href="../2013-3-9-vim-lines-count-and-format.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                                    
+
+                 
+                        <li><article class="hentry">    
                 <header>
                         <h1><a href="../2013-3-9-vim-config.html" rel="bookmark" title="Permalink to Vim配置文件">Vim配置文件</a></h1>
                 </header>
-
+                
                 <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-03-09T00:00:00">
@@ -109,16 +115,18 @@
                 By <a class="url fn" href="../author/timothy.html">timothy</a>
         </address>
         <p>In <a href="../category/config.html">config</a>. </p>
-<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/linux.html">linux</a><a href="../tag/osx.html">osx</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                vim配置文件，把vim配置成IDE
+<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/linux.html">linux</a><a href="../tag/osx.html">osx</a></p></footer><!-- /.post-info -->                vim配置文件，把vim配置成IDE
                 <a class="readmore" href="../2013-3-9-vim-config.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-                <li><article class="hentry">
+                <p>There are <a href="../2013-3-9-vim-config.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                                    
+
+                 
+                        <li><article class="hentry">    
                 <header>
                         <h1><a href="../2013-1-14-deploy-openvpn-post.html" rel="bookmark" title="Permalink to ArchLinux Arm部署OpenVPN">ArchLinux Arm部署OpenVPN</a></h1>
                 </header>
-
+                
                 <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2013-01-14T09:10:00">
@@ -129,16 +137,18 @@
                 By <a class="url fn" href="../author/timothy.html">timothy</a>
         </address>
         <p>In <a href="../category/config.html">config</a>. </p>
-<p>tags: <a href="../tag/openvpn.html">openvpn</a><a href="../tag/vpn.html">vpn</a><a href="../tag/linux.html">linux</a><a href="../tag/archlinux.html">archlinux</a><a href="../tag/raspberrypi.html">raspberrypi</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                在Linux部署OpenVPN
+<p>tags: <a href="../tag/openvpn.html">openvpn</a><a href="../tag/vpn.html">vpn</a><a href="../tag/linux.html">linux</a><a href="../tag/archlinux.html">archlinux</a><a href="../tag/raspberrypi.html">raspberrypi</a></p></footer><!-- /.post-info -->                在Linux部署OpenVPN
                 <a class="readmore" href="../2013-1-14-deploy-openvpn-post.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-                <li><article class="hentry">
+                <p>There are <a href="../2013-1-14-deploy-openvpn-post.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                                    
+
+                 
+                        <li><article class="hentry">    
                 <header>
                         <h1><a href="../2012-12-28-mysql-sync-post.html" rel="bookmark" title="Permalink to MySQL数据的双向同步">MySQL数据的双向同步</a></h1>
                 </header>
-
+                
                 <div class="entry-content">
                 <footer class="post-info">
         <abbr class="published" title="2012-12-28T10:49:00">
@@ -149,50 +159,37 @@
                 By <a class="url fn" href="../author/timothy.html">timothy</a>
         </address>
         <p>In <a href="../category/config.html">config</a>. </p>
-<p>tags: <a href="../tag/mysql.html">mysql</a><a href="../tag/linux.html">linux</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-                mysql配置同步，双机及多台机器同步
+<p>tags: <a href="../tag/mysql.html">mysql</a><a href="../tag/linux.html">linux</a></p></footer><!-- /.post-info -->                mysql配置同步，双机及多台机器同步
                 <a class="readmore" href="../2012-12-28-mysql-sync-post.html">read more</a>
-                </div><!-- /.entry-content -->
-        </article></li>
-    </ol><!-- /#posts-list -->
-</section><!-- /#content -->
-
-        <aside id="sidebar">
-                <div class="widget">
-                        <h2>Categories</h2>
-                        <ul>
-                                                   <li ><a href="../category/vim.html">vim</a></li>
-                                                   <li ><a href="../category/python.html">python</a></li>
-                                                   <li ><a href="../category/programming.html">programming</a></li>
-                                                   <li ><a href="../category/helper.html">helper</a></li>
-                                                   <li ><a href="../category/config.html">config</a></li>
-                                                </ul>
-                </div>
-                        <div class="widget">
-                        <h2>Blogroll</h2>
+                <p>There are <a href="../2012-12-28-mysql-sync-post.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                            <p class="paginator">
+        Page 1 / 1
+    </p>
+                            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+                    <section id="extras" class="body">
+                        <div class="blogroll">
+                        <h2>blogroll</h2>
                         <ul>
                                                     <li><a href="http://www.fieldphp.com">FieldPHP</a></li>
                                                 </ul>
                 </div><!-- /.blogroll -->
-                                <div class="widget social">
-                        <h2>Social</h2>
+                                <div class="social">
+                        <h2>social</h2>
                         <ul>
-                            <li><a href="../" rel="alternate">atom feed</a></li>
                             
                                                     <li><a href="http://weibo.com/ygmpkk">weibo</a></li>
-                                                    <li><a href="http://twitter.com/ygmpkk">twitter</a></li>
-                                                    <li><a href="http://github.com/ygmpkk">github</a></li>
+                                                    <li><a href="https://twitter.com/ygmpkk">twitter</a></li>
+                                                    <li><a href="https://github.com/ygmpkk">github</a></li>
+                                                    <li><a href="http://stackoverflow.com/users/947973/timothy">stackoverflow</a></li>
                                                 </ul>
                 </div><!-- /.social -->
-        		        </aside><!-- /#sidebar -->
+                </section><!-- /#extras -->
 
-        <footer id="footer" class="body">
-                <!--<address id="about" class="vcard body">
-                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
-                </address>--><!-- /#about -->
+        <footer id="contentinfo" class="body">
 
-                <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
-        </footer><!-- /#footer -->
+        </footer><!-- /#contentinfo -->
 
     <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -203,5 +200,26 @@
         var pageTracker = _gat._getTracker("UA-35574064-1");
     pageTracker._trackPageview();
     } catch(err) {}</script>
+<script type="text/javascript">
+    var GoSquared={};
+    GoSquared.acct = "GSN-451623-E";
+    (function(w){
+        function gs(){
+            w._gstc_lt=+(new Date); var d=document;
+            var g = d.createElement("script"); g.type = "text/javascript"; g.async = true; g.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
+            var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(g, s);
+        }
+        w.addEventListener?w.addEventListener("load",gs,false):w.attachEvent("onload",gs);
+    })(window);
+</script>
+<script type="text/javascript">
+    var disqus_shortname = 'ygmpkkblog';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 </body>
 </html>

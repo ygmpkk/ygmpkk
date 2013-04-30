@@ -4,8 +4,7 @@
         <title>Vim编辑时执行autopep8</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
-        <link href="./" type="application/atom+xml" rel="alternate" title="博文雅集 ATOM Feed" />
-        
+   
 
         <!--[if IE]>
                 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -21,18 +20,26 @@
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="./index.html">博文雅集 </a></h1>
+                <h1><a href=".">博文雅集 </a></h1>
                 <nav><ul>
-                                                <li><a href="./index.html">Home</a></li>
-                                                                </ul></nav>
+                                                                                                    <li class="active"><a href="./category/vim.html">vim</a></li>
+                                    <li ><a href="./category/python.html">python</a></li>
+                                    <li ><a href="./category/programming.html">programming</a></li>
+                                    <li ><a href="./category/linux.html">linux</a></li>
+                                    <li ><a href="./category/helper.html">helper</a></li>
+                                    <li ><a href="./category/config.html">config</a></li>
+                                </ul></nav>
         </header><!-- /#banner -->
-
         <section id="content" class="body">
-<article>
-        <header> <h1 class="entry-title"><a href="2013-4-11-vim-autopep8.html"
-        rel="bookmark" title="Permalink to Vim编辑时执行autopep8">Vim编辑时执行autopep8</a></h1>  </header>
-        <div class="entry-content">
-        <footer class="post-info">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="2013-4-11-vim-autopep8.html" rel="bookmark"
+           title="Permalink to Vim编辑时执行autopep8">Vim编辑时执行autopep8</a></h1>
+          </header>
+
+    <div class="entry-content">
+      <footer class="post-info">
         <abbr class="published" title="2013-04-11T00:00:00">
                 Thu 11 April 2013
         </abbr>
@@ -41,8 +48,7 @@
                 By <a class="url fn" href="./author/timothy.html">timothy</a>
         </address>
         <p>In <a href="./category/vim.html">vim</a>. </p>
-<p>tags: <a href="./tag/vim.html">vim</a><a href="./tag/python.html">python</a></p></p></footer><!-- /.post-info --><!-- /.post-info -->
-        <p>什么是<a href="">PEP8</a>：这是专门针对python的编程规范，还有代码风格；
+<p>tags: <a href="./tag/vim.html">vim</a><a href="./tag/python.html">python</a></p></footer><!-- /.post-info -->      <p>什么是<a href="">PEP8</a>：这是专门针对python的编程规范，还有代码风格；
 很不错的一个工具，</p>
 <p>首先需要安装pep8和autopep8</p>
 <p>easy_install方式安装</p>
@@ -87,47 +93,44 @@ map \pep8 可以替换成你的想要映射的按键比如F11，
 <p>see aslo:</p>
 <p><a href="http://zuroc.42qu.com/11501917">http://zuroc.42qu.com/11501917</a>
 <a href="https://github.com/ygmpkk/vim">https://github.com/ygmpkk/vim</a></p>
-        </div><!-- /.entry-content -->
-        
-</article>
+    </div><!-- /.entry-content -->
+        <div class="comments">
+      <h2>Comments !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "2013-4-11-vim-autopep8.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://ygmpkkblog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
+  </article>
 </section>
-
-        <aside id="sidebar">
-                <div class="widget">
-                        <h2>Categories</h2>
-                        <ul>
-                                                   <li class="active"><a href="./category/vim.html">vim</a></li>
-                                                   <li ><a href="./category/python.html">python</a></li>
-                                                   <li ><a href="./category/programming.html">programming</a></li>
-                                                   <li ><a href="./category/helper.html">helper</a></li>
-                                                   <li ><a href="./category/config.html">config</a></li>
-                                                </ul>
-                </div>
-                        <div class="widget">
-                        <h2>Blogroll</h2>
+        <section id="extras" class="body">
+                        <div class="blogroll">
+                        <h2>blogroll</h2>
                         <ul>
                                                     <li><a href="http://www.fieldphp.com">FieldPHP</a></li>
                                                 </ul>
                 </div><!-- /.blogroll -->
-                                <div class="widget social">
-                        <h2>Social</h2>
+                                <div class="social">
+                        <h2>social</h2>
                         <ul>
-                            <li><a href="./" rel="alternate">atom feed</a></li>
                             
                                                     <li><a href="http://weibo.com/ygmpkk">weibo</a></li>
-                                                    <li><a href="http://twitter.com/ygmpkk">twitter</a></li>
-                                                    <li><a href="http://github.com/ygmpkk">github</a></li>
+                                                    <li><a href="https://twitter.com/ygmpkk">twitter</a></li>
+                                                    <li><a href="https://github.com/ygmpkk">github</a></li>
+                                                    <li><a href="http://stackoverflow.com/users/947973/timothy">stackoverflow</a></li>
                                                 </ul>
                 </div><!-- /.social -->
-        		        </aside><!-- /#sidebar -->
+                </section><!-- /#extras -->
 
-        <footer id="footer" class="body">
-                <!--<address id="about" class="vcard body">
-                Proudly powered by <a href="http://alexis.notmyidea.org/pelican/">pelican</a>, which takes great advantages of <a href="http://python.org">python</a>.
-                </address>--><!-- /#about -->
+        <footer id="contentinfo" class="body">
 
-                <p>The theme is «notmyidea-cms», a modified version of «notmyidea», the default theme.</p>
-        </footer><!-- /#footer -->
+        </footer><!-- /#contentinfo -->
 
     <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -138,5 +141,26 @@ map \pep8 可以替换成你的想要映射的按键比如F11，
         var pageTracker = _gat._getTracker("UA-35574064-1");
     pageTracker._trackPageview();
     } catch(err) {}</script>
+<script type="text/javascript">
+    var GoSquared={};
+    GoSquared.acct = "GSN-451623-E";
+    (function(w){
+        function gs(){
+            w._gstc_lt=+(new Date); var d=document;
+            var g = d.createElement("script"); g.type = "text/javascript"; g.async = true; g.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
+            var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(g, s);
+        }
+        w.addEventListener?w.addEventListener("load",gs,false):w.attachEvent("onload",gs);
+    })(window);
+</script>
+<script type="text/javascript">
+    var disqus_shortname = 'ygmpkkblog';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
 </body>
 </html>
