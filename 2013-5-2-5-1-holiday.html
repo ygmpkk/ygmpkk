@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Python学习之路 - 获取IP的地理位置</title>
+        <title>放小长假的感想</title>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="./theme/css/main.css" type="text/css" />
    
@@ -24,64 +24,48 @@
                 <nav><ul>
                                                                                                     <li ><a href="./category/vim.html">vim</a></li>
                                     <li ><a href="./category/python.html">python</a></li>
-                                    <li class="active"><a href="./category/programming.html">programming</a></li>
+                                    <li ><a href="./category/programming.html">programming</a></li>
                                     <li ><a href="./category/linux.html">linux</a></li>
                                     <li ><a href="./category/helper.html">helper</a></li>
                                     <li ><a href="./category/config.html">config</a></li>
-                                    <li ><a href="./category/think.html">Think</a></li>
+                                    <li class="active"><a href="./category/think.html">Think</a></li>
                                 </ul></nav>
         </header><!-- /#banner -->
         <section id="content" class="body">
   <article>
     <header>
       <h1 class="entry-title">
-        <a href="2012-12-27-python-post.html" rel="bookmark"
-           title="Permalink to Python学习之路 - 获取IP的地理位置">Python学习之路 - 获取IP的地理位置</a></h1>
+        <a href="2013-5-2-5-1-holiday.html" rel="bookmark"
+           title="Permalink to 放小长假的感想">放小长假的感想</a></h1>
           </header>
 
     <div class="entry-content">
       <footer class="post-info">
-        <abbr class="published" title="2012-12-27T14:12:00">
-                Thu 27 December 2012
+        <abbr class="published" title="2013-05-01T00:00:00">
+                Wed 01 May 2013
         </abbr>
 
                 <address class="vcard author">
                 By <a class="url fn" href="./author/timothy.html">timothy</a>
         </address>
-        <p>In <a href="./category/programming.html">programming</a>. </p>
-<p>tags: <a href="./tag/python.html">python</a><a href="./tag/programming.html">programming</a></p></footer><!-- /.post-info -->      <p>Python有很多好玩的东西，这就是为什么这门语言如此令人着迷，下面的程序就是掩饰如何使用IP地址获取地理位置</p>
-<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">urllib2</span>
-<span class="kn">import</span> <span class="nn">BeautifulSoup</span>
-
-<span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;Run the script: ./geolocate.py IPAddress&quot;</span>
-
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">!=</span><span class="mi">2</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">ipaddr</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">geody</span> <span class="o">=</span> <span class="s">&quot;http://www.geody.com/geoip.php?ip=&quot;</span> <span class="o">+</span> <span class="n">ipaddr</span>
-<span class="n">html_page</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">geody</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_page</span><span class="p">)</span>
-
-<span class="c"># Filter paragraph containing geolocation info.</span>
-<span class="n">paragraph</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
-
-<span class="c"># Remove html tags using regex.</span>
-<span class="n">geo_txt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;&lt;.*?&gt;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">paragraph</span><span class="p">))</span>
-<span class="k">print</span> <span class="n">geo_txt</span><span class="p">[</span><span class="mi">32</span><span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</pre></div>
+        <p>In <a href="./category/think.html">Think</a>. </p>
+<p>tags: <a href="./tag/think.html">Think</a></p></footer><!-- /.post-info -->      <p>好好的周末，硬是这样被拆开，周六、周日上班，周一、周二、周三放假，仅仅为了把5月1号给凑一起，而这样的例子在2013年特别多，这是就是中国特色。我五一哪里也没去，在家写了2天程序，第3天去运动了。如果仔细思考，不免心里一颤。为什么呢？请继续往下看。</p>
+<h3>扩大内需</h3>
+<p>扩大内需，经济学名词，即扩大某经济体内部的需求。内需，即内部需求，包括投资需求和消费需求两个方面。扩大内需，就是要通过发行国债等积极财政货币政策，启动投资市场，通过信贷等经济杠杆，启动消费市场，以拉动经济增长。对我国这样一个发展中大国来说，拉动经济增长的最主要力量仍然是国内需求，这是我国经济发展的坚实基础。--摘自<a href="http://wiki.mbalib.com/wiki/%E6%89%A9%E5%A4%A7%E5%86%85%E9%9C%80">MBA智库百科</a>。也在<a href="http://zh.wikipedia.org/wiki/%E6%89%A9%E5%A4%A7%E5%86%85%E9%9C%80%E5%8D%81%E9%A1%B9%E6%8E%AA%E6%96%BD">维基百科</a>上看到关于扩大内需的举措。</p>
+<p>从这里不难看出，政府鼓励内部生产，内部消费；这样使GPD的数字看起来很好的样子，如果仅仅是这样，那事情也太简单了；经济的发展依靠消费，也就是说你消费的越多，经济的发展也越快，若是产能过剩，也就得不偿失；再者，全球经济危机之下，出口量减少很多，工厂源源不断的生产着，也就需要人来消费掉，于是政府就鼓励刺激消费，不仅如此，这些年的货币发行量(图1)可以看出（其实也很难看出，因为货币发行量只有政府知道，民众对这一无所知），政府在大量的发行货币，这些货币投放在市场上，谁来消化掉？这些都是老百姓来给他消化掉的，消化的途径就是通过一些补贴、公共长假等刺激消费。</p>
+<p>图1：</p>
+<p><img alt="货币发行量" src="./statics/cny.jpg" /></p>
+<p>这些年的人民币升值的趋势，看下图：</p>
+<p><img alt="美元兑人民币汇率4年趋势图" src="./statics/usdcny2010-2013.png" /></p>
+<p>这几年美元兑换人民币的汇率持续走低，对此不发表任何意见，等有足够的证据在说这个。</p>
+<p>现在知道为什么这些假期（元旦、清明、五一、端午等等）要凑在一块放假吗，知道为什么高速公路在节日免费开放吗？就是要你掏钱消费，再回到政府那里，然后进入金库，本来100元进去的，200元出来，又投放在市场上。不断循环，神不知鬼不觉。（PS：个人臆测，并无实际根据，哈哈哈）</p>
     </div><!-- /.entry-content -->
             <div class="comments"> 
         <h2>Comments !</h2>
         <!-- Duoshuo Comment BEGIN -->                                                  
         <div class="ds-thread"></div>                                                   
         <script type="text/javascript">                                                 
-        var disqus_identifier = "2012-12-27-python-post.html";                      
+        var disqus_identifier = "2013-5-2-5-1-holiday.html";                      
             (function() {                                                               
                 var ds = document.createElement('script');                              
                 ds.type = 'text/javascript';ds.async = true;                            
