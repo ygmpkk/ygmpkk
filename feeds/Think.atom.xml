@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/Think.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2013-05-28T00:00:00+08:00</updated><entry><title>乞丐的危机</title><link href="http://ygmpkk.com/2013-05-28-a-beggars-crisis.html" rel="alternate"></link><updated>2013-05-28T00:00:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-05-28:2013-05-28-a-beggars-crisis.html</id><summary type="html">&lt;p&gt;每天上班经过闵行莲花路的地铁站，那里总是会看到有人在行乞，躺在地上，
+<feed xmlns="http://www.w3.org/2005/Atom"><title>博文雅集</title><link href="http://ygmpkk.com/" rel="alternate"></link><link href="http://ygmpkk.com/feeds/Think.atom.xml" rel="self"></link><id>http://ygmpkk.com/</id><updated>2013-06-17T00:00:00+08:00</updated><entry><title>对话守则</title><link href="http://ygmpkk.com/2013-6-17-dialogue.html" rel="alternate"></link><updated>2013-06-17T00:00:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-06-17:2013-6-17-dialogue.html</id><summary type="html">&lt;h1&gt;对话守则&lt;/h1&gt;
+&lt;p&gt;1.对话的目的是寻求真理，不是为了斗争。 &lt;/p&gt;
+&lt;p&gt;2.不做人身攻击。 &lt;/p&gt;
+&lt;p&gt;3.保持主题。 &lt;/p&gt;
+&lt;p&gt;4.辩论时要用证据。 &lt;/p&gt;
+&lt;p&gt;5.不要坚持错误不改。 &lt;/p&gt;
+&lt;p&gt;6.要分清对话与只准自己讲话的区别。 &lt;/p&gt;
+&lt;p&gt;7.对话要有记录。 &lt;/p&gt;
+&lt;p&gt;8.尽量理解对方。&lt;/p&gt;
+&lt;p&gt;天气有点热，班车换了停放的位置。今天班车怎么换到这里停呢？我很好奇的问。
+班车司机回答说，那里面施工，不好停放，就停放在外面了。
+这样就聊起来了，你老家是哪里的呀？到这里上班多久了呀？
+你工资多少呀等等之类的询问式的聊天；对于这样的聊天我总是觉得是不必要的，
+这些我只要回答地点、时间、数字，结果就显而易见，对于显而易见的东西不必要有太多的思考。&lt;/p&gt;
+&lt;p&gt;一个很久没有见到的姨妈来上海，是因为她的儿子生病了，
+有一次我妈和我去医院看望他，我妈在对他说的话是带有关心，
+首先是询问情况，在了解情况之后，提出一些建议，建议改变饮食习惯，作息习惯等等。
+对于这样的对话，是有益的，且不管建议的最终效果如何，起码能够提供帮助。
+然后那个姨妈就问我，最近上班干嘛呀，工资多少呀，切换到这样的话题了，
+这样的谈话在我来看是多余的。&lt;/p&gt;
+&lt;p&gt;对话的目的应该使双方都受益，有些对话能够迫使你思考，在交谈的时候，
+会发现一些未曾考虑到的方面在被对方提问的时候而加以思考。
+今天和一个同事聊到Erlang编程语言，我对函数式的语言略有了解，
+而Erlang是公司在新一代的项目中使用到；
+但是关于这方面的资料很少，在交谈的时候会有一些疑问，
+程序运行在机器上，依然受到cpu的限制，cpu的运行是流水线的状态，
+而Erlang则是对并行支持非常的好。
+Erlang是如何实现并发的呢？
+多核之间的通信是同步的还是异步的？
+如果是命令式的编程方式，很容易理解，
+时代已经变了，从单核到多核以及众核，从单cpu到多cpu以及众cpu，
+从单机到分布式计算，高并发的网络请求；
+这些转变使得以前的编程语言不能完全的发挥机器的性能。
+计算机的某个技术出现，是为了解决某个特定的问题而生的，
+Erlang也是如此。对于这样的对话，令人思考，并且得到一些思想上的进步；
+我很喜欢。对于仅仅获取一个数字一个日期一个地点的对话，
+这样高深的对话是很好的。或许别人会觉得这样也太无趣了吧。Hey，伙计，保持幽默，情况会大不一样。&lt;/p&gt;</summary><category term="think"></category></entry><entry><title>乞丐的危机</title><link href="http://ygmpkk.com/2013-05-28-a-beggars-crisis.html" rel="alternate"></link><updated>2013-05-28T00:00:00+08:00</updated><author><name>timothy</name></author><id>tag:ygmpkk.com,2013-05-28:2013-05-28-a-beggars-crisis.html</id><summary type="html">&lt;p&gt;每天上班经过闵行莲花路的地铁站，那里总是会看到有人在行乞，躺在地上，
 面前放一个盛装别人施舍钱的容器。一眼就能看出，里面大部分都是硬币，而且数量不多。
 有人非权威的统计过，乞丐以每小时10元的收入来算，并不比工薪的人少。&lt;/p&gt;
 &lt;p&gt;而以目前的趋势，数字支付将逐渐代替现金支付，也就说，随身携带现金的人会越来越少，
