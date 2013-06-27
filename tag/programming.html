@@ -36,8 +36,122 @@
 
                             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="../2012-12-27-python-post.html">Python学习之路 - 获取IP的地理位置</a></h1> 
+                    <h1 class="entry-title"><a href="../2013-6-27-matrix1.html">Matrix 矩阵算法之一</a></h1> 
                     <footer class="post-info">
+        <abbr class="published" title="2013-06-27T00:00:00">
+                Thu 27 June 2013
+        </abbr>
+
+                <address class="vcard author">
+                By <a class="url fn" href="../author/timothy.html">timothy</a>
+        </address>
+        <p>In <a href="../category/programming.html">programming</a>. </p>
+<p>tags: <a href="../tag/think.html">think</a><a href="../tag/programming.html">programming</a></p></footer><!-- /.post-info --><p>使用原生Python编写表格，没有一个可用的类库，
+有的类库，适用于科学计算，还有的就是wxPython，
+好像没有编译到移动平台上使用，比如IOS或Android。
+决定边学边写，写一个python的表格。</p>
+<p>首先，来看几个示例图：</p>
+<p>图1:</p>
+<p>row = 1
+col = 3</p>
+<div class="codehilite"><pre><span class="o">+-----+-----+</span>
+</pre></div>
+
+
+<p>图2:</p>
+<p>row = 2
+col = 3</p>
+<div class="codehilite"><pre><span class="o">+------+------+</span>
+<span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>
+<span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>
+<span class="o">+------+------+</span>
+</pre></div>
+
+
+<p>图3:</p>
+<p>row = 3
+col = 3</p>
+<div class="codehilite"><pre><span class="o">+------+------+</span>
+<span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>
+<span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>
+<span class="o">+------+------+</span>
+<span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>
+<span class="o">|</span>      <span class="o">|</span>      <span class="o">|</span>
+<span class="o">+------+------+</span>
+</pre></div>
+
+
+<p>计算矩阵点，得出这个公式</p>
+<div class="codehilite"><pre><span class="n">Gm</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">Pmn</span>
+</pre></div>
+
+
+<p>我们来使用程序来算一下</p>
+<div class="codehilite"><pre><span class="k">def</span> <span class="nf">martix</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="n">c</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">c</span><span class="p">)]</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">/</span> <span class="n">c</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">r</span><span class="o">*</span><span class="n">c</span><span class="p">)]</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">z</span><span class="p">[</span><span class="s">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">z</span><span class="p">[</span><span class="s">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">z</span>
+</pre></div>
+
+
+<p>这段代码输出：</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">martix</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">{</span><span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">martix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">{</span><span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">martix</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">{</span><span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]}</span>
+</pre></div>
+
+
+<p>如果将x与y对应，正好是需要的数据，一一对应上。</p>
+<p>要计算这个矩阵有多少个单元格呢？从在看上图1-3中可以寻找出规律。
+我就算出来它的公式，如下：</p>
+<div class="codehilite"><pre><span class="n">Gm</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">m</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+</pre></div>
+
+
+<p>下面我再写一个程序，计算单元格的数量：</p>
+<div class="codehilite"><pre><span class="k">def</span> <span class="nf">sum_cells</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">r</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p>继续使用上面的示例输出：</p>
+<div class="codehilite"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">sum_cells</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sum_cells</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="mi">2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sum_cells</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="mi">4</span>
+</pre></div>
+
+
+<p>已经计算出矩阵中的单元格的数量，还有个问题，
+如何定位某个单元格的位置呢？
+需要写个获取定位单元格的算法，
+通过两个数字，确定唯一的单元格，
+并却获取邻近的单元格。
+请关注本系列之二。</p><p>有<a href="../2013-6-27-matrix1.html#ds_thread">留言</a>.</p>                </article>
+                            </aside><!-- /#featured -->
+                            <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+                                                        
+
+                 
+                        <li><article class="hentry">    
+                <header>
+                        <h1><a href="../2012-12-27-python-post.html" rel="bookmark" title="Permalink to Python学习之路 - 获取IP的地理位置">Python学习之路 - 获取IP的地理位置</a></h1>
+                </header>
+                
+                <div class="entry-content">
+                <footer class="post-info">
         <abbr class="published" title="2012-12-27T14:12:00">
                 Thu 27 December 2012
         </abbr>
@@ -46,37 +160,14 @@
                 By <a class="url fn" href="../author/timothy.html">timothy</a>
         </address>
         <p>In <a href="../category/programming.html">programming</a>. </p>
-<p>tags: <a href="../tag/python.html">python</a><a href="../tag/programming.html">programming</a></p></footer><!-- /.post-info --><p>Python有很多好玩的东西，这就是为什么这门语言如此令人着迷，下面的程序就是掩饰如何使用IP地址获取地理位置</p>
-<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">urllib2</span>
-<span class="kn">import</span> <span class="nn">BeautifulSoup</span>
-
-<span class="n">usage</span> <span class="o">=</span> <span class="s">&quot;Run the script: ./geolocate.py IPAddress&quot;</span>
-
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">!=</span><span class="mi">2</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">usage</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">ipaddr</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="n">geody</span> <span class="o">=</span> <span class="s">&quot;http://www.geody.com/geoip.php?ip=&quot;</span> <span class="o">+</span> <span class="n">ipaddr</span>
-<span class="n">html_page</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">geody</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_page</span><span class="p">)</span>
-
-<span class="c"># Filter paragraph containing geolocation info.</span>
-<span class="n">paragraph</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">)[</span><span class="mi">3</span><span class="p">]</span>
-
-<span class="c"># Remove html tags using regex.</span>
-<span class="n">geo_txt</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s">r&#39;&lt;.*?&gt;&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">paragraph</span><span class="p">))</span>
-<span class="k">print</span> <span class="n">geo_txt</span><span class="p">[</span><span class="mi">32</span><span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-</pre></div><p>有<a href="../2012-12-27-python-post.html#ds_thread">留言</a>.</p>                </article>
-                                    <p class="paginator">
+<p>tags: <a href="../tag/python.html">python</a><a href="../tag/programming.html">programming</a></p></footer><!-- /.post-info -->                python学习之路
+                <a class="readmore" href="../2012-12-27-python-post.html">read more</a>
+                <p>有<a href="../2012-12-27-python-post.html#ds_thread">留言</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                            <p class="paginator">
         Page 1 / 1
     </p>
-                            </aside><!-- /#featured -->
-                                                        </ol><!-- /#posts-list -->
+                            </ol><!-- /#posts-list -->
             </section><!-- /#content -->
                     <section id="extras" class="body">
                         <div class="blogroll">
