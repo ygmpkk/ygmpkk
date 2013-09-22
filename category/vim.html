@@ -1,178 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>博文雅集 - vim</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
-   
+<title>博文雅集 - vim</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../theme/css/main.css" type="text/css" />
+<!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-        <!--[if IE]>
-                <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<!--[if lte IE 7]>
+        <link rel="stylesheet" type="text/css" media="all" href="../css/ie.css"/>
+        <script src="../js/IE8.js" type="text/javascript"></script>
+    <![endif]-->
 
-        <!--[if lte IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="../css/ie.css"/>
-                <script src="../js/IE8.js" type="text/javascript"></script><![endif]-->
-
-        <!--[if lt IE 7]>
-                <link rel="stylesheet" type="text/css" media="all" href="../css/ie6.css"/><![endif]-->
-
+<!--[if lt IE 7]>
+        <link rel="stylesheet" type="text/css" media="all" href="../css/ie6.css"/>
+    <![endif]-->
 </head>
 
 <body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="..">博文雅集 </a></h1>
-                <nav><ul>
-                                                                                                    <li class="active"><a href="../category/vim.html">vim</a></li>
-                                    <li ><a href="../category/python.html">python</a></li>
-                                    <li ><a href="../category/programming.html">programming</a></li>
-                                    <li ><a href="../category/linux.html">linux</a></li>
-                                    <li ><a href="../category/helper.html">helper</a></li>
-                                    <li ><a href="../category/config.html">config</a></li>
-                                    <li ><a href="../category/think.html">Think</a></li>
-                                    <li ><a href="../category/dream.html">Dream</a></li>
-                                </ul></nav>
-        </header><!-- /#banner -->
+<header id="banner" class="body">
+    <h1><a href="..">博文雅集 </a></h1>
+    <nav>
+        <ul>
+                                                                        <li class="active"><a href="../category/vim.html">vim</a></li>
+                        <li ><a href="../category/python.html">python</a></li>
+                        <li ><a href="../category/programming.html">programming</a></li>
+                        <li ><a href="../category/linux.html">linux</a></li>
+                        <li ><a href="../category/helper.html">helper</a></li>
+                        <li ><a href="../category/config.html">config</a></li>
+                        <li ><a href="../category/think.html">Think</a></li>
+                        <li ><a href="../category/dream.html">Dream</a></li>
+                    </ul>
+    </nav>
+</header><!-- /#banner -->
+        
+<section id="content" class="body index">
+    <h4>Other articles</h4>
+    <ol id="posts-list" class="hfeed">
                 
-            
-
-                            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="../2013-4-11-vim-autopep8.html">Vim编辑时执行autopep8</a></h1> 
-                    <footer class="post-info">
-        <abbr class="published" title="2013-04-11T00:00:00">
-                Thu 11 April 2013
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="../author/timothy.html">timothy</a>
-        </address>
-        <p>In <a href="../category/vim.html">vim</a>. </p>
-<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/python.html">python</a></p></footer><!-- /.post-info --><p>什么是<a href="">PEP8</a>：这是专门针对python的编程规范，还有代码风格；
-很不错的一个工具，</p>
-<p>首先需要安装pep8和autopep8</p>
-<p>easy_install方式安装</p>
-<div class="codehilite"><pre><span class="c"># easy_install -U pep8 autopep8</span>
-</pre></div>
-
-
-<p>pip方式安装</p>
-<div class="codehilite"><pre><span class="c"># pip install pep8 autopep8</span>
-</pre></div>
-
-
-<p>在.vimrc文件加入</p>
-<div class="codehilite"><pre>map \pep8 :<span class="k">call</span> FormartSrc<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
-<span class="c">&quot;定义FormartSrc()                                                               </span>
-func FormartSrc<span class="p">()</span>                                                               
-    exec <span class="s2">&quot;w&quot;</span>                                                                    
-    <span class="k">if</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;c&#39;</span>                                                         
-        exec <span class="s2">&quot;!astyle --style=ansi --one-line=keep-statements -a --suffix=none %&quot;</span>
-    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;cpp&#39;</span> <span class="p">||</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;hpp&#39;</span>                             
-        exec <span class="s2">&quot;r !astyle --style=ansi --one-line=keep-statements -a --suffix=none %&gt; /dev/null 2&gt;&amp;1&quot;</span>
-    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;perl&#39;</span>                                                  
-        exec <span class="s2">&quot;!astyle --style=gnu --suffix=none %&quot;</span>                              
-    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;py&#39;</span><span class="p">||</span>&amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;python&#39;</span>                             
-        exec <span class="s2">&quot;r !autopep8 -i --aggressive %&quot;</span>                                    
-    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;java&#39;</span>                                                  
-        exec <span class="s2">&quot;!astyle --style=java --suffix=none %&quot;</span>                             
-    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;jsp&#39;</span>                                                   
-        exec <span class="s2">&quot;!astyle --style=gnu --suffix=none %&quot;</span>                              
-    <span class="k">elseif</span> &amp;<span class="k">filetype</span> <span class="p">==</span> <span class="s1">&#39;xml&#39;</span>                                                   
-        exec <span class="s2">&quot;!astyle --style=gnu --suffix=none %&quot;</span>                              
-    <span class="k">endif</span>                                                                       
-    exec <span class="s2">&quot;e! %&quot;</span>                                                                 
-endfunc
-</pre></div>
-
-
-<p>vim的\是\&lt;Leader>
-map \pep8 可以替换成你的想要映射的按键比如F11，
-我这样的映射是因为MAC OS X的Fxx的都被占用了，format又不是每天都用，
-需要按\键，再输入pep8就可以执行命令而来</p>
-<p>see aslo:</p>
-<p><a href="http://zuroc.42qu.com/11501917">http://zuroc.42qu.com/11501917</a>
-<a href="https://github.com/ygmpkk/vim">https://github.com/ygmpkk/vim</a></p><p>There are <span class="ds-thread-count" data-thread-key="2013-4-11-vim-autopep8.html" data-count-type="comments"></span><a href="../2013-4-11-vim-autopep8.html#ds-thread">comments</a>.</p>                </article>
-                            </aside><!-- /#featured -->
-                            <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-                                                        
-
-                 
-                        <li><article class="hentry">    
-                <header>
-                        <h1><a href="../2013-4-11-vim-column.html" rel="bookmark" title="Permalink to vim 80个字符提示线">vim 80个字符提示线</a></h1>
-                </header>
+        <li><article class="hentry">
+            <abbr class="published" title="2013-04-11T00:00:00">
+                2013-04-04 &raquo;
+            </abbr>
+            <header>
+                <h6><a href="../2013-4-11-vim-autopep8.html" rel="bookmark" title="Permalink to Vim编辑时执行autopep8">Vim编辑时执行autopep8</a></h6>
+            </header>
+        </article>
+        </li>
                 
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2013-04-11T00:00:00">
-                Thu 11 April 2013
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="../author/timothy.html">timothy</a>
-        </address>
-        <p>In <a href="../category/vim.html">vim</a>. </p>
-<p>tags: <a href="../tag/vim.html">vim</a></p></footer><!-- /.post-info -->                编码规范里要求每行代码不超过80个字符的限制
-                <!--<a class="readmore" href="../2013-4-11-vim-column.html">read more</a>-->
-                <p>There are <span class="ds-thread-count" data-thread-key="2013-4-11-vim-column.html" data-count-type="comments"></span><a href="../2013-4-11-vim-column.html#ds-thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-                                    
-
-                 
-                        <li><article class="hentry">    
-                <header>
-                        <h1><a href="../2013-3-27-vim-screen.html" rel="bookmark" title="Permalink to vim分屏">vim分屏</a></h1>
-                </header>
+        <li><article class="hentry">
+            <abbr class="published" title="2013-04-11T00:00:00">
+                2013-04-04 &raquo;
+            </abbr>
+            <header>
+                <h6><a href="../2013-4-11-vim-column.html" rel="bookmark" title="Permalink to vim 80个字符提示线">vim 80个字符提示线</a></h6>
+            </header>
+        </article>
+        </li>
                 
-                <div class="entry-content">
-                <footer class="post-info">
-        <abbr class="published" title="2013-03-27T00:00:00">
-                Wed 27 March 2013
-        </abbr>
-
-                <address class="vcard author">
-                By <a class="url fn" href="../author/timothy.html">timothy</a>
-        </address>
-        <p>In <a href="../category/vim.html">vim</a>. </p>
-<p>tags: <a href="../tag/vim.html">vim</a><a href="../tag/linux.html">linux</a></p></footer><!-- /.post-info -->                vim分屏命令
-                <!--<a class="readmore" href="../2013-3-27-vim-screen.html">read more</a>-->
-                <p>There are <span class="ds-thread-count" data-thread-key="2013-3-27-vim-screen.html" data-count-type="comments"></span><a href="../2013-3-27-vim-screen.html#ds-thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-                            <p class="paginator">
-        Page 1 / 1
-    </p>
-                            </ol><!-- /#posts-list -->
-            </section><!-- /#content -->
-                    <section id="extras" class="body">
-                        <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                                                    <li><a href="http://www.fieldphp.com">FieldPHP</a></li>
-                                                </ul>
-                </div><!-- /.blogroll -->
-                                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            
-                                                    <li><a href="http://weibo.com/ygmpkk">weibo</a></li>
-                                                    <li><a href="https://twitter.com/ygmpkk">twitter</a></li>
-                                                    <li><a href="https://github.com/ygmpkk">github</a></li>
-                                                    <li><a href="http://stackoverflow.com/users/947973/timothy">stackoverflow</a></li>
-                                                </ul>
-                </div><!-- /.social -->
-                <!--
+        <li><article class="hentry">
+            <abbr class="published" title="2013-03-27T00:00:00">
+                2013-03-03 &raquo;
+            </abbr>
+            <header>
+                <h6><a href="../2013-3-27-vim-screen.html" rel="bookmark" title="Permalink to vim分屏">vim分屏</a></h6>
+            </header>
+        </article>
+        </li>
+            </ol>
+</section>
+<section id="extras" class="body">
+        <div class="blogroll">
+        <h2>blogroll</h2>
+        <ul>
+                        <li><a href="http://www.fieldphp.com">FieldPHP</a></li>
+                    </ul>
+    </div><!-- /.blogroll -->
+            <div class="social">
+        <h2>social</h2>
+        <ul>
+                        <li><a href="http://weibo.com/ygmpkk">weibo</a></li>
+                        <li><a href="https://twitter.com/ygmpkk">twitter</a></li>
+                        <li><a href="https://github.com/ygmpkk">github</a></li>
+                        <li><a href="http://stackoverflow.com/users/947973/timothy">stackoverflow</a></li>
+                    </ul>
+    </div><!-- /.social -->
+        <!--
         <div>
             <ul class="ds-recent-visitors" data-num-items="10"></ul>
         </div>
         -->
-        </section><!-- /#extras -->
+</section><!-- /#extras -->
 
-        <footer id="contentinfo" class="body">
+<footer id="contentinfo" class="body">
 
-        </footer><!-- /#contentinfo -->
+</footer><!-- /#contentinfo -->
 
     <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -183,18 +106,6 @@ map \pep8 可以替换成你的想要映射的按键比如F11，
         var pageTracker = _gat._getTracker("UA-35574064-1");
     pageTracker._trackPageview();
     } catch(err) {}</script>
-<script type="text/javascript">
-    var GoSquared={};
-    GoSquared.acct = "GSN-451623-E";
-    (function(w){
-        function gs(){
-            w._gstc_lt=+(new Date); var d=document;
-            var g = d.createElement("script"); g.type = "text/javascript"; g.async = true; g.src = "//d1l6p2sc9645hc.cloudfront.net/tracker.js";
-            var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(g, s);
-        }
-        w.addEventListener?w.addEventListener("load",gs,false):w.attachEvent("onload",gs);
-    })(window);
-</script>
 <!-- Duoshuo Comment BEGIN -->
 <script type="text/javascript">
 var duoshuoQuery = {short_name: 'ygmpkkblog'};
